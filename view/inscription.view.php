@@ -10,7 +10,7 @@
     <?php if(isset($erreur)){
       echo "<p> $erreur </p>";
     }?>
-    <form method="post" action="">
+    <form method="post" action="../controler/inscription.ctrl.php">
        <fieldset>
          <p>
            <label for="pseudo">Votre pseudo : </label> <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Zozor" required> <br>  #pseudo deja utilisé ?
