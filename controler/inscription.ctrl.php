@@ -17,11 +17,20 @@ if (isset($_POST['inscription'])) {
       "pseudo" => $_POST['pseudo'],
       "mdp" => $_POST['mdp1'],
       "email" => $_POST['email'],
-      "date_inscription" => null
+      "date_inscription" => date('d//m//o')
     ));
-
+    include("../view/test.html")
     // $req = $bdd->prepare('INSERT INTO membres(pseudo, pass, email, date_inscription) VALUES(:pseudo, :pass, :email, CURDATE())');
     // $req->execute(array(
+  }elseif(mb_strtolower($pseudo) == mb_strtolower($_POST['pseudo'])){
+    $erreur = "Votre pseudo est deja utilisé";
+    include("../view/inscription.view.php");
+  }elseif ($email == $_POST['email']) {
+    $erreur = "Cette adresse mail est deja associer a un compte";
+    include("../view/inscription.view.php");
+  }elseif ($_POST['mdp1']!=$_POST['mdp2']) {
+    $erreur = "Les deux mots de passe ne sont pas identique";
+    include("../view/inscription.view.php");
   }
 }
 
