@@ -7,6 +7,9 @@
   </head>
   <body>
     <h1>Inscription</h1>
+    <?php if(isset($erreur) {
+      echo "<p> $erreur </p>";
+    }) ?>
     <form method="post" action="">
        <fieldset>
          <p>
