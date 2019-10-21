@@ -1,0 +1,40 @@
+body {
+
+}
+h1 {
+  text-align: center;
+  color: #42ae06;
+}
+form{
+  margin: auto;
+
+}
+fieldset{
+  width: 300px;
+  height: 200px;
+}
+input{
+  width: 100px;
+  align-items: flex-end;
+}
+label{
+  font-size: 1.2em;
+}
+/*
+  .fleche{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cont img{
+    width: 200px;
+    height: 200px;
+  }
+  .cont{
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  body {
+    background-color: #484b46;
+  } */
