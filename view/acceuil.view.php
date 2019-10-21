@@ -9,12 +9,12 @@
     <div class="enTete">
       <img src="./L'enconure adequate.png" alt="logo" height="40 px" width="40 px">
       <h1>L'enconure adequate</h1>
-      <a href="test.html">Deposer une annonce</a>
+      <a href="../view/test.html">Deposer une annonce</a>
     </div>
 
     <div class="connection">
-      <a href="test.html">Se connecter</a>
-      <a href="test.html">Creer un compte</a>
+      <a href="../view/test.html">Se connecter</a>
+      <a href="../view/test.html">Creer un compte</a>
     </div>
   </header>
   <form method="post" action="../controler/Acceuil.ctrl.php">
@@ -22,7 +22,7 @@
       <p>
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
-          <?php foreach ($variable as $key => $value): ?>
+          <?php foreach ($Categorie as $key => $value): ?>
             <option value="<?php echo "$value"; ?>"><?php echo "$value"; ?></option>
           <?php endforeach; ?>
 
