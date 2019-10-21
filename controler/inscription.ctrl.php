@@ -1,6 +1,10 @@
 <?php
 // Vérification de la validité des informations
-$bdd = new PDO('sqlite:../data/utilisateur.db');
+try {
+  $bdd = new PDO('sqlite:../data/utilisateur.db');
+} catch (PDOException $e) {
+  die("Erreur de connexion avec la base de donnée : ".$e->getMessage());
+}
 
 if (isset($_POST['inscription'])) {
 
@@ -32,7 +36,7 @@ if (isset($_POST['inscription'])) {
     // $sujet = "Activer votre compte";
     // $entete = "From: segeat.b@gmail.com";
     // $message = 'Bienvenue sur VotreSite,
-    // 
+    //
     // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
     // ou copier/coller dans votre navigateur internet. ';
     //
