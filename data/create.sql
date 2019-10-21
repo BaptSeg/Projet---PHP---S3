@@ -6,3 +6,7 @@ CREATE TABLE Utilisateur (
   email_verif BOOLEAN,
   date_inscription DATE
 );
+CREATE TABLE Annonce(
+  id INTEGER PRIMARY KEY,
+  categorie VARCHAR(255)
+);

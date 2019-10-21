@@ -1,6 +1,6 @@
 <?php
 // Vérification de la validité des informations
-$bdd = new PDO('sqlite:../data/utilisateur.db');
+$bdd = new PDO('sqlite:../data/utilisateur.db'); // penser a verifier si bien ouverte 
 
 if (isset($_POST['inscription'])) {
 
@@ -32,7 +32,7 @@ if (isset($_POST['inscription'])) {
     // $sujet = "Activer votre compte";
     // $entete = "From: segeat.b@gmail.com";
     // $message = 'Bienvenue sur VotreSite,
-    // 
+    //
     // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
     // ou copier/coller dans votre navigateur internet. ';
     //
