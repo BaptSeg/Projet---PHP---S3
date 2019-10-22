@@ -8,6 +8,9 @@ CREATE TABLE Utilisateur (
 );
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
-  categorie VARCHAR(255)
-  
+  categorie VARCHAR(255),
+  intituler VARCHAR(255),
+  prix FLOAT,
+  description VARCHAR(255),
+  Localisation
 );
