@@ -5,13 +5,25 @@ nav {
 ul {
   padding:0;
   display: flex;
-	flex-flow : row wrap;
-  justify-content: center; /*alignement centre dans l’axe de lecture principal*/
+	flex-direction: row;
+  justify-content: space-between;
 }
 
 ul li{
   list-style-type:none;
   text-decoration: none;
+}
+
+.ctg{
+  display: flex;
+	flex-direction: row;
+  align-content: flex-start;
+}
+
+.ctd{
+  display: flex;
+	flex-direction: row;
+  align-content: flex-end;
 }
 
 ul li a{
@@ -21,16 +33,14 @@ ul li a{
   	border: 1px solid white;
     margin-left: -1px; /* pour enlever la double bordure*/
   	padding:0.5em;
-  	display: inline-block;
   }
 
-header{
-    display: flex;
-    justify-content:
+body{
+  font-family: Verdana, sans-serif;
 }
 
-a{
-
+fieldset{
+  background-color: blue;
 }
 
 .recherche {

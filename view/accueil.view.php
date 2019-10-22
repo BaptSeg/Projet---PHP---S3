@@ -39,7 +39,7 @@
   <form method="post" action="../controler/acceuil.ctrl.php">
     <fieldset>
       <p>
-        <img src="../model/data/icone_categories.png" alt="icon_user" height="40 px" width="40 px">
+        <img src="../model/data/icone_categories.png" alt="icon_user" height="30 px" width="30 px">
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
 
