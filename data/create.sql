@@ -9,4 +9,5 @@ CREATE TABLE Utilisateur (
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
   categorie VARCHAR(255)
+  
 );
