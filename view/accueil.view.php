@@ -1,3 +1,4 @@
+<?php session_start (); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -24,16 +25,21 @@
             Deposer une annonce
             </a>
           </li>
-          <li>
-            <a href="../view/test.html">
-            <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
-            Se connecter
-            </a>
-          </li>
-          <li>
-            <a href="../controler/inscription.ctrl.php">
-            <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
-          </li>
+          <?php if (isset($_SESSION['pseudo'])): ?>
+
+          <?php else: ?>
+            <li>
+              <a href="../controler/connexion.ctrl.php">
+              <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
+              Se connecter
+              </a>
+            </li>
+            <li>
+              <a href="../controler/inscription.ctrl.php">
+              <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
+            </li>
+          <?php endif; ?>
+
         </ul>
       </div>
     </nav>
