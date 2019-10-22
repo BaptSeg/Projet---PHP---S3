@@ -28,7 +28,7 @@
             <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px"> Se connecter </a>
           </li>
           <li>
-            <a href="../view/test.html">
+            <a href="../controler/inscription.ctrl.php">
             <img src="../model/data/icone_inscription.png" alt="icon_inscription" height="40 px" width="40 px"> Créer un compte </a>
           </li>
         </ul>
