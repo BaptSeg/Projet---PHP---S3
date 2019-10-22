@@ -76,14 +76,12 @@ ul li a{
   	text-decoration:none;
     margin-left: -1px; /* pour enlever la double bordure*/
   	padding: 10px;
-  }
+}
 
 body{
   font-family: Verdana, sans-serif;
   margin: 0px;
 }
-
-
 
 fieldset{
   margin: 0px;
