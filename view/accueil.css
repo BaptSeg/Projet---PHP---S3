@@ -20,6 +20,10 @@ ul li a{
   	display: inline-block;
   }
 
+header{
+    display: flex;
+}
+
 .recherche {
   background-color: #EFEFEF;
 }

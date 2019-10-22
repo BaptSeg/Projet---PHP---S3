@@ -10,10 +10,11 @@
     <div class="enTete">
       <img src="./L'enconure adequate.png" alt="logo" height="40 px" width="40 px">
       <h1>L'enconure adequate</h1>
+      <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
       <a href="../view/test.html">Deposer une annonce</a>
     </div>
-
     <div class="connection">
+      <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px">
       <a href="../view/test.html">Se connecter</a>
       <a href="../view/test.html">Creer un compte</a>
     </div>

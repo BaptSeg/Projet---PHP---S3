@@ -1,4 +1,4 @@
 <?php
   // Indique le point de démarrage de l'application
-  header('Location: view/accueil.html');
+  header('Location: view/accueil.view.php');
  ?>
