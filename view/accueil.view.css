@@ -8,8 +8,6 @@ nav{
   font-weight: bold;
 
   display: flex;
-	flex-direction: row;
-  justify-content: space-between;
 }
 
 h1{
@@ -18,7 +16,8 @@ h1{
 
 ul{
   display: flex;
-  flex-direction: row;
+	flex-direction: row;
+  justify-content: space-between;
 }
 
 ul li{
@@ -58,6 +57,15 @@ img{
 .navbar{
   align-content: flex-end;
 }
+
+ul li a{
+  	text-decoration:none;
+    background-color: #EFEFEF;
+    color: black;
+  	border: 1px solid white;
+    margin-left: -1px; /* pour enlever la double bordure*/
+  	padding:0.5em;
+  }
 
 body{
   font-family: Verdana, sans-serif;
