@@ -42,7 +42,13 @@
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
+<<<<<<< HEAD
       echo "$pass_hache";
+=======
+      $pseudo = strtolower($pseudo);
+      $email = strtolower($email);
+
+>>>>>>> 37b4246f3284a45c058fd07b74890976ea84d2db
       $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");                // Récupération de l'ID max de la table utilisateur
       $max = $reponse->fetch();
 
