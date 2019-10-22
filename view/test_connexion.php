@@ -9,7 +9,7 @@ session_start ();
         <title>test</title>
       </head>
       <body>
-        <?php echo 'Votre login est '.$_SESSION['login'].' et votre mot de passe est '.$_SESSION['pwd'].'.'; ?>
-        <a href="../controler/deconnexion.ctrl.php"></a>
+        <?php echo 'Votre login est '.$_SESSION['pseudo'].' et votre mot de passe est '.$_SESSION['mdp'].'.'; ?>
+        <a href="../controler/deconnexion.ctrl.php">deconnexion</a>
       </body>
     </html>
