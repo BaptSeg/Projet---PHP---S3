@@ -15,6 +15,11 @@ CREATE TABLE Annonce(
   description VARCHAR(255),
   date_publication DATE;
   date_suppression DATE;
+  ville VARCHAR(255),
+  categorie INTEGER,
+  FOREIGN KEY(ville) REFERENCES Localisation(ville),
+  FOREIGN KEY(categorie) REFERENCES Categorie(id)
+
 );
 
 CREATE TABLE Localisation(
