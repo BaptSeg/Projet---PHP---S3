@@ -13,7 +13,7 @@ if (isset($_POST['connexion'])) {
     $_SESSION['pseudo'] = $pseudo_low;
     $_SESSION['mdp'] = $_POST['mdp'];
     // on redirige notre visiteur vers une page de notre section membre
-    header ('location: ../view/test_connexion.php');
+    header ('location: ../view/accueil.view.php');
   }else {
     // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
     echo '<body onLoad="alert(\'Membre non reconnu...\')">';
