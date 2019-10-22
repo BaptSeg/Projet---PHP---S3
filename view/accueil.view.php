@@ -10,7 +10,7 @@
 
     <nav>
       <div class="logo">
-        <img src="./L'enconure adequate.png" alt="logo" height="80 px" width="80 px">
+        <img src="../model/img/L'encoignure_adequate" alt="logo" height="80 px" width="80 px">
         <h1>L'encoignure adéquate</h1>
       </div>
       <div class="navbar">
