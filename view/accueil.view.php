@@ -7,21 +7,30 @@
 </head>
 <body>
   <header>
-    <div class="enTete">
-      <img src="./L'enconure adequate.png" alt="logo" height="40 px" width="40 px">
-      <h1>L'enconure adequate</h1>
-      <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
-      <a href="../view/test.html">Deposer une annonce</a>
-    </div>
-    <div class="connection">
-      <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px">
-      <a href="../view/test.html">Se connecter</a>
-      <a href="../view/test.html">Creer un compte</a>
-    </div>
+
+    <ul class="Entete">
+      <li> <img src="./L'enconure adequate.png" alt="logo" height="100 px" width="100 px"> </li>
+      <li> <h1>L'enconure adequate</h1> </li>
+      <li>
+        <a href="../view/test.html">
+        <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
+        Deposer une annonce
+        </a>
+      </li>
+      <li>
+        <a href="../view/test.html">
+        <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px">
+        Se connecter
+        </a>
+      </li>
+      <li> <a href="../view/test.html">Creer un compte</a> </li>
+    </ul>
+
   </header>
   <form method="post" action="../controler/acceuil.ctrl.php">
     <fieldset>
       <p>
+        <img src="../model/data/icone_categories.png" alt="icon_user" height="40 px" width="40 px">
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
           <?php for ($i=0; $i < sizeof($Categorie)-1; $i++){
