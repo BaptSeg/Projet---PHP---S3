@@ -13,9 +13,9 @@ if (isset($_POST['inscription'])) {
 
   if ((empty($pseudo)) && (empty($email)) && ($_POST['mdp1']==$_POST['mdp2']) ) {
 
-    $bdd->crea_utilisateur(strtolower($_POST['pseudo']), $_POST['mdp1'], strtolower($_POST['email']));        // Création de l'utilisateur dans la base de données.
+    $bdd->crea_utilisateur($_POST['pseudo'], $_POST['mdp1'], $_POST['email']);        // Création de l'utilisateur dans la base de données.
     $view = new View('accueil.view.php');
-    $view->pseudo = $_POST['pseudo'];                // Servira a faire un message de CONFIRMATION lors de la création du compte.
+    $view->pseudo = $_POST['pseudo'];                                                                         // Servira a faire un message de CONFIRMATION lors de la création du compte.
     $view->show();
 
   } elseif (!empty($pseudo)) {
