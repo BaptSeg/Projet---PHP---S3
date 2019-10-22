@@ -1,8 +1,19 @@
 nav{
-  padding:0;
+  padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  background-image: linear-gradient(#66e0ff, #002699);
+  color : white;
+  font-weight: bold;
+
   display: flex;
 	flex-direction: row;
   justify-content: space-between;
+}
+
+h1{
+  font-size: 40px;
 }
 
 ul{
@@ -17,9 +28,7 @@ ul li{
 
 ul li a{
   	text-decoration:none;
-    background-color: #EFEFEF;
-    color: black;
-  	border: 1px solid white;
+    color: white;
     margin-left: -1px; /* pour enlever la double bordure*/
   	padding: 10px;
 
@@ -47,17 +56,19 @@ img{
 }
 
 .navbar{
-  /* display: flex;
-	flex-direction: row; */
   align-content: flex-end;
 }
 
 body{
   font-family: Verdana, sans-serif;
+  margin: 0px;
 }
 
+
+
 fieldset{
-  background-image: linear-gradient(#33cccc, #0066cc);
+  margin: 0px;
+  border: 0px;
 }
 
 .recherche {
