@@ -3,7 +3,6 @@ nav{
   padding: 20px;
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 30px;
   background-image: linear-gradient(#66e0ff, #002699);
   color : white;
   font-weight: bold;
@@ -13,8 +12,19 @@ nav{
   justify-content: space-between;
 }
 
+.logo img{
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.titre p{
+  margin: 0px;
+}
+
 h1{
-  font-size: 40px;
+  font-size: 35px;
+  margin: 0px;
+  margin-top: 15px;
 }
 
 ul{
