@@ -1,0 +1,4 @@
+1|Moto
+2|Velo
+3|Vetement
+4|Décoration

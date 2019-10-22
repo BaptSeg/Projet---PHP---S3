@@ -1,0 +1,25 @@
+ul {
+  padding:0;
+  display: flex;
+	flex-flow : row wrap;
+  justify-content: center; /*alignement centre dans l’axe de lecture principal*/
+}
+
+ul li{
+  list-style-type:none;
+  text-decoration: none;
+}
+
+ul li a{
+  	text-decoration:none;
+    background-color: #EFEFEF;
+    color: black;
+  	border: 1px solid white;
+    margin-left: -1px; /* pour enlever la double bordure*/
+  	padding:0.5em;
+  	display: inline-block;
+  }
+
+.recherche {
+  background-color: #EFEFEF;
+}
