@@ -4,7 +4,7 @@
   require_once('../framework/view.class.php');
 
   $bdd = new DAOClass($config['database_path']);
-
+if (isset($_POST['connexion'])) {
   $login_valide = $bdd->pseudo_exist($_POST['pseudo']);
   $pass_bdd = $bdd->getPass($_POST['pseudo']);
   $pseudo_low = strtolower($_POST['pseudo']);
@@ -20,4 +20,7 @@
     // puis on le redirige vers la page d'accueil
     echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
   }
+}else{
+  include("../view/connexion.view.php");
+}
  ?>
