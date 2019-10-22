@@ -10,22 +10,22 @@
 
     <nav>
       <div class="logo">
-        <img src="./L'enconure adequate.png" alt="logo" height="100 px" width="100 px">
-      </div>
-      <div>
-        <h1>L'enconure adéquate</h1>
+        <img src="./L'enconure adequate.png" alt="logo" height="80 px" width="80 px">
+        <h1>L'encoignure adéquate</h1>
       </div>
       <div class="navbar">
         <ul>
           <li>
             <a href="../view/test.html">
-            <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
+            <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
             Deposer une annonce
             </a>
           </li>
           <li>
             <a href="../view/test.html">
-            <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px"> Se connecter </a>
+            <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
+            Se connecter
+            </a>
           </li>
           <li>
             <a href="../controler/inscription.ctrl.php">
@@ -39,7 +39,7 @@
   <form method="post" action="../controler/acceuil.ctrl.php">
     <fieldset>
       <p>
-        <img src="../model/data/icone_categories.png" alt="icon_user" height="30 px" width="30 px">
+        <img src="../model/img/icone_categories.png" alt="icon_categorie" height="20 px" width="20 px">
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
 
