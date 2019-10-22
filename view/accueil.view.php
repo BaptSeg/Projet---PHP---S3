@@ -29,7 +29,7 @@
           </li>
           <li>
             <a href="../controler/inscription.ctrl.php">
-            <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="40 px" width="40 px"> Créer un compte </a>
+            <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
           </li>
         </ul>
       </div>
