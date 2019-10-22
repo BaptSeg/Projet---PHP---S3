@@ -1,29 +1,18 @@
-nav {
-  display: flex;
-}
-
-ul {
+nav{
   padding:0;
   display: flex;
 	flex-direction: row;
   justify-content: space-between;
 }
 
+ul{
+  display: flex;
+  flex-direction: row;
+}
+
 ul li{
   list-style-type:none;
   text-decoration: none;
-}
-
-.ctg{
-  display: flex;
-	flex-direction: row;
-  align-content: flex-start;
-}
-
-.ctd{
-  display: flex;
-	flex-direction: row;
-  align-content: flex-end;
 }
 
 ul li a{
@@ -32,15 +21,43 @@ ul li a{
     color: black;
   	border: 1px solid white;
     margin-left: -1px; /* pour enlever la double bordure*/
-  	padding:0.5em;
+  	padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 10px;
   }
+
+li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+img{
+  margin: 2px;
+}
+
+.logo{
+  display: flex;
+	flex-direction: row;
+  align-content: flex-start;
+}
+
+.navbar{
+  /* display: flex;
+	flex-direction: row; */
+  align-content: flex-end;
+}
 
 body{
   font-family: Verdana, sans-serif;
 }
 
 fieldset{
-  background-color: blue;
+  background-image: linear-gradient(#33cccc, #0066cc);
 }
 
 .recherche {
