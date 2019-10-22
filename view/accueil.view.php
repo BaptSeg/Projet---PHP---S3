@@ -3,28 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title>L'enconure adequate</title>
-  <link rel="stylesheet" href="accueil.css">
+  <link rel="stylesheet" href="accueil.view.css">
 </head>
 <body>
   <header>
 
-    <ul class="Entete">
-      <li> <img src="./L'enconure adequate.png" alt="logo" height="100 px" width="100 px"> </li>
-      <li> <h1>L'enconure adequate</h1> </li>
-      <li>
-        <a href="../view/test.html">
-        <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
-        Deposer une annonce
-        </a>
-      </li>
-      <li>
-        <a href="../view/test.html">
-        <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px">
-        Se connecter
-        </a>
-      </li>
-      <li> <a href="../view/test.html">Creer un compte</a> </li>
-    </ul>
+    <nav>
+      <div class="logo">
+        <img src="./L'enconure adequate.png" alt="logo" height="100 px" width="100 px">
+      </div>
+      <div>
+        <h1>L'enconure adéquate</h1>
+      </div>
+      <div class="navbar">
+        <ul>
+          <li>
+            <a href="../view/test.html">
+            <img src="../model/data/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="40 px" width="40 px">
+            Deposer une annonce
+            </a>
+          </li>
+          <li>
+            <a href="../view/test.html">
+            <img src="../model/data/icone_utilisateur.png" alt="icon_user" height="40 px" width="40 px"> Se connecter </a>
+          </li>
+          <li>
+            <a href="../view/test.html">
+            <img src="../model/data/icone_inscription.png" alt="icon_inscription" height="40 px" width="40 px"> Créer un compte </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
   </header>
   <form method="post" action="../controler/acceuil.ctrl.php">
