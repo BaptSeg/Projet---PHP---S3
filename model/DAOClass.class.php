@@ -18,11 +18,15 @@
 
 /* ------------------ METHODES  ------------------------- */
 
-    function pseudo_exist($pseudo) : array {
+    function pseudo_exist($pseudo) : ?array {
       $pseudo_low = strtolower($pseudo);
       $reponse = $this->db->query("SELECT pseudo FROM Utilisateur WHERE pseudo = '$pseudo_low'");
       $result = $reponse->fetch(PDO::FETCH_ASSOC);
-      return $result;
+      if (!empty($result)) {
+          return $result;
+      } else {
+        return null;
+      }
     }
 
     function email_exist($email) : array {
@@ -42,7 +46,6 @@
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
-      echo "$pass_hache";
       $pseudo = strtolower($pseudo);
       $email = strtolower($email);
       $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");                // Récupération de l'ID max de la table utilisateur

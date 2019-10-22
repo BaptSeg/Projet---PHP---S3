@@ -6,21 +6,27 @@
   $bdd = new DAOClass($config['database_path']);
 if (isset($_POST['connexion'])) {
   $login_valide = $bdd->pseudo_exist($_POST['pseudo']);
-  $pass_bdd = $bdd->getPass($_POST['pseudo']);
-  $pseudo_low = strtolower($_POST['pseudo']);
-  if (($login_valide['pseudo'] == $pseudo_low) && password_verify($_POST['mdp'] , $pass_bdd['mdp'])) {
-    session_start();
-    $_SESSION['pseudo'] = $pseudo_low;
-    $_SESSION['mdp'] = $_POST['mdp'];
-    // on redirige notre visiteur vers une page de notre section membre
-    header ('location: ../view/accueil.view.php');
-  }else {
-    // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
-    echo '<body onLoad="alert(\'Membre non reconnu...\')">';
-    // puis on le redirige vers la page d'accueil
-    echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
+  if (!empty($login_valide)) {
+    $pass_bdd = $bdd->getPass($_POST['pseudo']);
+    $pseudo_low = strtolower($_POST['pseudo']);
+    if (password_verify($_POST['mdp'] , $pass_bdd['mdp'])) {
+      session_start();
+      $_SESSION['pseudo'] = $pseudo_low;
+      $_SESSION['mdp'] = $_POST['mdp'];
+      // on redirige notre visiteur vers une page de notre section membre
+      header ('location: ../view/accueil.view.php');
+    } else {
+      // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
+      echo '<body onLoad="alert(\'Membre non reconnu...\')">';
+      // puis on le redirige vers la page d'accueil
+      echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
+      include("../view/connexion.view.php");
+    }
+  } else {
+    echo 'Membre non reconnu';
+    include("../view/connexion.view.php");
   }
-}else{
+} else{
   include("../view/connexion.view.php");
 }
  ?>
