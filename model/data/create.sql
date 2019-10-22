@@ -15,7 +15,6 @@ CREATE TABLE Categorie(
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
   intitule VARCHAR(255),
-  categorie VARCHAR(255),
   prix FLOAT,
   description VARCHAR(255),
   date_publication DATE;
