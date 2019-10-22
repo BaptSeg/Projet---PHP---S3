@@ -2,17 +2,10 @@
 // Vérification de la validité des informations
 try {
   $bdd = new PDO('sqlite:../data/utilisateur.db');
-<<<<<<< HEAD
 } catch (PDOException $e) {
   die("Erreur de connexion avec la base de donnée : ".$e->getMessage());
 }
 
-=======
-}
-catch (PDOException $e){
-  die("erreur de connexion:".$e->getMessage());
-}
->>>>>>> 1b5a660c59ac7b4ad06c6a445085481324fd6507
 if (isset($_POST['inscription'])) {
 
   $pseudo_low = mb_strtolower($_POST['pseudo']);
