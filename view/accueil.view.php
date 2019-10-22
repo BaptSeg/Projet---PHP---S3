@@ -18,14 +18,19 @@
       <a href="../view/test.html">Creer un compte</a>
     </div>
   </header>
-  <form method="post" action="../controler/Acceuil.ctrl.php">
+  <form method="post" action="../controler/acceuil.ctrl.php">
     <fieldset>
       <p>
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
-          <?php foreach ($Categorie as $key => $value): ?>
+          <?php for($Categorie as $key => $value): ?>
             <option value="<?php echo "$value[0]"; ?>"><?php echo "$value[0]"; ?></option>
           <?php endforeach; ?>
+          <?php for ($i=0; $i < ; $i++){
+              echo '<option value="';$Categorie[i]['categorie']">$Categorie[i]['categorie']</option>
+          } ?>
+
+
 
         </select>
 
