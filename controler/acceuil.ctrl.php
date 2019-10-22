@@ -6,7 +6,8 @@
     die("erreur de connexion:".$e->getMessage());
   }
   $reponse = $bdd->query("SELECT DISTINCT categorie FROM Annonce");
-  $Categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
-  var_dump($Categorie);
+  $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+  var_dump($categorie);
+  var_dump($categorie[0]['categorie']);
   include("../view/accueil.view.php");
 ?>

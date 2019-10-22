@@ -33,10 +33,10 @@
         <img src="../model/data/icone_categories.png" alt="icon_user" height="40 px" width="40 px">
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
-          <?php for ($i=0; $i < sizeof($Categorie)-1; $i++){
-              echo '<option value="'.$Categorie[i]['categorie'].'">'.$Categorie[i]['categorie'].'</option>';
-          }?>
 
+          <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
+              echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+          }?>
         </select>
 
         <select name="Region" id="Region">
