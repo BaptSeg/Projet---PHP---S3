@@ -31,7 +31,7 @@ if (isset($_POST['inscription'])) {
       "date_inscription" => date('d/m/o')
     ));
 
-    // // ENVOIE DE L'EMAIL DE CONFIRMATION
+    // ENVOIE DE L'EMAIL DE CONFIRMATION
     // $destinataire = $_POST['email'];
     // $sujet = "Activer votre compte";
     // $entete = "From: segeat.b@gmail.com";
@@ -48,7 +48,7 @@ if (isset($_POST['inscription'])) {
     //
     // ini_set('SMTP','smtp.sfr.com');
     // ini_set('sendmail_from', 'mail@automatique.fr');
-    // mail($destinataire, $sujet, $message, $entete) ;
+    //mail($destinataire, $sujet, $message, $entete) ;
 
 
     include("../view/test.html");
