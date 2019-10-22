@@ -15,7 +15,7 @@
 
     <div class="connection">
       <a href="../view/test.html">Se connecter</a>
-      <a href="../view/test.html">Creer un compte</a>
+      <a href="../controler/inscription.ctrl.php">Creer un compte</a>
     </div>
   </header>
   <form method="post" action="../controler/Acceuil.ctrl.php">

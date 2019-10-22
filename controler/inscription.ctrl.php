@@ -1,86 +1,42 @@
 <?php
-// Vérification de la validité des informations
 
 $config = parse_ini_file('../config/config.ini');                           // Recupération des données de configuration.
 require_once('../model/DAOClass.class.php');
+require_once('../framework/view.class.php');
 
 $bdd = new DAOClass($config['database_path']);
 
-
 if (isset($_POST['inscription'])) {
 
-  $pseudo_low = strtolower($_POST['pseudo']);
-  $reponse = $bdd->query("SELECT pseudo FROM Utilisateur WHERE pseudo = '$pseudo_low'");
-  $pseudo = $reponse->fetchall(PDO::FETCH_ASSOC);
+  $pseudo = $bdd->pseudo_exist($_POST['pseudo']);
+  $email = $bdd->email_exist($_POST['email']);
 
-  $email_low = strtolower($_POST['email']);
-  $reponse = $bdd->db->query("SELECT email FROM Utilisateur WHERE email = '$email_low'");
-  $email = $reponse->fetchAll(PDO::FETCH_ASSOC);
+  if ((empty($pseudo)) && (empty($email)) && ($_POST['mdp1']==$_POST['mdp2']) ) {
 
-  if ( empty($pseudo) && empty($email) && ($_POST['mdp1']==$_POST['mdp2']) ) {
-    $pass_hache = password_hash($_POST['mdp1'], PASSWORD_DEFAULT);
-    $reponse = $bdd->query("SELECT max(id) FROM Utilisateur");
-    $max = $reponse->fetch();
-    $req = $bdd->prepare("INSERT INTO Utilisateur(id, pseudo, mdp, email, email_verif, date_inscription) VALUES(:id, :pseudo, :mdp, :email, :email_verif, :date_inscription)");
-    $req->execute(array(
-      "id" => $max[0]+1,
-      "pseudo" => $pseudo_low,
-      "mdp" => $pass_hache,
-      "email" => $email_low,
-      "email_verif" => FALSE,
-      "date_inscription" => date('d/m/o')
-    ));
+    $bdd->crea_utilisateur(strtolower($_POST['pseudo']), $_POST['mdp1'], strtolower($_POST['email']));        // Création de l'utilisateur dans la base de données.
+    $view = new View('accueil.view.php');
+    $view->pseudo = $_POST['pseudo'];                // Servira a faire un message de CONFIRMATION lors de la création du compte.
+    $view->show();
 
-    // ENVOIE DE L'EMAIL DE CONFIRMATION
-    // $destinataire = $_POST['email'];
-    // $sujet = "Activer votre compte";
-    // $entete = "From: segeat.b@gmail.com";
-    // $message = 'Bienvenue sur VotreSite,
-    //
-    // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-    // ou copier/coller dans votre navigateur internet. ';
-    //
-    // ../view/verificationMail.php?pseudo='.urlencode($_POST['pseudo']).'&cle='.urlencode($cle).'
-    //
-    //
-    // ---------------
-    // Ceci est un mail automatique, Merci de ne pas y répondre.';
-    //
-    // ini_set('SMTP','smtp.sfr.com');
-    // ini_set('sendmail_from', 'mail@automatique.fr');
-    // mail($destinataire, $sujet, $message, $entete) ;
+  } elseif (!empty($pseudo)) {
+    $view = new View('inscription.view.php');
+    $view->erreur = "Votre pseudo est deja utilisé";
+    $view->show();
 
+  } elseif (!empty($email)) {
+    $view = new View('inscription.view.php');
+    $view->erreur = "Cette adresse mail est deja associer a un compte";
+    $view->show();
 
-    include("../view/test.html");
+  } elseif ($_POST['mdp1']!=$_POST['mdp2']) {
+    $view = new View('inscription.view.php');
+    $view->erreur = "Les deux mots de passe ne sont pas identique";
+    $view->show();
 
-  }elseif (!empty($pseudo)) {
-    $erreur = "Votre pseudo est deja utilisé";
-    include("../view/inscription.view.php");
-
-  }elseif (!empty($email)) {
-    $erreur = "Cette adresse mail est deja associer a un compte";
-    include("../view/inscription.view.php");
-
-  }elseif ($_POST['mdp1']!=$_POST['mdp2']) {
-    $erreur = "Les deux mots de passe ne sont pas identique";
-    include("../view/inscription.view.php");
   }
 
 } else {
   include("../view/inscription.view.php");
 }
-
-// Hachage du mot de passe
-//
-// $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-//
-// // Insertion
-// $req = $bdd->prepare('INSERT INTO membres(pseudo, pass, email, date_inscription) VALUES(:pseudo, :pass, :email, CURDATE())');
-// $req->execute(array(
-//     'pseudo' => $pseudo,
-//     'pass' => $pass_hache,
-//     'email' => $email));
-
-
 
 ?>
