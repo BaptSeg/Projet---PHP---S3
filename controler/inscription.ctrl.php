@@ -1,19 +1,20 @@
 <?php
 // Vérification de la validité des informations
-try {
-  $bdd = new PDO('sqlite:../data/utilisateur.db');
-} catch (PDOException $e) {
-  die("Erreur de connexion avec la base de donnée : ".$e->getMessage());
-}
+
+$config = parse_ini_file('../config/config.ini');                           // Recupération des données de configuration.
+require_once('../model/DAOClass.class.php');
+
+$bdd = new DAOClass($config['database_path']);
+
 
 if (isset($_POST['inscription'])) {
 
-  $pseudo_low = mb_strtolower($_POST['pseudo']);
+  $pseudo_low = strtolower($_POST['pseudo']);
   $reponse = $bdd->query("SELECT pseudo FROM Utilisateur WHERE pseudo = '$pseudo_low'");
   $pseudo = $reponse->fetchall(PDO::FETCH_ASSOC);
 
-  $email_low = mb_strtolower($_POST['email']);
-  $reponse = $bdd->query("SELECT email FROM Utilisateur WHERE email = '$email_low'");
+  $email_low = strtolower($_POST['email']);
+  $reponse = $bdd->db->query("SELECT email FROM Utilisateur WHERE email = '$email_low'");
   $email = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -48,7 +49,7 @@ if (isset($_POST['inscription'])) {
     //
     // ini_set('SMTP','smtp.sfr.com');
     // ini_set('sendmail_from', 'mail@automatique.fr');
-    //mail($destinataire, $sujet, $message, $entete) ;
+    // mail($destinataire, $sujet, $message, $entete) ;
 
 
     include("../view/test.html");

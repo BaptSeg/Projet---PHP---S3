@@ -1,17 +1,17 @@
 <?php
-  require_once("../model/Categorie.class.php");
-  class DAOMembre {
+
+  class DAOClass {
     private $db;
 
-    function __construct() {
+    function __construct($chemin_acces) {
+      $database = 'sqlite:'.$chemin_acces;
           try {
-            $this->db = new PDO('sqlite:../data/utilisateur.db');
+            $this->db = new PDO($database);
           }
           catch (PDOException $e){
             die("erreur de connexion:".$e->getMessage());
           }
-
-
         }
+
   }
  ?>
