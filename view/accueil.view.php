@@ -11,8 +11,11 @@
 
     <nav>
       <div class="logo">
-        <img src="../model/img/L'encoignure_adequate" alt="logo" height="80 px" width="80 px">
-        <h1>L'encoignure adéquate</h1>
+        <img src="../model/img/L'encoignure_adequate" alt="logo" height="60 px" width="60 px">
+        <div class="titre">
+          <h1>L'encoignure adéquate</h1>
+          <p>Le site pour trouver la parfaite encoignure sans contentieux</p>
+        </div>
       </div>
       <div class="navbar">
         <ul>
