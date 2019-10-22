@@ -1,7 +1,7 @@
 <?php
 // Vérification de la validité des informations
 try {
-  $bdd = new PDO('sqlite:../data/utilisateur.db');
+  $bdd = new PDO('sqlite:../model/data/utilisateur.db');
 } catch (PDOException $e) {
   die("Erreur de connexion avec la base de donnée : ".$e->getMessage());
 }

@@ -24,7 +24,7 @@
         <select name="Categorie" id="Categorie">
           <option value="" selected>Categorie</option>
           <?php foreach ($Categorie as $key => $value): ?>
-            <option value="<?php echo "$value"; ?>"><?php echo "$value"; ?></option>
+            <option value="<?php echo "$value[0]"; ?>"><?php echo "$value[0]"; ?></option>
           <?php endforeach; ?>
 
         </select>
