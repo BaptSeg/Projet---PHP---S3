@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Inscription</title>
-    <link rel="stylesheet" href="../Inscription.css">
+    <link rel="stylesheet" href="inscription.view.css">
   </head>
   <body>
     <h1>Inscription</h1>
