@@ -13,5 +13,11 @@
           }
         }
 
+    function getPseudo($pseudo) {
+      $pseudo_low = strtolower($_POST['pseudo']);
+      $reponse = $this->db->query("SELECT pseudo FROM Utilisateur WHERE pseudo = '$pseudo_low'");
+      $pseudo = $reponse->fetchall(PDO::FETCH_ASSOC);
+    }
   }
+
  ?>

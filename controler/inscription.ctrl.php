@@ -17,7 +17,6 @@ if (isset($_POST['inscription'])) {
   $reponse = $bdd->db->query("SELECT email FROM Utilisateur WHERE email = '$email_low'");
   $email = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
-
   if ( empty($pseudo) && empty($email) && ($_POST['mdp1']==$_POST['mdp2']) ) {
     $pass_hache = password_hash($_POST['mdp1'], PASSWORD_DEFAULT);
     $reponse = $bdd->query("SELECT max(id) FROM Utilisateur");
