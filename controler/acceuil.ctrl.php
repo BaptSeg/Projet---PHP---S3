@@ -1,13 +1,13 @@
 <?php
-  try {
-    $bdd = new PDO('sqlite:../model/data/utilisateur.db');
-  }
-  catch (PDOException $e){
-    die("erreur de connexion:".$e->getMessage());
-  }
+
+  $config = parse_ini_file('../config/config.ini');                           // Recupération des données de configuration.
+  require_once('../model/DAOClass.class.php');
+
+  $bdd = new DAOClass($config['database_path']);
+
   $reponse = $bdd->query("SELECT DISTINCT categorie FROM Annonce");
-  $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
-  var_dump($categorie);
-  var_dump($categorie[0]['categorie']);
-  include("../view/accueil.view.php");
+  $Categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+  var_dump($Categorie);
+  include("../view/acceuil.view.php");
+
 ?>
