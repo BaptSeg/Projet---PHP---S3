@@ -9,5 +9,5 @@ session_unset ();
 session_destroy ();
 
 // On redirige le visiteur vers la page d'accueil
-include("../view/accueil.view.php");
+header ('location: ../view/accueil.view.php');
 ?>
