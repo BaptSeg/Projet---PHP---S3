@@ -39,7 +39,7 @@ class View {
     // Inclusion de la vue
     // Comme cette inclusion est dans la portée de la méthode show alors
     // seules les variables locales à show sont visibles.
-    include($p);
+    header('location: '.$p);
   }
 }
 ?>
