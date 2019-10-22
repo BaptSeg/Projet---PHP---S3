@@ -6,11 +6,30 @@ CREATE TABLE Utilisateur (
   email_verif BOOLEAN,
   date_inscription DATE
 );
+
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
-  categorie VARCHAR(255),
   intituler VARCHAR(255),
+  categorie VARCHAR(255),
   prix FLOAT,
   description VARCHAR(255),
-  Localisation
+  date_publication DATE;
+  date_suppression DATE;
+);
+
+CREATE TABLE Localisation(
+  region VARCHAR(255),
+  departement VARCHAR(255),
+  ville VARCHAR(255) PRIMARY KEY
+);
+
+CREATE TABLE Categorie(
+  id INTEGER PRIMARY KEY,
+  categorie VARCHAR(255),
+);
+
+CREATE TABLE Photos(
+  id INTEGER PRIMARY KEY,
+  url VARCHAR(255),
+  alt  VARCHAR(255)
 );
