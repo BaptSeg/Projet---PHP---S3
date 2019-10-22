@@ -21,7 +21,7 @@
     function pseudo_exist($pseudo) : array {
       $pseudo_low = strtolower($pseudo);
       $reponse = $this->db->query("SELECT pseudo FROM Utilisateur WHERE pseudo = '$pseudo_low'");
-      $result = $reponse->fetchall(PDO::FETCH_ASSOC);
+      $result = $reponse->fetch(PDO::FETCH_ASSOC);
       return $result;
     }
 
@@ -35,16 +35,20 @@
     function getPass($pseudo) : array {
       $pseudo_low = strtolower($pseudo);
       $reponse = $this->db->query("SELECT mdp FROM Utilisateur WHERE pseudo = '$pseudo_low'");
-      $result = $reponse->fetchAll(PDO::FETCH_ASSOC);
+      $result = $reponse->fetch(PDO::FETCH_ASSOC);
       return $result;
     }
 
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
+<<<<<<< HEAD
+      echo "$pass_hache";
+=======
       $pseudo = strtolower($pseudo);
       $email = strtolower($email);
 
+>>>>>>> 37b4246f3284a45c058fd07b74890976ea84d2db
       $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");                // Récupération de l'ID max de la table utilisateur
       $max = $reponse->fetch();
 
