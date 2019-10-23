@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1>Connexion</h1>
+    <?php
+      echo $erreur;
+      echo $toto;
+    ?>
     <form class="" action="../controler/connexion.ctrl.php" method="post">
       <fieldset>
         <p>

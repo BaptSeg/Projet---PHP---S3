@@ -59,8 +59,9 @@
     <fieldset>
       <p>
         <div class="searchbar">
-
-          <div class="cat">
+          
+          <p> Rechercher une encoignure </p>
+          <div class="choix">
             <select name="Categorie" id="Categorie">
               <option value="" selected>Categorie</option>
               <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
@@ -69,7 +70,7 @@
             </select>
           </div>
 
-          <div class="reg">
+          <div class="choix">
             <select name="Region" id="Region">
               <option value="" selected>Region</option>
               <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
@@ -93,7 +94,7 @@
             </select>
           </div>
 
-          <div class="pri">
+          <div class="choix">
             <select name="Prix" id="Prix">
               <option value="" selected>Prix</option>
               <option value="1-5">1-5</option>

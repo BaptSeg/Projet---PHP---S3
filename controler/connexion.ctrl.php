@@ -20,13 +20,20 @@ if (isset($_POST['connexion'])) {
       echo '<body onLoad="alert(\'Membre non reconnu...\')">';
       // puis on le redirige vers la page d'accueil
       echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
-      include("../view/connexion.view.php");
+      $view = new View('connexion.view.php');
+      $view->erreur = "Mot de passe incorrect(s) !";
+      $view->show();
     }
   } else {
-    echo 'Membre non reconnu';
-    include("../view/connexion.view.php");
+    $view = new View('connexion.view.php');
+    $view->erreur = "Identifiant non reconnu !";
+    $view -> show();
   }
 } else{
-  include("../view/connexion.view.php");
+  $view = new View('connexion.view.php');
+  $view->erreur = "ok";
+  $view->toto = "toto";
+  $view -> show();
+
 }
  ?>
