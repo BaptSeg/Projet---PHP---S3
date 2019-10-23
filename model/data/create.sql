@@ -12,6 +12,12 @@ CREATE TABLE Categorie(
   categorie VARCHAR(255),
 );
 
+CREATE TABLE Localisation(
+  region VARCHAR(255),
+  departement VARCHAR(255),
+  ville VARCHAR(255) PRIMARY KEY
+);
+
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
   intitule VARCHAR(255),
@@ -21,18 +27,16 @@ CREATE TABLE Annonce(
   date_suppression DATE;
   ville VARCHAR(255),
   categorie INTEGER,
+  utilisateur INTEGER,
   FOREIGN KEY(ville) REFERENCES Localisation(ville),
-  FOREIGN KEY(categorie) REFERENCES Categorie(id)
-);
-
-CREATE TABLE Localisation(
-  region VARCHAR(255),
-  departement VARCHAR(255),
-  ville VARCHAR(255) PRIMARY KEY
+  FOREIGN KEY(categorie) REFERENCES Categorie(id),
+  FOREIGN KEY(utilisateur) REFERENCES Utilisateur(id)
 );
 
 CREATE TABLE Photos(
   id INTEGER PRIMARY KEY,
   url VARCHAR(255),
-  alt  VARCHAR(255)
+  alt  VARCHAR(255),
+  annonce INTEGER,
+  FOREIGN KEY(annonce) REFERENCES Annonce(id)
 );
