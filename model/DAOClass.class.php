@@ -43,6 +43,15 @@
       return $result;
     }
 
+    function getCategorie() : ?array { // a changer quand il y auras des categorie
+      $reponse = $this->db->query("SELECT categorie FROM Categorie");
+      $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+      if (!empty($categorie)) {
+          return $categorie;
+      } else {
+        return null;
+      }
+    }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
