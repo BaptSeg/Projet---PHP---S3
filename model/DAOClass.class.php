@@ -43,7 +43,11 @@
       return $result;
     }
 
-
+    function getCategorie() : array {
+      $reponse = $bdd->query("SELECT categorie FROM Categorie");
+      $Categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+      return $Categorie;
+    }
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
       $pseudo = strtolower($pseudo);

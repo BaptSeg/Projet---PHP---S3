@@ -14,6 +14,7 @@ CREATE TABLE Categorie(
 
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
+  utilisateur INTEGER,
   intitule VARCHAR(255),
   prix FLOAT,
   description VARCHAR(255),
@@ -22,7 +23,8 @@ CREATE TABLE Annonce(
   ville VARCHAR(255),
   categorie INTEGER,
   FOREIGN KEY(ville) REFERENCES Localisation(ville),
-  FOREIGN KEY(categorie) REFERENCES Categorie(id)
+  FOREIGN KEY(categorie) REFERENCES Categorie(id),
+  FOREIGN KEY(utilisateur) REFERENCES Utilisateur(id)
 );
 
 CREATE TABLE Localisation(
