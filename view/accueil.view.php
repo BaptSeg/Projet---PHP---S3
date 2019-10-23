@@ -42,7 +42,7 @@
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
               Se connecter
               </a>
-            </li>e6e6e6
+            </li>
             <li>
               <a href="../controler/inscription.ctrl.php">
               <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
@@ -58,16 +58,6 @@
     <fieldset>
       <p>
         <div class="searchbar">
-
-          <p> Rechercher une encoignure </p>
-          <div class="choix">
-            <select name="Categorie" id="Categorie">
-              <option value="" selected>Categore6e6e6ie</option>
-              <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
-                  echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
-                }?>
-            </select>
-          </div>
 
           <div class="txtrech">
             <p> Rechercher une encoignure </p>

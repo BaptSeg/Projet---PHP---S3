@@ -2,10 +2,10 @@ nav{
   padding:0;
   padding: 20px;
   padding-top: 30px;
-  padding-bottom: 150px;
+  padding-bottom: 10px;
   /* background-image: linear-gradient(#663300, #cc6600); */
   background-color: white;
-  color : #6699ff;
+  color : #70ABBA;
   font-weight: bold;
   display: flex;
 	flex-direction: row;
@@ -39,10 +39,10 @@ ul li{
   text-decoration: none;
   margin-left: 15px;
 }
-#f2f2f2
+
 ul li a{
   	text-decoration:none;
-    color : #6699ff;
+    color : #70ABBA;;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +79,7 @@ ul li a{
 body{
   font-family: 'Nunito', sans-serif;
   margin: 0px;
-  background-color: #f2f2f2;
+  background-color: #F5F8F9;
 }
 
 fieldset{
@@ -90,7 +90,7 @@ fieldset{
 .searchbar{
   color: white;
   /* background-image: linear-gradient(#002699, #003d99); */
-  background-color: #6699ff;
+  background-color: #70ABBA;
   border-radius: 30px;
   margin-left: 25%;
   margin-right: 25%;
@@ -100,9 +100,9 @@ fieldset{
 }
 
 .txtrech{
-  margin-left: 20%;
+  text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .soussearchbar{
