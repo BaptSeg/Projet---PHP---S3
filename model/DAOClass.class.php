@@ -44,7 +44,7 @@
     }
 
     function getCategorie() : ?array { // a changer quand il y auras des categorie
-      $reponse = $this->db->query("SELECT categorie FROM Categorie");
+      $reponse = $this->db->query("SELECT DISTINCT categorie FROM Utilisateur");
       $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
       if (!empty($categorie)) {
           return $categorie;
