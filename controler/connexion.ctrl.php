@@ -12,14 +12,13 @@ if (isset($_POST['connexion'])) {
     if (password_verify($_POST['mdp'] , $pass_bdd['mdp'])) {
       session_start();
       $_SESSION['pseudo'] = $pseudo_low;
-      $_SESSION['mdp'] = $_POST['mdp'];
       // on redirige notre visiteur vers une page de notre section membre
-      header ('location: ../view/accueil.view.php');
+      $view = new View('accueil.view.php');
+      $view->confirm = "Connexion reussi.";
+      $view->show();
     } else {
-      // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
-      echo '<body onLoad="alert(\'Membre non reconnu...\')">';
-      // puis on le redirige vers la page d'accueil
-      echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
+      // echo '<body onLoad="alert(\'Membre non reconnu...\')">';
+      // echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
       $view = new View('connexion.view.php');
       $view->erreur = "Mot de passe incorrect(s) !";
       $view->show();
