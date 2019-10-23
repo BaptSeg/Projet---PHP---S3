@@ -7,13 +7,15 @@
   <body>
 
     <h1>Deposer une annonce</h1>
+    <?php if (isset($erreure)): ?>
+      <p><?=$erreure?></p>
+    <?php endif; ?>
     <form method="post" action="../controler/depotAnnonce.ctrl.php">
        <fieldset>
          <p>
            <label for="intitule">Saisir un intitulé : </label> <input type="text" name="intitule" id="intitule" required> <br>
            <select name="Categorie" id="Categorie">
              <option value="" selected>Categorie</option>
-
              <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                  echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
              }?>
