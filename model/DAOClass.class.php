@@ -48,10 +48,15 @@
       return $result;
     }
 
-    function getAllCategorie() : ?array {
+    function getAllCategorie() : array {
       $reponse = $this->db->query("SELECT DISTINCT categorie FROM Categorie");
       $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
       return $categorie;
+    }
+    function getIdCategorie($categorie) : array {
+      $reponse = $this->db->query("SELECT id FROM Categorie where categorie = $categorie");
+      $Idcategorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+      return $Idcategorie;
     }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
@@ -94,11 +99,33 @@
       //traite pas les ville
       $id_utilsisateur = $this->bd->getIdUtilisateur($pseudo);
       var_dump($id_utilsisateur);
+
       $datePublication = date('d/m/o');
+      var_dump($datePublication);
+
       $dateSupression = date('d/m/o',strtotime('+2 month'));
+      var_dump($dateSupression);
+
+      $idCategorie = $this->bd->getIdCategorie($categorie);
+      var_dump($idCategorie);
+
+      $reponse = $this->db->query("SELECT max(id) FROM Annonce");                // Récupération de l'ID max de la table utilisateur
+      $idAnnonce = $reponse->fetch();
+      var_dump($idAnnonce);
 
 
-
+      /*$req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
+      $req->execute(array(
+        "id" => $idAnnonce,
+        "utilisateur" => $id_utilsisateur,
+        "intitule" => $intitule,
+        "prix" =>$prix,
+        "description" =>$description ,
+        "date_publication" => $datePublication,
+        "date_suppression" => $dateSupression,
+        "ville" => null,
+        "categorie" => $idCategorie
+      ));*/
     }
 
 

@@ -11,7 +11,7 @@ if (isset($_POST['depotAnnonce'])) {
 
   if (($_POST['Categorie']!= 'categorie')){
 
-
+    $bdd->depotAnnonce($_SESSION['pseudo'],$_POST['intitule'],$_POST['prix'],$_POST['description'],null,$_POST['Categorie'])
     include("../view/test.html");
 
   } else {
