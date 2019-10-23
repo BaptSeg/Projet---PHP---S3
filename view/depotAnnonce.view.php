@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -23,7 +22,7 @@
            </select><br>
            <label for="prix">Saisir un prix(en €): </label> <input type="number" name="prix" min="0" id="prix" required> <br>
            <label for="description">Description : </label><br>
-           <textarea id="description" name="description" rows="5" cols="33" placeholder="Saisir ici" required></textarea><br>
+           <textarea id="description" name="description" rows="5" cols="33" maxlength="500" placeholder="Saisir ici" required></textarea><br>
            <label for="localisation">Localisation : </label><br>
            <input type="submit" value="Déposer une annonce" name="depotAnnonce" />
          </p>
