@@ -7,17 +7,17 @@
 
   $categorie = $bdd->getCategorie();
 if (isset($_POST['inscription'])) {
-  if(isset($_POST['categorie']) || $_POST['description'] != 'Saisir ici'){
+  if (isset($_POST['categorie']) || $_POST['description'] != 'Saisir ici'){
     include("../view/test.html");
 
-  }else {
+  } else {
     $view = new View('depotAnnonce.view.php');
     $view->categorie = $categorie;
     $view->erreur = "il faut remplire tout les parametres";
     $view->show();
   }
 
-}else{
+} else {
   $view = new View('depotAnnonce.view.php');
   $view->categorie = $categorie;
   $view->show();
