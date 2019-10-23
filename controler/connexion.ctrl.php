@@ -12,7 +12,6 @@ if (isset($_POST['connexion'])) {
     if (password_verify($_POST['mdp'] , $pass_bdd['mdp'])) {
       session_start();
       $_SESSION['pseudo'] = $pseudo_low;
-      $_SESSION['mdp'] = $_POST['mdp'];
       // on redirige notre visiteur vers une page de notre section membre
       header ('location: ../view/accueil.view.php');
     } else {
