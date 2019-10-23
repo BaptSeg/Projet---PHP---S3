@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   $config = parse_ini_file('../config/config.ini');                           // Recupération des données de configuration.
   require_once('../model/DAOClass.class.php');
   require_once('../framework/view.class.php');

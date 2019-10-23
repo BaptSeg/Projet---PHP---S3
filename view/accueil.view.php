@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -20,13 +20,13 @@
       </div>
       <div class="navbar">
         <ul>
-          <li>
-            <a href="../view/test.html">
-            <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
-            Deposer une annonce
-            </a>
-          </li>
           <?php if (isset($_SESSION['pseudo'])): ?>
+            <li>
+              <a href="../controler/depotAnnonce.ctrl.php">
+              <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
+              Deposer une annonce
+              </a>
+            </li>
             <li>
               <a href="../view/test.html">
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
