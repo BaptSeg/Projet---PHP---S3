@@ -2,19 +2,19 @@ nav{
   padding:0;
   padding: 20px;
   padding-top: 30px;
-  padding-bottom: 30px;
-  background-image: linear-gradient(#66e0ff, #002699);
-  color : white;
+  padding-bottom: 150px;
+  /* background-image: linear-gradient(#663300, #cc6600); */
+  background-color: white;
+  color : #6699ff;
   font-weight: bold;
-
   display: flex;
 	flex-direction: row;
   justify-content: space-between;
 }
 
 .logo img{
-  margin: 10px;
-  margin-top: 20px;
+  margin: 5px;
+  margin-top: 5px;
 }
 
 .titre p{
@@ -22,34 +22,30 @@ nav{
 }
 
 h1{
-  font-size: 35px;
+  font-size: 30px;
   margin: 0px;
-  margin-top: 15px;
+  margin-top: 0px;
 
 }
 
 ul{
   display: flex;
 	flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 ul li{
   list-style-type:none;
   text-decoration: none;
+  margin-left: 15px;
 }
-
+#f2f2f2
 ul li a{
   	text-decoration:none;
-    color: white;
-    margin-left: -1px; /* pour enlever la double bordure*/
-  	padding: 10px;
-
+    color : #6699ff;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    border-radius: 10px;
   }
 
 li{
@@ -66,21 +62,24 @@ img{
   display: flex;
 	flex-direction: row;
   align-content: flex-start;
+  padding-top: 5px;
+  margin-left: 10%;
 }
 
 .navbar{
   align-content: flex-end;
+  margin-right: 10%;
 }
 
 ul li a{
   	text-decoration:none;
     margin-left: -1px; /* pour enlever la double bordure*/
-  	padding: 10px;
 }
 
 body{
   font-family: 'Nunito', sans-serif;
   margin: 0px;
+  background-color: #f2f2f2;
 }
 
 fieldset{
@@ -89,21 +88,35 @@ fieldset{
 }
 
 .searchbar{
-  margin-left: 20%;
-  margin-right: 20%;
+  color: white;
+  /* background-image: linear-gradient(#002699, #003d99); */
+  background-color: #6699ff;
+  border-radius: 30px;
+  margin-left: 25%;
+  margin-right: 25%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.txtrech{
+  margin-left: 20%;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.soussearchbar{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
-  background-image: linear-gradient(#66e0ff, #002699);
-  border-radius: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .choix{
-  margin: 20px;
+  margin: 10px;
 }
 
 input{
-  margin: 19px;
+  margin: 10px;
 }

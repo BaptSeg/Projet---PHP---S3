@@ -11,7 +11,7 @@
 
     <nav>
       <div class="logo">
-        <img src="../model/img/L'encoignure_adequate" alt="logo" height="60 px" width="60 px">
+        <img src="../model/img/L'encoignure_adequate" alt="logo" height="55 px" width="55 px">
         <div class="titre">
           <h1>L'encoignure adéquate</h1>
           <p>Le site pour trouver la parfaite encoignure sans contentieux</p>
@@ -42,7 +42,7 @@
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
               Se connecter
               </a>
-            </li>
+            </li>e6e6e6
             <li>
               <a href="../controler/inscription.ctrl.php">
               <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
@@ -62,46 +62,62 @@
           <p> Rechercher une encoignure </p>
           <div class="choix">
             <select name="Categorie" id="Categorie">
-              <option value="" selected>Categorie</option>
+              <option value="" selected>Categore6e6e6ie</option>
               <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                   echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
                 }?>
             </select>
           </div>
 
-          <div class="choix">
-            <select name="Region" id="Region">
-              <option value="" selected>Region</option>
-              <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-              <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
-              <option value="Bretagne">Bretagne</option>
-              <option value="Centre-Val de Loire">Centre-Val de Loire</option>
-              <option value="Corse">Corse</option>
-              <option value="Grand Est">Grand Est</option>
-              <option value="Guadeloupe">Guadeloupe</option>
-              <option value="Guyane">Guyane</option>
-              <option value="Hauts-de-France">Hauts-de-France</option>
-              <option value="Île-de-France">Île-de-France</option>
-              <option value="Martinique">Martinique</option>
-              <option value="Mayotte">Mayotte</option>
-              <option value="Normandie">Normandie</option>
-              <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
-              <option value="Occitanie">Occitanie</option>
-              <option value="Pays de la Loire">Pays de la Loire</option>
-              <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
-              <option value="La Réunion">La Réunion</option>
-            </select>
+          <div class="txtrech">
+            <p> Rechercher une encoignure </p>
           </div>
 
-          <div class="choix">
-            <select name="Prix" id="Prix">
-              <option value="" selected>Prix</option>
-              <option value="1-5">1-5</option>
-              <option value="cat">nul</option>
-            </select>
-          </div>
+          <div class="soussearchbar">
+            <div class="choix">
+              <select name="Categorie" id="Categorie">
+                <option value="" selected>Categorie</option>
+                <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
+                    echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+                  }?>
+                </select>
+              </div>
 
-          <input type="submit" value="Rechercher" name="Rechercher" />
+              <div class="choix">
+                <select name="Region" id="Region">
+                  <option value="" selected>Region</option>
+                  <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+                  <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+                  <option value="Bretagne">Bretagne</option>
+                  <option value="Centre-Val de Loire">Centre-Val de Loire</option>
+                  <option value="Corse">Corse</option>
+                  <option value="Grand Est">Grand Est</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guyane">Guyane</option>
+                  <option value="Hauts-de-France">Hauts-de-France</option>
+                  <option value="Île-de-France">Île-de-France</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Normandie">Normandie</option>
+                  <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+                  <option value="Occitanie">Occitanie</option>
+                  <option value="Pays de la Loire">Pays de la Loire</option>
+                  <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+                  <option value="La Réunion">Lae6e6e6 Réunion</option>
+                </select>
+              </div>
+
+              <div class="choix">
+                <select name="Prix" id="Prix">
+                  <option value="" selected>Prix</option>
+                  <option value="1-5">1-5</option>
+                  <option value="cat">nul</option>
+                </select>
+              </div>
+
+              <input type="submit" value="Rechercher" name="Rechercher" />
+            </div>
+
         </div>
       </p>
     </fieldset>
