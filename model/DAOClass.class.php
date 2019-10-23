@@ -43,14 +43,10 @@
       return $result;
     }
 
-    function getCategorie() : ?array { // a changer quand il y auras des categorie
-      $reponse = $this->db->query("SELECT DISTINCT categorie FROM Utilisateur");
+    function getCategorie() : ?array {
+      $reponse = $this->db->query("SELECT DISTINCT categorie FROM Categorie");
       $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
-      if (!empty($categorie)) {
-          return $categorie;
-      } else {
-        return null;
-      }
+      return $categorie;
     }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
