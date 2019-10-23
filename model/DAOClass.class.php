@@ -53,11 +53,6 @@
       $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
       return $categorie;
     }
-    function getIdCategorie($categorie) : array {
-      $reponse = $this->db->query("SELECT id FROM Categorie where categorie = $categorie");
-      $Idcategorie = $reponse->fetchall(PDO::FETCH_ASSOC);
-      return $Idcategorie;
-    }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
@@ -97,35 +92,31 @@
     }
     function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie){
       //traite pas les ville
-      $id_utilsisateur = $this->bd->getIdUtilisateur($pseudo);
-      var_dump($id_utilsisateur);
+      $id_utilsisateur = $this->getIdUtilisateur($pseudo);
 
       $datePublication = date('d/m/o');
-      var_dump($datePublication);
 
-      $dateSupression = date('d/m/o',strtotime('+2 month'));
-      var_dump($dateSupression);
+      $dateSupression = date('d/m/o',strtotime('+3 month'));
 
-      $idCategorie = $this->bd->getIdCategorie($categorie);
-      var_dump($idCategorie);
-
-      $reponse = $this->db->query("SELECT max(id) FROM Annonce");                // Récupération de l'ID max de la table utilisateur
+      $reponse = $this->db->query("SELECT max(id) FROM Annonce");                // Récupération de l'ID max de la table Annonce
       $idAnnonce = $reponse->fetch();
-      var_dump($idAnnonce);
 
+      if($idAnnonce['max(id)'] == null){ // si null car aucune annonce
+        $idAnnonce = 1;
+      }
 
-      /*$req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
+      $req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
       $req->execute(array(
         "id" => $idAnnonce,
-        "utilisateur" => $id_utilsisateur,
+        "utilisateur" => $id_utilsisateur['id'],
         "intitule" => $intitule,
         "prix" =>$prix,
         "description" =>$description ,
         "date_publication" => $datePublication,
         "date_suppression" => $dateSupression,
         "ville" => null,
-        "categorie" => $idCategorie
-      ));*/
+        "categorie" => $categorie
+      ));
     }
 
 
