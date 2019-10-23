@@ -6,8 +6,9 @@
   $bdd = new DAOClass($config['database_path']);
 
   $categorie = $bdd->getCategorie();
-if (isset($_POST['inscription'])) {
-  if (isset($_POST['categorie']) || $_POST['description'] != 'Saisir ici'){
+if (isset($_POST['depotAnnonce'])) {
+
+  if (($_POST['Categorie']!= 'categorie') || ($_POST['description'] != 'Saisir ici')){
     include("../view/test.html");
 
   } else {
