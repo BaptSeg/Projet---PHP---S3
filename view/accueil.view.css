@@ -84,11 +84,26 @@ body{
 }
 
 fieldset{
-  margin: 0px;
+  margin-top: 50px;
   border: 0px;
 }
 
 .searchbar{
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  background-image: linear-gradient(#66e0ff, #002699);
+  border-radius: 10px;
+}
+
+.choix{
+  margin: 20px;
+}
+
+input{
+  margin: 19px;
 }
