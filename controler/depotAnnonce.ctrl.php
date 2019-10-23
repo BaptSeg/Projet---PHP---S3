@@ -6,10 +6,12 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $categorie = $bdd->getCategorie();
+  $categorie = $bdd->getAllCategorie();
 if (isset($_POST['depotAnnonce'])) {
 
   if (($_POST['Categorie']!= 'categorie')){
+
+
     include("../view/test.html");
 
   } else {

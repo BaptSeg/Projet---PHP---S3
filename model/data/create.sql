@@ -22,7 +22,7 @@ CREATE TABLE Annonce(
   utilisateur INTEGER,
   intitule VARCHAR(255),
   prix FLOAT,
-  description VARCHAR(255),
+  description VARCHAR(500),
   date_publication DATE,
   date_suppression DATE,
   ville VARCHAR(255),
