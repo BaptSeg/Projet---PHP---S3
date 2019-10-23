@@ -7,15 +7,14 @@ CREATE TABLE Utilisateur (
   date_inscription DATE
 );
 
-CREATE TABLE Categorie(
-  id INTEGER PRIMARY KEY,
-  categorie VARCHAR(255),
-);
-
 CREATE TABLE Localisation(
   region VARCHAR(255),
   departement VARCHAR(255),
   ville VARCHAR(255) PRIMARY KEY
+);
+CREATE TABLE Categorie(
+  id INTEGER PRIMARY KEY,
+  categorie VARCHAR(255)
 );
 
 CREATE TABLE Annonce(
@@ -24,11 +23,10 @@ CREATE TABLE Annonce(
   intitule VARCHAR(255),
   prix FLOAT,
   description VARCHAR(255),
-  date_publication DATE;
-  date_suppression DATE;
+  date_publication DATE,
+  date_suppression DATE,
   ville VARCHAR(255),
   categorie INTEGER,
-  utilisateur INTEGER,
   FOREIGN KEY(ville) REFERENCES Localisation(ville),
   FOREIGN KEY(categorie) REFERENCES Categorie(id),
   FOREIGN KEY(utilisateur) REFERENCES Utilisateur(id)
