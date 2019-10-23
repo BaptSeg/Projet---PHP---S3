@@ -32,15 +32,6 @@ CREATE TABLE Annonce(
   FOREIGN KEY(ville) REFERENCES Localisation(ville),
   FOREIGN KEY(categorie) REFERENCES Categorie(id),
   FOREIGN KEY(utilisateur) REFERENCES Utilisateur(id)
-<<<<<<< HEAD
-);
-
-CREATE TABLE Localisation(
-  region VARCHAR(255),
-  departement VARCHAR(255),
-  ville VARCHAR(255) PRIMARY KEY
-=======
->>>>>>> d6065e16d852d2cb16bba6a99112a6e187d7dded
 );
 
 CREATE TABLE Photos(
