@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $config = parse_ini_file('../config/config.ini');                           // Recupération des données de configuration.
   require_once('../model/DAOClass.class.php');
   require_once('../framework/view.class.php');
@@ -7,11 +8,8 @@
 
   $categorie = $bdd->getCategorie();
 if (isset($_POST['depotAnnonce'])) {
-   var_dump($_POST['Categorie']);
-   var_dump($_POST['Categorie']!= 'categorie');
-   var_dump($_POST['description']);
-   var_dump($_POST['description'] != 'Saisir ici');
-  if (($_POST['Categorie']!= 'categorie') || ($_POST['description'] != 'Saisir ici')){
+
+  if (($_POST['Categorie']!= 'categorie')){
     include("../view/test.html");
 
   } else {
