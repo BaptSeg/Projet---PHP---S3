@@ -7,9 +7,11 @@
   </head>
   <body>
     <h1>Inscription</h1>
-    <?php if(isset($erreur)){
-      echo "<p> $erreur </p>";
-    }?>
+    <?php
+      if (isset($erreur)) {
+        echo "<p> $erreur </p>";
+      }
+    ?>
     <form method="post" action="../controler/inscription.ctrl.php">
        <fieldset>
          <p>

@@ -31,8 +31,6 @@ if (isset($_POST['connexion'])) {
   }
 } else{
   $view = new View('connexion.view.php');
-  $view->erreur = "ok";
-  $view->toto = "toto";
   $view -> show();
 
 }
