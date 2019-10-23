@@ -5,8 +5,8 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $reponse = $bdd->query("SELECT DISTINCT categorie FROM Annonce");
-  $categorie = $reponse->fetchall(PDO::FETCH_ASSOC);
+
+  $categorie = $bdd->getCategorie();
 
   $view = new View('accueil.view.php');
   $view->categorie = $categorie;
