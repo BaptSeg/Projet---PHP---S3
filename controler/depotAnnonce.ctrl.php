@@ -7,7 +7,10 @@
 
   $categorie = $bdd->getCategorie();
 if (isset($_POST['depotAnnonce'])) {
-
+   var_dump($_POST['Categorie']);
+   var_dump($_POST['Categorie']!= 'categorie');
+   var_dump($_POST['description']);
+   var_dump($_POST['description'] != 'Saisir ici');
   if (($_POST['Categorie']!= 'categorie') || ($_POST['description'] != 'Saisir ici')){
     include("../view/test.html");
 
