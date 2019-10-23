@@ -1,10 +1,10 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <title>L'enconure adequate</title>
-  <link rel="stylesheet" href="accueil.view.css">
+  <link rel="stylesheet" href="../view/accueil.view.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,13 +20,13 @@
       </div>
       <div class="navbar">
         <ul>
-          <li>
-            <a href="../view/test.html">
-            <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
-            Deposer une annonce
-            </a>
-          </li>
           <?php if (isset($_SESSION['pseudo'])): ?>
+            <li>
+              <a href="../controler/depotAnnonce.ctrl.php">
+              <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
+              Deposer une annonce
+              </a>
+            </li>
             <li>
               <a href="../view/test.html">
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
@@ -43,7 +43,7 @@
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
               Se connecter
               </a>
-            </li>
+            </li>e6e6e6
             <li>
               <a href="../controler/inscription.ctrl.php">
               <img src="../model/img/icone_inscription.png" alt="icon_inscription" height="30 px" width="30 px"> Créer un compte </a>
@@ -59,6 +59,16 @@
     <fieldset>
       <p>
         <div class="searchbar">
+
+          <p> Rechercher une encoignure </p>
+          <div class="choix">
+            <select name="Categorie" id="Categorie">
+              <option value="" selected>Categore6e6e6ie</option>
+              <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
+                  echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+                }?>
+            </select>
+          </div>
 
           <div class="txtrech">
             <p> Rechercher une encoignure </p>
@@ -94,7 +104,7 @@
                   <option value="Occitanie">Occitanie</option>
                   <option value="Pays de la Loire">Pays de la Loire</option>
                   <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
-                  <option value="La Réunion">La Réunion</option>
+                  <option value="La Réunion">Lae6e6e6 Réunion</option>
                 </select>
               </div>
 

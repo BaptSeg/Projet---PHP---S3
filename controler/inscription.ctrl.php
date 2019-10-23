@@ -36,7 +36,8 @@ if (isset($_POST['inscription'])) {
   }
 
 } else {
-  include("../view/inscription.view.php");
+  $view = new View('inscription.view.php');
+  $view->show();
 }
 
 ?>
