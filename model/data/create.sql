@@ -20,6 +20,7 @@ CREATE TABLE Localisation(
 
 CREATE TABLE Annonce(
   id INTEGER PRIMARY KEY,
+  utilisateur INTEGER,
   intitule VARCHAR(255),
   prix FLOAT,
   description VARCHAR(255),
