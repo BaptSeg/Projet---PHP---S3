@@ -6,8 +6,12 @@
 
   $bdd = new DAOClass($config['database_path']);
 
+<<<<<<< HEAD
 
   $categorie = $bdd->getAllCategorie();
+=======
+  $categorie = $bdd->getCategorie();
+>>>>>>> b853137773c0733c9e90e9a7ba2be26a1843e4b6
 
   $view = new View('accueil.view.php');
   $view->categorie = $categorie;
