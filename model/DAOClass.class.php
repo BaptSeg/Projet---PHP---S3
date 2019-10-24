@@ -90,7 +90,7 @@
         // mail($destinataire, $sujet, $message, $entete) ;
       ));
     }
-    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie){
+    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourbe l'indice de l'annonce
       //traite pas les ville
       $id_utilsisateur = $this->getIdUtilisateur($pseudo);
 
@@ -102,12 +102,12 @@
       $idAnnonce = $reponse->fetch();
 
       if($idAnnonce['max(id)'] == null){ // si null car aucune annonce
-        $idAnnonce = 1;
+        $idAnnonce['max(id)'] = 1;
       }
 
       $req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
       $req->execute(array(
-        "id" => $idAnnonce,
+        "id" => $idAnnonce['max(id)'],
         "utilisateur" => $id_utilsisateur['id'],
         "intitule" => $intitule,
         "prix" =>$prix,
@@ -117,7 +117,24 @@
         "ville" => null,
         "categorie" => $categorie
       ));
+      var_dump($idAnnonce['max(id)']);
+      return $idAnnonce['max(id)'];
     }
+
+      function photosAnnonce($url,$idAnnonce) {
+        $intIdAnonce = (int) $idAnnonce;
+        $reponse = $this->db->query("SELECT max(id) FROM Photos");                // Récupération de l'ID max de la table Annonce
+        $idPhotos = $reponse->fetch();
+        if($idPhotos['max(id)'] == null){ // si null car aucune annonce
+          $idPhotos['max(id)'] = 1;
+        }
+        $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce ) VALUES(:id,:url,:annonce )");
+        $req->execute(array(
+          "id" => $idPhotos,
+          "url" => $url,
+          "annonce" => $idAnnonce
+        ));
+      }
 
 
   }

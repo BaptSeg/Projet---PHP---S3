@@ -34,7 +34,6 @@ CREATE TABLE Annonce(
 CREATE TABLE Photos(
   id INTEGER PRIMARY KEY,
   url VARCHAR(255),
-  alt  VARCHAR(255),
   annonce INTEGER,
   FOREIGN KEY(annonce) REFERENCES Annonce(id)
 );
