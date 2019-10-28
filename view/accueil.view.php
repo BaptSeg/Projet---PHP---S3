@@ -56,9 +56,8 @@
     </nav>
 
   </header>
-  <form method="post" action="../controler/acceuil.ctrl.php">
+  <form method="post" action="../controler/annonce.ctrl.php">
     <fieldset>
-      <p>
         <div class="searchbar">
 
           <div class="txtrech">
@@ -100,14 +99,14 @@
               </div>
 
               <div class="choix">
-                <input type="range" min="0" max="50" value="10">
+                <input type="number" min="0"  placeholder="prix min">
+                <input type="number" min="0"  placeholder="prix maximum">
               </div>
 
               <input type="submit" value="Rechercher" name="Rechercher" />
             </div>
 
         </div>
-      </p>
     </fieldset>
   </form>
 
