@@ -20,7 +20,7 @@ if (isset($_POST['connexion'])) {
       // echo '<body onLoad="alert(\'Membre non reconnu...\')">';
       // echo '<meta http-equiv="refresh" content="0;URL=../view/accueil.view.php">';
       $view = new View('connexion.view.php');
-      $view->erreur = "Mot de passe incorrect(s) !";
+      $view->erreur = "Mot de passe incorrect !";
       $view->show();
     }
   } else {

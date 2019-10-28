@@ -14,7 +14,6 @@ if (isset($_POST['depotAnnonce'])) {
     $idAnnonce = $bdd->depotAnnonce($_SESSION['pseudo'],$_POST['intitule'],$_POST['prix'],$_POST['description'],null,$_POST['Categorie']);
     $name_file = $_FILES['image']['name'] ;
     $fileExtension = strrchr($name_file,".");
-    var_dump($idAnnonce);
     $url = "../model/img_upload/".$idAnnonce.$fileExtension;
     move_uploaded_file ($name_file,$url);
     $bdd->photosAnnonce($url,$idAnnonce);

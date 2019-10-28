@@ -32,11 +32,11 @@
       </div>
     </nav>
 
-    <?php if (isset($erreur)): ?>
-      <p> <?php echo $erreur ?> </p>
-    <?php endif; ?>
-
     <h2>Connexion</h2>
+
+    <?php if (isset($erreur)): ?>
+        <p class="error_msg"> <?php echo $erreur ?> </p>
+    <?php endif; ?>
 
     <form class="" action="../controler/connexion.ctrl.php" method="post">
       <fieldset>

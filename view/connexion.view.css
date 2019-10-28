@@ -84,6 +84,11 @@ h2 {
   color: #70ABBA;
 }
 
+.error_msg {
+  text-align: center;
+  color: red;
+}
+
 /* ------------- STYLE DE LA ZONE DE CONNEXION  -------------- */
 
 
