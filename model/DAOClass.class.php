@@ -123,20 +123,18 @@
         "ville" => null,
         "categorie" => $categorie
       ));
-      var_dump($idAnnonce['max(id)']);
       return $idAnnonce['max(id)'];
     }
 
       function photosAnnonce($url,$idAnnonce) {
-        $intIdAnonce = (int) $idAnnonce;
         $reponse = $this->db->query("SELECT max(id) FROM Photos");                // Récupération de l'ID max de la table Annonce
         $idPhotos = $reponse->fetch();
-        if($idPhotos['max(id)'] == null){ // si null car aucune annonce
+        if($idPhotos['max(id)'] == null){ // si null car aucune photo
           $idPhotos['max(id)'] = 1;
         }
         echo 'dans photos annonce';
         var_dump($idAnnonce);
-        $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce ) VALUES(:id,:url,:annonce )");
+        $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce) VALUES(:id,:url,:annonce)");
         $req->execute(array(
           "id" => $idPhotos,
           "url" => $url,
