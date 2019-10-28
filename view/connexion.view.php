@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../view/connexion.view.css">
   </head>
   <body>
-
+    <header>
     <nav>
       <div class="logo">
         <a href="../controler/acceuil.ctrl.php">
@@ -31,7 +31,7 @@
         </ul>
       </div>
     </nav>
-
+</header>
     <h2>Connexion</h2>
 
     <?php if (isset($erreur)): ?>
