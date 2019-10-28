@@ -100,11 +100,7 @@
               </div>
 
               <div class="choix">
-                <select name="Prix" id="Prix">
-                  <option value="" selected>Prix</option>
-                  <option value="1-5">1-5</option>
-                  <option value="cat">nul</option>
-                </select>
+                <input type="range" min="0" max="50" value="10">
               </div>
 
               <input type="submit" value="Rechercher" name="Rechercher" />
