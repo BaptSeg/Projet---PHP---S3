@@ -56,7 +56,7 @@
     </nav>
 
   </header>
-  <form method="post" action="../controler/annonce.ctrl.php">
+  <form method="post" action="../controler/RechercheAnnonce.ctrl.php">
     <fieldset>
         <div class="searchbar">
 
