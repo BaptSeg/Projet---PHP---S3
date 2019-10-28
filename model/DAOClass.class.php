@@ -55,9 +55,9 @@
     }
 
     function rechercher($cat, $ville, $prixMin, $prixMax) : array {
-      $reponse = $this->db->query("SELECT a.*, l.region FROM Annonce a, Localisation l WHERE a.ville = l.ville and a.categorie = '$cat' and a.prix >= $prixMin and a.prix <= $prixMax and a.ville = '$ville'");
-      $categorie = $reponse->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
-      return $categorie;
+      $reponse = $this->db->query("SELECT a.*, l.region FROM Annonce a, Localisation l WHERE a.region = l.region and a.categorie = '$cat' and a.prix >= $prixMin and a.prix <= $prixMax and a.ville = '$ville'");
+      $annonces = $reponse->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+      return $annonces;
     }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
