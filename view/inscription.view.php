@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Inscription</title>
-  <link rel="stylesheet" href="../view/inscription.view.css">
+  <link rel="stylesheet" href="../view/css/inscription.view.css">
 </head>
 <body>
   <header>

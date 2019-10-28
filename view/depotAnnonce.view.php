@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Depot annonce</title>
-    <link rel="stylesheet" href="../view/depotAnnonce.view.css">
+    <link rel="stylesheet" href="../view/css/depotAnnonce.view.css">
   </head>
   <body>
     <header>
