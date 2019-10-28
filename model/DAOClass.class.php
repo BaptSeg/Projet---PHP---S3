@@ -142,6 +142,17 @@
         ));
       }
 
+      function recupererAnnonce($id) {
+        $res = $this->db->query("SELECT * FROM Annonce a WHERE a.id=$id");
+        $annonce = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+        return $annonce;
+      }
+
+      function recupererUtilisateur($id) {
+        $res = $this->db->query("SELECT * FROM Utilisateur u WHERE u.id=$id");
+        $utilisateur = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Utilisateur');
+        return $utilisateur;
+      }
 
   }
 
