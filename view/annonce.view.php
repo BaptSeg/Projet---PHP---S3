@@ -54,7 +54,7 @@
       </nav>
 
     </header>
-    <form method="post" action="../controler/acceuil.ctrl.php">
+    <form method="post" action="../controler/annonce.ctrl.php">
       <fieldset>
         <p>
           <div class="searchbar">
@@ -113,22 +113,24 @@
       </fieldset>
     </form>
 
+
 <div class="conteneur">
   <?php
 
+  if ( ($_POST['Categorie']!= 'categorie') && ($_POST['Region']!='Region') ){
 
-  if (($_POST['Categorie']!= 'categorie')){
-    
-    foreach ($annonce as $key => $value):
-      echo"<div class="annonce">";
-      echo"  <img src="" alt=""> ";
+    foreach ($resAnnonce as $key => $value):
+      echo"<div class=\"annonce\">";
+    //  echo"  <img src="" alt=""> ";
+      echo $cat;
+      echo $reg;
       echo"</div>";
     endforeach;
 
   }
-
-
     ?>
 </div>
+
+
   </body>
 </html>
