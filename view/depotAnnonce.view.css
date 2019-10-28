@@ -109,7 +109,15 @@ input {
   margin-top: 20px;
   padding-left: 50px;
 }
-
+select{
+  width: 300px;
+  height: 33px;
+  margin-top: 20px;
+  padding-left: 50px;
+  background-image: url("../model/img/icone_categories");
+  background-repeat: no-repeat;
+  background-size: 33px;
+}
 textarea {
   background-image: url("../model/img/icone_ecrire");
   background-size: 33px;
