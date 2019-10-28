@@ -1,3 +1,0 @@
-1|jeremibougon|arthur|jeremi@bougon.com|TRUE|01/10/2019
-2|baptlebapt|john|bapt@lebapt.com|TRUE|02/10/2019
-3|kikishelby|tommy|kiki@shelby.com|TRUE|03/10/2019

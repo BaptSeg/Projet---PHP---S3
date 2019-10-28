@@ -15,7 +15,7 @@ if (isset($_POST['depotAnnonce'])) {
     $name_file = $_FILES['image']['name'] ;
     $fileExtension = strrchr($name_file,".");
     var_dump($idAnnonce);
-    $url = "../model/img_uplod/".$idAnnonce.$fileExtension;
+    $url = "../model/img_upload/".$idAnnonce.$fileExtension;
     move_uploaded_file ($name_file,$url);
     $bdd->photosAnnonce($url,$idAnnonce);
     include("../view/test.html");

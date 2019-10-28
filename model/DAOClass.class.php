@@ -54,6 +54,12 @@
       return $categorie;
     }
 
+    function rechercher($cat, $ville, $prixMin, $prixMax) : array {
+      $reponse = $this->db->query("SELECT a.*, l.region FROM Annonce a, Localisation l WHERE a.ville = l.ville and a.categorie = '$cat' and a.prix >= $prixMin and a.prix <= $prixMax and a.ville = '$ville'");
+      $categorie = $reponse->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+      return $categorie;
+    }
+
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
       $pseudo = strtolower($pseudo);
