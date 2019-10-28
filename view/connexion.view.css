@@ -78,6 +78,12 @@ body {
   background-color: #F5F8F9;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  color: #70ABBA;
+}
+
 /* ------------- STYLE DE LA ZONE DE CONNEXION  -------------- */
 
 
@@ -86,7 +92,7 @@ fieldset {
   border-radius: 15px;
   width: 200px;
   height: 200px;
-  margin-top: 50px;
+  margin-top: 35px;
   padding-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -109,4 +115,10 @@ input[type=password] {
   background-image: url("../model/img/icone_utilisateur_mdp");
   background-repeat: no-repeat;
   background-size: 40px;
+}
+
+input[type=submit] {
+  padding-left: 0;
+  width: 304px;
+  border-radius: 15px;
 }

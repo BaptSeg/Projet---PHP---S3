@@ -36,11 +36,13 @@
       <p> <?php echo $erreur ?> </p>
     <?php endif; ?>
 
+    <h2>Connexion</h2>
+
     <form class="" action="../controler/connexion.ctrl.php" method="post">
       <fieldset>
         <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required> <br>
         <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required> <br>
-        <input type="submit" value="connexion" name="connexion" />
+        <input type="submit" value="Connexion" name="connexion" />
       </fieldset>
     </form>
 
