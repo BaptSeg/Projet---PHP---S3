@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>L'enconure adequate</title>
-  <link rel="stylesheet" href="../view/accueil.view.css">
+  <link rel="stylesheet" href="../view/css/accueil.view.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>

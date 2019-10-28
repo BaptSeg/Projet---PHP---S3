@@ -22,7 +22,7 @@ if (isset($_POST['depotAnnonce'])) {
   } else {
     $view = new View('depotAnnonce.view.php');
     $view->categorie = $categorie;
-    $view->erreur = "il faut remplire tout les parametres";
+    $view->erreur = "il faut remplire tout les parametres ! ";
     $view->show();
   }
 
