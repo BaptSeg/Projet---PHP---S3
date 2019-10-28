@@ -114,12 +114,12 @@ select{
   height: 33px;
   margin-top: 20px;
   padding-left: 50px;
-  background-image: url("../model/img/icone_categories");
+  background-image: url("../../model/img/icone_categories");
   background-repeat: no-repeat;
   background-size: 33px;
 }
 textarea {
-  background-image: url("../model/img/icone_ecrire");
+  background-image: url("../../model/img/icone_ecrire");
   background-size: 33px;
   background-repeat: no-repeat;
   width: 250px;
@@ -129,17 +129,17 @@ textarea {
 }
 
 input[type=text] {
-  background-image: url("../model/img/icone_ecrire");
+  background-image: url("../../model/img/icone_ecrire");
   background-repeat: no-repeat;
   background-size: 33px;
 }
 input[type=file] {
-  background-image: url("../model/img/icone_image");
+  background-image: url("../../model/img/icone_image");
   background-repeat: no-repeat;
   background-size: 33px;
 }
 input[type=number] {
-  background-image: url("../model/img/icone_euro");
+  background-image: url("../../model/img/icone_euro");
   background-repeat: no-repeat;
   background-size: 33px;
 }

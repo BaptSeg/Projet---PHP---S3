@@ -35,7 +35,7 @@
         </header>
     <h2>Deposer une annonce</h2>
     <?php if (isset($erreur)): ?>
-      <p><?= $erreur ?></p>
+      <p class="error_msg"><?= $erreur ?></p>
     <?php endif; ?>
     <form method="post" action="../controler/depotAnnonce.ctrl.php" enctype="multipart/form-data">
        <fieldset>

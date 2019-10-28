@@ -23,17 +23,17 @@ if (isset($_POST['inscription'])) {
 
   } elseif (!empty($pseudo)) {
     $view = new View('inscription.view.php');
-    $view->erreur = "Votre pseudo est deja utilisé";
+    $view->erreur = "Votre pseudo est deja utilisé ! ";
     $view->show();
 
   } elseif (!empty($email)) {
     $view = new View('inscription.view.php');
-    $view->erreur = "Cette adresse mail est deja associer a un compte";
+    $view->erreur = "Cette adresse mail est deja associer a un compte !";
     $view->show();
 
   } elseif ($_POST['mdp1']!=$_POST['mdp2']) {
     $view = new View('inscription.view.php');
-    $view->erreur = "Les deux mots de passe ne sont pas identique";
+    $view->erreur = "Les deux mots de passe ne sont pas identique !";
     $view->show();
 
   }
