@@ -1,20 +1,91 @@
+/* ------------- STYLE DE LA NAVBAR -------------- */
+
+nav{
+  padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  /* background-image: linear-gradient(#663300, #cc6600); */
+  background-color: white;
+  color : #70ABBA;
+  font-weight: bold;
+  display: flex;
+	flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo img{
+  margin: 5px;
+  margin-top: 5px;
+}
+
+.titre p{
+  margin: 0px;
+}
+
+h1{
+  font-size: 30px;
+  margin: 0px;
+  margin-top: 0px;
+}
+
+ul{
+  display: flex;
+	flex-direction: row;
+  justify-content: space-around;
+}
+
+ul li{
+  list-style-type:none;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+ul li a{
+  	text-decoration:none;
+    color : #70ABBA;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px;
+    margin-left: -1px; /* pour enlever la double bordure*/
+  }
+
+li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo{
+  display: flex;
+	flex-direction: row;
+  align-content: flex-start;
+  padding-top: 5px;
+  margin-left: 10%;
+}
+
+.navbar{
+  align-content: flex-end;
+  margin-right: 10%;
+}
+
+
+/* ---------------------------------- */
+
 body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0px;
   background-color: #F5F8F9;
 }
 
-h1 {
-  text-align: center;
-  color: #70ABBA;
-}
+/* ------------- STYLE DE LA ZONE DE CONNEXION  -------------- */
+
 
 fieldset {
   border-color: #70ABBA;
   border-radius: 15px;
-  width: 300px;
+  width: 200px;
   height: 200px;
-}
-
-fieldset {
   margin-top: 50px;
   padding-top: 30px;
   margin-left: auto;
@@ -22,7 +93,20 @@ fieldset {
 }
 
 input {
-  width: 200px;
+  width: 250px;
+  height: 33px;
   margin-top: 20px;
-  margin-left: 10px;
+  padding-left: 50px;
+}
+
+input[type=text] {
+  background-image: url("../model/img/icone_utilisateur_connexion");
+  background-repeat: no-repeat;
+  background-size: 42px;
+}
+
+input[type=password] {
+  background-image: url("../model/img/icone_utilisateur_mdp");
+  background-repeat: no-repeat;
+  background-size: 40px;
 }
