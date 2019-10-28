@@ -134,6 +134,8 @@
         if($idPhotos['max(id)'] == null){ // si null car aucune annonce
           $idPhotos['max(id)'] = 1;
         }
+        echo 'dans photos annonce';
+        var_dump($idAnnonce);
         $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce ) VALUES(:id,:url,:annonce )");
         $req->execute(array(
           "id" => $idPhotos,

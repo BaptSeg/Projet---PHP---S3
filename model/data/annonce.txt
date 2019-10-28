@@ -1,3 +1,3 @@
-1|1|Une encoignure quelconque ayant peu servi|15|Elle est en bon état|15/10/2019|15/02/2020|Grenoble|Vetement
-2|2|Une encoignure quelconque ayant pas mal servi|12.50|Elle est en moyen état|16/10/2019|16/02/2020|Lyon|Décoration
-3|3|Une encoignure quelconque ayant beaucoup servi|10|Elle est en moyen état|17/09/2019|16/02/2020|Decazeville|Maison
+2|7|Une encoignure quelconque ayant peu servi|15|Elle est en bon état|15/10/2019|15/02/2020|Grenoble|Vetement
+3|5|Une encoignure quelconque ayant pas mal servi|12.50|Elle est en moyen état|16/10/2019|16/02/2020|Lyon|Décoration
+4|6|Une encoignure quelconque ayant beaucoup servi|10|Elle est en moyen état|17/09/2019|16/02/2020|Decazeville|Maison
