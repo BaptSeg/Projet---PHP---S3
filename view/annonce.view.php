@@ -112,12 +112,23 @@
         </p>
       </fieldset>
     </form>
+
 <div class="conteneur">
-  <?php foreach ($annonce as $key => $value): ?>
-    <div class="annonce">
-      <img src="" alt="">
-    </div>
-  <?php endforeach; ?>
+  <?php
+
+
+  if (($_POST['Categorie']!= 'categorie')){
+    
+    foreach ($annonce as $key => $value):
+      echo"<div class="annonce">";
+      echo"  <img src="" alt=""> ";
+      echo"</div>";
+    endforeach;
+
+  }
+
+
+    ?>
 </div>
   </body>
 </html>
