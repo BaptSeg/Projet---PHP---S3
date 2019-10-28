@@ -59,6 +59,11 @@
       $annonces = $reponse->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
       return $annonces;
     }
+    function getUrl($idAnnonce) : string {
+      $reponse = $this->db->query("SELECT url FROM Photos WHERE annonce = '$idAnnonce'");
+      $result = $reponse->fetch(PDO::FETCH_ASSOC);
+      return $result;
+    }
 
     function crea_utilisateur($pseudo, $mdp, $email) {
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe

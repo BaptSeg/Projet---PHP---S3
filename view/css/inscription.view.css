@@ -94,7 +94,7 @@ fieldset {
   border-color: #70ABBA;
   border-radius: 15px;
   width: 200px;
-  height: 350px;
+  height: auto;
   margin-top: 35px;
   padding-top: 30px;
   margin-left: auto;

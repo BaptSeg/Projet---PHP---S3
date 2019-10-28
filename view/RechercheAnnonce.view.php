@@ -54,7 +54,7 @@
       </nav>
 
     </header>
-    <form method="post" action="../controler/annonce.ctrl.php">
+    <form method="post" action="../controler/RechercheAnnonce.ctrl.php">
       <fieldset>
         <p>
           <div class="searchbar">
@@ -98,11 +98,8 @@
                 </div>
 
                 <div class="choix">
-                  <select name="Prix" id="Prix">
-                    <option value="" selected>Prix</option>
-                    <option value="1-5">1-5</option>
-                    <option value="cat">nul</option>
-                  </select>
+                  <input id="prixMin" type="number" min="0" name="prixMin" placeholder="prix min">
+                  <input id="prixMax" type="number" min="0" name="prixMax" placeholder="prix maximum">
                 </div>
 
                 <input type="submit" value="Rechercher" name="Rechercher" />
@@ -115,20 +112,15 @@
 
 
 <div class="conteneur">
-  <?php
+  <?php foreach ($resAnnonces as $key => $value): ?>
+    <div class="annonce">
+      <a href="../controler/annonce.ctrl.php?$idAnnonce=<?=$value['id']?>">
+      <img src="<?= $image[$value['id']]?>" alt="<?= $image[$value['id']]?>">
+      <p><?=$value['intitule']?></p>
+      </a>
+    </div>
 
-  if ( ($_POST['Categorie']!= 'categorie') && ($_POST['Region']!='Region') ){
-
-    foreach ($resAnnonce as $key => $value):
-      echo"<div class=\"annonce\">";
-    //  echo"  <img src="" alt=""> ";
-      echo $cat;
-      echo $reg;
-      echo"</div>";
-    endforeach;
-
-  }
-    ?>
+  <?php endforeach; ?>
 </div>
 
 

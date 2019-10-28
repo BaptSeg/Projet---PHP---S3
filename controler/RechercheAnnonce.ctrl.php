@@ -6,11 +6,21 @@
 
   $bdd = new DAOClass($config['database_path']);
 
+if (isset($_POST['Rechercher'])) {
+  $resAnnonces = $bdd->rechercher($_POST['Categorie'], $_POST['Region'], $_POST['prixMin'],  $_POST['prixMax']);
+$image = array;
+for ($i=0; $i <sizeof($resAnnonces) ; $i++) {
+  $image[$resAnnonces[$i]['id']] = getUrl($resAnnonces[$i]['id'])
+}
 
-  $resAnnonces = $bdd->rechercher($_POST['Categorie'], $_POST['Region'], 0, 20);
 
   $view = new View('annonce.view.php');
   $view->resAnnonces = $resAnnonces;
+  $view->image = $image
   $view->show();
+}
+
+
+
 
 ?>

@@ -99,8 +99,8 @@
               </div>
 
               <div class="choix">
-                <input type="number" min="0"  placeholder="prix min">
-                <input type="number" min="0"  placeholder="prix maximum">
+                <input id="prixMin" type="number" min="0" name="prixMin" placeholder="prix min">
+                <input id="prixMax" type="number" min="0" name="prixMax" placeholder="prix maximum">
               </div>
 
               <input type="submit" value="Rechercher" name="Rechercher" />
