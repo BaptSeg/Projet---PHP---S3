@@ -11,7 +11,9 @@
 
     <nav>
       <div class="logo">
-        <img src="../model/img/L'encoignure_adequate" alt="logo" height="55 px" width="55 px">
+        <a href="../controler/acceuil.ctrl.php">
+          <img src="../model/img/L'encoignure_adequate.png" alt="logo" height="55 px" width="55 px">
+        </a>
         <div class="titre">
           <h1>L'encoignure adéquate</h1>
           <p>Le site pour trouver la parfaite encoignure sans contentieux</p>
@@ -60,7 +62,7 @@
         <div class="searchbar">
 
           <div class="txtrech">
-            <p> Rechercher une encoignure </p>
+            <p> Rechercher une annonce </p>
           </div>
 
           <div class="soussearchbar">
