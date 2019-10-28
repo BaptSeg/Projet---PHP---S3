@@ -1,0 +1,2 @@
+1|NULL|Une encoignure quelconque ayant peu servi|15.50|Elle est en bon état|15/10/2019|15/02/2020|NULL|NULL
+2|NULL|Une encoignure quelconque ayant pas mal servi|12.50|Elle est en moyen état|16/10/2019|16/02/2020|NULL|NULL
