@@ -6,11 +6,12 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-
   $categorie = $bdd->getAllCategorie();
+  $region = $bdd->getAllRegions();
 
   $view = new View('accueil.view.php');
   $view->categorie = $categorie;
+  $view->region = $region;
   $view->show();
 
 ?>

@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>L'enconure adequate</title>
-    <link rel="stylesheet" href="../view/css/rechercheAnnonce.css">
   </head>
   <body>
     <header>
@@ -38,12 +37,6 @@
                 <img src="../model/img/icone_deconnexion.png" alt="icon_inscription" height="30 px" width="30 px"> Se déconnecter </a>
               </li>
             <?php else: ?>
-              <li>
-                <a href="../controler/connexion.ctrl.php">
-                <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
-                Deposer une annonce
-                </a>
-              </li>
               <li>
                 <a href="../controler/connexion.ctrl.php">
                 <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
@@ -105,16 +98,19 @@
       </fieldset>
     </form>
 
-    <?php if (!empty($annonce)): ?>
-      <div class="resultat">
-        <p>Voici les annonces obtenues</p>
-      </div>
 
-      
-    <?php endif; ?>
+<div class="conteneur">
+  <?php foreach ($resAnnonces as $key => $value): ?>
+    <div class="annonce">
+      <a href="../controler/annonce.ctrl.php?$idAnnonce=<?=$value['id']?>">
+      <img src="<?= $image[$value['id']]?>" alt="<?= $image[$value['id']]?>">
+      <p><?=$value['intitule']?></p>
+      </a>
+    </div>
 
+  <?php endforeach; ?>
+</div>
 
-    <?php var_dump($annonce); ?>
 
   </body>
 </html>

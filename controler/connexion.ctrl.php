@@ -15,6 +15,10 @@ if (isset($_POST['connexion'])) {
       // on redirige notre visiteur vers une page de notre section membre
       $view = new View('accueil.view.php');
       $view->confirm = "Connexion reussi.";
+      $categorie = $bdd->getAllCategorie();
+      $region = $bdd->getAllRegions();
+      $view->categorie = $categorie;
+      $view->region = $region;
       $view->show();
     } else {
       // echo '<body onLoad="alert(\'Membre non reconnu...\')">';

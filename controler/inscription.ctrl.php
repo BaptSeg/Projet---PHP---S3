@@ -13,7 +13,7 @@ if (isset($_POST['inscription'])) {
 
   if ((empty($pseudo)) && (empty($email)) && ($_POST['mdp1']==$_POST['mdp2']) ) {
 
-    $bdd->crea_utilisateur($_POST['pseudo'], $_POST['mdp1'], $_POST['email']);        // Création de l'utilisateur dans la base de données.
+    $bdd->crea_utilisateur($_POST['pseudo'], $_POST['mdp1'], $_POST['email'], $_POST['adresse'], $_POST['tel']);        // Création de l'utilisateur dans la base de données.
     session_start();
     $_SESSION['pseudo'] = $_POST['pseudo'];
     // on redirige notre visiteur vers une page de notre section membre

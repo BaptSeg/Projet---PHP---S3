@@ -29,7 +29,7 @@
               </a>
             </li>
             <li>
-              <a href="../view/test.html">
+              <a href="../controler/profil.ctrl.php">
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
               <?= $_SESSION['pseudo'] ?>
               </a>
@@ -39,6 +39,12 @@
               <img src="../model/img/icone_deconnexion.png" alt="icon_inscription" height="30 px" width="30 px"> Se déconnecter </a>
             </li>
           <?php else: ?>
+            <li>
+              <a href="../controler/connexion.ctrl.php">
+              <img src="../model/img/icone_deposer_annonce.png" alt="icon_deposer_annonce" height="30 px" width="30 px">
+              Deposer une annonce
+              </a>
+            </li>
             <li>
               <a href="../controler/connexion.ctrl.php">
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
@@ -56,6 +62,15 @@
     </nav>
 
   </header>
+
+  <?php if (isset($confirm)): ?>
+    <p class="confirm"> <?php echo $confirm ?></p>
+  <?php endif; ?>
+
+  <?php if (isset($erreur)): ?>
+    <p class="erreur_msg"> <?php echo $erreur ?> </p>
+  <?php endif; ?>
+
   <form method="post" action="../controler/RechercheAnnonce.ctrl.php">
     <fieldset>
         <div class="searchbar">
@@ -66,8 +81,8 @@
 
           <div class="soussearchbar">
             <div class="choix">
-              <select name="Categorie" id="Categorie">
-                <option value="" selected>Categorie</option>
+              <select name="categorie" id="categorie">
+                <option disabled selected>Categorie</option>
                 <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                     echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
                   }?>
@@ -75,35 +90,20 @@
               </div>
 
               <div class="choix">
-                <select name="Region" id="Region">
-                  <option value="" selected>Region</option>
-                  <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-                  <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
-                  <option value="Bretagne">Bretagne</option>
-                  <option value="Centre-Val de Loire">Centre-Val de Loire</option>
-                  <option value="Corse">Corse</option>
-                  <option value="Grand Est">Grand Est</option>
-                  <option value="Guadeloupe">Guadeloupe</option>
-                  <option value="Guyane">Guyane</option>
-                  <option value="Hauts-de-France">Hauts-de-France</option>
-                  <option value="Île-de-France">Île-de-France</option>
-                  <option value="Martinique">Martinique</option>
-                  <option value="Mayotte">Mayotte</option>
-                  <option value="Normandie">Normandie</option>
-                  <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
-                  <option value="Occitanie">Occitanie</option>
-                  <option value="Pays de la Loire">Pays de la Loire</option>
-                  <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
-                  <option value="La Réunion">Lae6e6e6 Réunion</option>
+                <select name="region" id="region">
+                  <option disabled selected>Region</option>
+                  <?php for ($i=0; $i < sizeof($region)-1; $i++){
+                      echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
+                    }?>
                 </select>
               </div>
 
               <div class="choix">
-                <input id="prixMin" type="number" min="0" name="prixMin" placeholder="prix min">
-                <input id="prixMax" type="number" min="0" name="prixMax" placeholder="prix maximum">
+                <input id="prixMin" type="number" min="0" max="10000000" name="prixMin" placeholder="Prix minimum">
+                <input id="prixMax" type="number" min="0" max="10000000" name="prixMax" placeholder="Prix maximum">
               </div>
 
-              <input type="submit" value="Rechercher" name="Rechercher" />
+              <input type="submit" value="rechercher" name="rechercher" />
             </div>
 
         </div>

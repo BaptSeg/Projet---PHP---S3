@@ -3,7 +3,8 @@ CREATE TABLE Utilisateur (
   pseudo VARCHAR(255) UNIQUE,
   mdp VARCHAR(255),
   email VARCHAR(255),
-  email_verif BOOLEAN,
+  adresse VARCHAR(255),
+  telephone VARCHAR(255),
   date_inscription DATE
 );
 

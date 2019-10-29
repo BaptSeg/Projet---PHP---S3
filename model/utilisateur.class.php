@@ -1,11 +1,17 @@
 <?php
+
   class Utilisateur {
-    private $pseudo;// il faut qu'on rajoute nom prenom ou pas dans le formulaire d'inscription ? et telephone ?
+    private $id;
+    private $pseudo;
     private $mdp;
     private $email;
     private $adresse;
     private $telephone;
+    private $date_inscription;
 
+    function getId() {
+      return (int) $this->id;
+    }
     function getPseudo() : string {
       return $this->pseudo;
     }
@@ -15,11 +21,14 @@
     function getEmail() : string {
       return $this->email;
     }
-    function getAdresse() : string {
+    function getAdresse() : ?string {
       return $this->adresse;
     }
-    function getTelephone() : string {
+    function getTelephone() : ?string {
       return $this->telephone;
+    }
+    function getDate_Inscription() : string {
+      return $this->date_inscription;
     }
 
   }

@@ -1,3 +1,9 @@
 Auvergne-Rhônes-Alpes|Isère|Grenoble
 Auvergne-Rhônes-Alpes|Rhônes|Lyon
 Midi-Pyrénées|Aveyron|Decazeville
+Bourgogne-Franche-Comté|Côte-d'Or|Dijon
+Île-de-France|Paris|Paris
+Nouvelle-Aquitaine|Gironde|Bordeaux
+Occitanie|Hérault|Montpellier
+Pays de la Loire|Loire-Atlantique|Nantes
+Provence-Alpes-Côte d'Azur|Bouches-du-Rhône|Marseille

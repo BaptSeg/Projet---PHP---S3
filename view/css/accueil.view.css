@@ -77,11 +77,25 @@ img{
 
 /* --------------------------------------- */
 
-
 body{
   font-family: 'Nunito', sans-serif;
   margin: 0px;
   background-color: #F5F8F9;
+}
+
+.confirm {
+  margin-top: 50px;
+  margin-bottom: 0;
+  text-align: center;
+  color: green;
+  font-size: 1.5em;
+}
+
+.erreur_msg {
+  margin-top: 50px;
+  margin-bottom: 0;
+  text-align: center;
+  color: red;
 }
 
 /* ------------- STYLE DE LA ZONE DE RECHERCHE -------------- */

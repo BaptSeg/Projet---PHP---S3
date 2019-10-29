@@ -26,6 +26,7 @@ h1{
   font-size: 30px;
   margin: 0px;
   margin-top: 0px;
+
 }
 
 ul{
@@ -56,6 +57,10 @@ li{
   justify-content: center;
 }
 
+img{
+  margin: 2px;
+}
+
 .logo{
   display: flex;
 	flex-direction: row;
@@ -70,71 +75,77 @@ li{
 }
 
 
-/* ---------------------------------- */
+/* --------------------------------------- */
 
-body {
+body{
   font-family: 'Nunito', sans-serif;
   margin: 0px;
   background-color: #F5F8F9;
 }
 
-h2 {
-  text-align: center;
+.erreur_msg {
   margin-top: 50px;
-  color: #70ABBA;
-}
-
-.error_msg {
+  margin-bottom: 0;
   text-align: center;
   color: red;
 }
 
-/* ------------- STYLE DE LA ZONE DE CONNEXION  -------------- */
+/* ------------- STYLE DE LA ZONE DE RECHERCHE -------------- */
 
 
-fieldset {
-  border-color: #70ABBA;
-  border-radius: 15px;
-  width: 200px;
-  height: 200px;
-  margin-top: 35px;
-  padding-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 250px;
-  height: 33px;
+fieldset{
   margin-top: 20px;
-  padding-left: 50px;
+  border: 0px;
 }
 
-input[type=text] {
-  background-image: url("../../model/img/icone_utilisateur_connexion");
-  background-repeat: no-repeat;
-  background-size: 42px;
+.searchbar{
+  color: white;
+  /* background-image: linear-gradient(#002699, #003d99); */
+  border-style: solid;
+  border-color: #70ABBA;
+  border-radius: 30px;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-input[type=password] {
-  background-image: url("../../model/img/icone_utilisateur_mdp");
-  background-repeat: no-repeat;
-  background-size: 40px;
+.txtrech{
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  color : #70ABBA;
 }
 
-input[type=submit] {
-  padding-left: 0;
-  width: 304px;
-  border-radius: 15px;
+.txtrech p {
+  margin: 0px;
 }
 
-/* ------------- MESSAGE INFO CREATION DE COMPTE  -------------- */
+select{
+  border-radius: 10px;
+}
 
-.info {
-  margin:0px auto;
-  width:300px;
-  display:block;
-  text-decoration: none;
-  color: #70ABBA;
+.soussearchbar{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.choix{
+  margin: 10px;
+}
+
+input{
+  margin: 10px;
+}
+
+/* ------------- STYLE DE LA ZONE RESULTAT -------------- */
+
+.resultat p{
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 5px;
 }

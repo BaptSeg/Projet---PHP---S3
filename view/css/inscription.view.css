@@ -101,20 +101,43 @@ fieldset {
   margin-right: auto;
 }
 
-input {
+/* input {
   width: 250px;
   height: 33px;
   margin-top: 20px;
   padding-left: 50px;
-}
+} */
 
-input[type=text] {
+/* input[type=text] {
   background-image: url("../../model/img/icone_utilisateur_connexion");
   background-repeat: no-repeat;
   background-size: 42px;
+} */
+
+input {
+  height: 30px;
+  padding-left: 10px;
+  width : 200px;
 }
 
-input[type=password] {
+input[type=submit] {
+  width : 257px;
+}
+
+.login, .mdp, .email, .tel, .adresse {
+  width: 42px;
+  height: 34px;
+  border: 1px solid #7e7e7e;
+  border-right: 0px;
+}
+
+tr {
+  padding-bottom: 20px;
+}
+
+
+
+/* input[type=password] {
   background-image: url("../../model/img/icone_utilisateur_mdp");
   background-repeat: no-repeat;
   background-size: 40px;
@@ -130,4 +153,13 @@ input[type=submit] {
   padding-left: 0;
   width: 304px;
   border-radius: 15px;
+} */
+
+tr {
+  display: flex;
+}
+
+td {
+  padding: 0px;
+  padding left: -2px;
 }
