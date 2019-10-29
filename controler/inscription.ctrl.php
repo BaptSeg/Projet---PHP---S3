@@ -23,7 +23,7 @@ if (isset($_POST['inscription'])) {
 
   } elseif (!empty($pseudo)) {
     $view = new View('inscription.view.php');
-    $view->erreur = "Votre pseudo est deja utilisé ! ";
+    $view->erreur = "Votre identifiant est deja utilisé ! ";
     $view->show();
 
   } elseif (!empty($email)) {
