@@ -77,6 +77,14 @@
       return $categorie;
     }
 
+/* ------------------------- RECUPERE TOUTE LES VILLES EXISTANTE DANS LA BD ------------------------- */
+
+    function getAllVille() : array {
+      $reponse = $this->db->query("SELECT DISTINCT ville FROM Localisation");
+      $ville = $reponse->fetchall(PDO::FETCH_ASSOC);
+      return $ville;
+    }
+
 /* ------------------------- RECHERCHE TOUT LES ANNONCE CORRESPONDANT AUX PARAMETRES  ------------------------- */
 
     function rechercherAnnonce($cat, $region , $prixMin, $prixMax) : array {
@@ -145,23 +153,23 @@
 
       $dateSupression = date('d/m/o',strtotime('+3 month'));
 
-      $reponse = $this->db->query("SELECT max(id) FROM Annonce");                // Récupération de l'ID max de la table Annonce
+      $reponse = $this->db->query("SELECT max(id) FROM Annonce");               // Récupération de l'ID max de la table Annonce
       $idAnnonce = $reponse->fetch();
 
-      if($idAnnonce['max(id)'] == null){ // si null car aucune annonce
-        $idAnnonce['max(id)'] = 1;
+      if($idAnnonce['max(id)'] == null){                                        // si null car aucune annonce
+        $idAnnonce['max(id)'] = 0;
       }
 
       $req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
       $req->execute(array(
-        "id" => $idAnnonce['max(id)'],
+        "id" => $idAnnonce['max(id)']+1,
         "utilisateur" => $id_utilsisateur['id'],
         "intitule" => $intitule,
         "prix" =>$prix,
         "description" =>$description ,
         "date_publication" => $datePublication,
         "date_suppression" => $dateSupression,
-        "ville" => null,
+        "ville" => $ville,
         "categorie" => $categorie
       ));
       return $idAnnonce['max(id)'];

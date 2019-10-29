@@ -28,36 +28,21 @@
     if (isset($_POST['categorie'])) {
       if (isset($_POST['region'])) {
         if (isset($_POST['prixMin']) && isset($_POST['prixMax'])) {
+          $min = $_POST['prixMin'];
+          $max = $_POST['prixMax'];
+          if ($min < $max) {
+            $annonce = $bdd->rechercherAnnonce($_POST['categorie'], $_POST['region'], $_POST['prixMin'], $_POST['prixMax']);
+            $view = new View('rechercheAnnonce.view.php');
+            /* ----- On envoie les catégorie et les regions pour conserver la barre de recherche ----- */
+            $categorie = $bdd->getAllCategorie();
+            $region = $bdd->getAllRegions();
+            $view->categorie = $categorie;
+            $view->region = $region;
 
-          if ($_POST['prixMin'] == NULL) {
-            $min = -1;
+            $view->annonce = $annonce;
+            $view->show();
           } else {
-            $min = $_POST['prixMin'];
-          }
-
-          if ($_POST['prixMax'] == NULL) {
-            $max = -1;
-          } else {
-            $max = $_POST['prixMax'];
-          }
-
-          if ( ($min != -1) && ($max != -1) ) {
-            if ($min < $max) {
-              $annonce = $bdd->rechercherAnnonce($_POST['categorie'], $_POST['region'], $_POST['prixMin'], $_POST['prixMax']);
-              $view = new View('rechercheAnnonce.view.php');
-              /* ----- On envoie les catégorie et les regions pour conserver la barre de recherche ----- */
-              $categorie = $bdd->getAllCategorie();
-              $region = $bdd->getAllRegions();
-              $view->categorie = $categorie;
-              $view->region = $region;
-
-              $view->annonce = $annonce;
-              $view->show();
-            } else {
-              $erreur = "Veuillez indiquer un prix minimum inférieur au prix maximum.";
-            }
-          } else {
-            $erreur = "Veuillez indiquer un prix minimum et un prix maximum.";
+            $erreur = "Veuillez indiquer un prix minimum inférieur au prix maximum.";
           }
         } else {
           $erreur = "Veuillez indiquer le prix minimum et le prix maximum.";

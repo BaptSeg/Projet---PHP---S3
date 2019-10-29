@@ -34,25 +34,58 @@
           </nav>
         </header>
     <h2>Deposer une annonce</h2>
+
+    <?php if (isset($msg)): ?>
+      <p class="confirm"> <?= $msg ?></p>
+    <?php endif; ?>
+
     <?php if (isset($erreur)): ?>
       <p class="error_msg"><?= $erreur ?></p>
     <?php endif; ?>
+
     <form method="post" action="../controler/depotAnnonce.ctrl.php" enctype="multipart/form-data">
        <fieldset>
-         <p>
-           <input type="text" name="intitule" id="intitule" placeholder="Libellé" required> <br>
-           <select name="Categorie" id="Categorie">
-             <option value="categorie" selected>Categorie</option>
-             <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
-                 echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
-             }?>
-           </select><br>
-           <input type="number" name="prix" min="0" id="prix" placeholder="Prix" required> <br>
-           <textarea id="description" name="description" rows="5" cols="33" maxlength="500" placeholder="Saisir une description" required></textarea><br>
-           <input id="image" type="file" name="image" accept=".jpg,.gif,.tif,.png" > <br>
-           <label for="localisation">Localisation : </label><br>
-           <input type="submit" value="Déposer une annonce" name="depotAnnonce" />
-         </p>
+         <table>
+           <tr>
+             <td><img class="libele" src="../model/img/icone_ecrire.png" alt="Libele"></td>
+             <td><input type="text" name="intitule" id="intitule" placeholder="Libellé" required> <br></td>
+           </tr>
+           <tr>
+             <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
+             <td>
+               <select name="categorie" id="categorie">
+                 <option disabled selected>Categorie</option>
+                 <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
+                     echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+                 }?>
+               </select>
+             </td>
+           </tr>
+           <tr>
+             <td><img class="localisation" src="../model/img/icone_adresse.png" alt="Localisation"></td>
+             <td>
+               <select name="ville" id="ville">
+                 <option disabled selected>Ville</option>
+                 <?php for ($i=0; $i < sizeof($ville)-1; $i++){
+                     echo '<option value="'.$ville[$i]['ville'].'">'.$ville[$i]['ville'].'</option>';
+                   }?>
+               </select>
+             </td>
+           </tr>
+           <tr>
+             <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
+             <td><input type="number" name="prix" min="0" max="1000000" id="prix" placeholder="Prix" required> <br></td>
+           </tr>
+           <tr>
+             <td><textarea name="description" rows="5" cols="33" maxlength="500" placeholder="Saisir une description" required></textarea><br></td>
+           </tr>
+           <tr>
+             <td><img class="img" src="../model/img/icone_image.png" alt="Image"></td>
+             <td><input id="image" type="file" name="image[]" accept=".jpg,.gif,.tif,.png" multiple> <br></td>
+           </tr>
+         </table>
+
+          <input type="submit" value="Déposer une annonce" name="depotAnnonce" />
        </fieldset>
     </form>
   </body>
