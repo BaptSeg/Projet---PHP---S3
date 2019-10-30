@@ -149,3 +149,8 @@ input{
   font-size: 1.5em;
   margin-top: 5px;
 }
+
+.resultat img{
+  height: 150px;
+  width: 150px;
+}

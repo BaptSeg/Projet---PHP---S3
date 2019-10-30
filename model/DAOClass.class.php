@@ -88,7 +88,10 @@
 /* ------------------------- RECHERCHE TOUT LES ANNONCE CORRESPONDANT AUX PARAMETRES  ------------------------- */
 
     function rechercherAnnonce($cat, $region , $prixMin, $prixMax) : array {
-      $reponse = $this->db->query("SELECT a.* FROM Annonce a, Localisation l WHERE l.region = '$region' and l.ville = a.ville and a.categorie = '$cat' and a.prix >= $prixMin and a.prix <= $prixMax ");
+      $intPMin = (int) $prixMin;
+      $intPMax = (int) $prixMax;
+
+      $reponse = $this->db->query("SELECT a.* FROM Annonce a, Localisation l WHERE l.region = '$region' and l.ville = a.ville and a.categorie = '$cat' and a.prix >= $intPMin and a.prix <= $intPMax ");
       $annonces = $reponse->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
       return $annonces;
     }
@@ -232,5 +235,10 @@
       }
 
   }
-
+  /* ------------------- RECUPERE UNE ANNONCE AVEC SON ID ------------------- */
+      function recupererAnnonceID($id) : Annonce {
+        $res = $this->db->query("SELECT * FROM Annonce WHERE id='$id'");
+        $annonce = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+        return $annonce[0];
+      }
  ?>

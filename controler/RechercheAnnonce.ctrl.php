@@ -32,6 +32,10 @@
           $max = $_POST['prixMax'];
           if ($min < $max) {
             $annonce = $bdd->rechercherAnnonce($_POST['categorie'], $_POST['region'], $_POST['prixMin'], $_POST['prixMax']);
+            foreach ($annonce as $key => $value) {
+              $photos = $bdd->recupererPhotos($value->getId());
+              $les_photos[] = $photos;
+            }
             $view = new View('rechercheAnnonce.view.php');
             /* ----- On envoie les catégorie et les regions pour conserver la barre de recherche ----- */
             $categorie = $bdd->getAllCategorie();
@@ -40,6 +44,10 @@
             $view->region = $region;
 
             $view->annonce = $annonce;
+            if (isset($les_photos)) {
+              $view->les_photos = $les_photos;
+            }
+            
             $view->show();
           } else {
             $erreur = "Veuillez indiquer un prix minimum inférieur au prix maximum.";
