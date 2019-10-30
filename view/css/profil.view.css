@@ -168,6 +168,18 @@ tr {
   width : 400px;
 }
 
+.num_photo {
+  text-align: center;
+  margin: 0;
+  margin-top: 5px;
+  color: #70ABBA;
+  font-weight: bold;
+}
+
+table {
+  margin-top: 10px;
+}
+
 .suiv_pred {
   width: 35px;
 }

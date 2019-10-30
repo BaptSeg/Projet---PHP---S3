@@ -107,6 +107,8 @@
                       </a>
                     <?php endif; ?>
                   </div>
+
+                  <p class="num_photo"><?= ($id_photo+1)."/".count($les_photos[$id_annonces]) ?></p>
                 <?php endif; ?>
 
                 <div class="info_photo">
