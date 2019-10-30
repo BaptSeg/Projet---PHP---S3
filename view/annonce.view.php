@@ -60,28 +60,27 @@
   <div class="Annonce">
 
     <div class="Infos">
-      <?php echo $annonce->intitule;
-            echo $annonce->prix;
-            echo $utilisateur->pseudo;
-            echo $annonce->email;
-      ?>
+      <p><?=$annonce->getIntitule() ?></p>
+      <p><?= $annonce->getPrix()?></p>
+      <p><?=$utilisateur->getPseudo() ?></p>
+      <p><?=$utilisateur->getEmail() ?></p>
+
     </div>
 
     <div class="Description">
-      <?php
-        echo $annonce->description;
-      ?>
+      <p><?=$annonce->getDescription() ?></p>
+      
     </div>
 
     <div class="Localisation">
-      <?php
-        echo $annonce->localisation;
-      ?>
+
+      <p><?=$annonce->getVille() ?></p>
+
     </div>
 
     <div class="Suggestions">
       <?php
-        
+
       ?>
     </div>
 
