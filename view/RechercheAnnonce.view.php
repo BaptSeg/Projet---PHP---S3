@@ -108,13 +108,23 @@
     <?php if (!empty($annonce)): ?>
       <div class="resultat">
         <p>Voici les annonces obtenues</p>
+        <?php foreach ($annonce as $key => $value): ?>
+          <div class="annonce">
+            <a href="../controler/annonce.ctrl.php?idAnnoncce=<?= $value->getId() ?>">
+              <img src="<?= $les_photos[$key][1]['url'] ?>" alt="photos">
+              <p><?= $value->getIntitule() ?></p>
+              <p><?= $value->getPrix() ?></p>
+            </a>
+
+          </div>
+        <?php endforeach; ?>
       </div>
-
-
+    <?php else: ?>
+      <div class="resultat">
+        <p>Il n'y as aucune annonce pour cette recherche</p>
+      </div>
     <?php endif; ?>
 
-
-    <?php var_dump($annonce); ?>
 
   </body>
 </html>
