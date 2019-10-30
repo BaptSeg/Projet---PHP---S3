@@ -106,6 +106,7 @@
     </form>
 
     <?php if (!empty($annonce)): ?>
+
       <div class="resultat">
         <p>Voici les annonces obtenues</p>
         <?php foreach ($annonce as $key => $value): ?>
