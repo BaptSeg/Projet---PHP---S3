@@ -215,7 +215,7 @@
         return $annonce;
       }
 
-/* ------------------- RECUPERE UNE LES PHOTOS D'UNE ANNONCE  ------------------- */
+/* ------------------- RECUPERE LES PHOTOS D'UNE ANNONCE  ------------------- */
 
       function recupererPhotos($id_annonce) {
         $res = $this->db->query("SELECT url FROM Photos WHERE annonce=$id_annonce");

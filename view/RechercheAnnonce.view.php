@@ -106,12 +106,10 @@
     </form>
 
     <?php if (!empty($annonce)): ?>
+
       <div class="resultat">
         <p>Voici les annonces obtenues</p>
       </div>
-
-
-    <?php endif; ?>
 
 
     <?php var_dump($annonce); ?>
