@@ -88,22 +88,26 @@
 
                 <h3><?= $annonces[$id_annonces]->getIntitule() ?></h3>
 
-                <div class="une_annonce">
-                  <?php if ($id_photo > 0): ?>
-                    <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo-1 ?>&id_annonces=<?= $id_annonces ?>">
-                      <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
-                    </a>
-                  <?php endif; ?>
+                <?php if (empty($les_photos[$id_annonces])): ?>
+                  <img class="photo" src="../model/img/icone_image_annonce.png" alt="Photos">
+                <?php else: ?>
 
-                  <img class="photo" src="<?= $les_photos[$id_annonces][$id_photo]['url'] ?>" alt="Photos">
+                  <div class="une_annonce">
+                    <?php if ($id_photo > 0): ?>
+                      <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo-1 ?>&id_annonces=<?= $id_annonces ?>">
+                        <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+                      </a>
+                    <?php endif; ?>
 
-                  <?php if ($id_photo < 4): ?>
-                    <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
-                      <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
-                    </a>
-                  <?php endif; ?>
+                    <img class="photo" src="<?= $les_photos[$id_annonces][$id_photo]['url'] ?>" alt="Photos">
 
-                </div>
+                    <?php if ($id_photo < count($les_photos[$id_annonces])-1): ?>
+                      <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
+                        <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+                      </a>
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
 
                 <div class="info_photo">
                   <table>

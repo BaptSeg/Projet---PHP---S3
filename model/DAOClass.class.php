@@ -93,14 +93,6 @@
       return $annonces;
     }
 
-/* ------------------------- ??????? ------------------------- */
-
-    function getUrl($idAnnonce) : string {
-      $reponse = $this->db->query("SELECT url FROM Photos WHERE annonce = '$idAnnonce'");
-      $result = $reponse->fetch(PDO::FETCH_ASSOC);
-      return $result;
-    }
-
 /* ------------------- AJOUTER UN UTILISATEUR A LA BD ------------------- */
 
     function crea_utilisateur($pseudo, $mdp, $email, $adresse, $tel) {
