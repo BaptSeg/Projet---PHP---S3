@@ -24,7 +24,7 @@
                 <img src="../model/img/icone_retour.png" alt="icon_user" height="30 px" width="30 px">Retour à l'acceuil</a>
               </li>
               <li>
-                <a href="../view/test.html">
+                <a href="../controler/profil.ctrl.php">
                 <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
                 <?= $_SESSION['pseudo'] ?>
                 </a>
@@ -81,12 +81,15 @@
            </tr>
            <tr>
              <td><img class="img" src="../model/img/icone_image.png" alt="Image"></td>
-             <td><input id="image" type="file" name="image[]" accept=".jpg,.gif,.tif,.png" multiple> <br></td>
+             <td><input id="image" type="file" name="image[]" accept=".jpg,.gif,.tif,.png" multiple placeholder="cc"> <br></td>
            </tr>
          </table>
 
           <input type="submit" value="Déposer une annonce" name="depotAnnonce" />
        </fieldset>
+
+       <p class="info">Une annonce est limitée a 5 photos, si vous en selectionnez plus, seulement les 5 premières seront conservées. </p>
+
     </form>
   </body>
 </html>

@@ -40,8 +40,17 @@
 
     <form class="" action="../controler/connexion.ctrl.php" method="post">
       <fieldset>
-        <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required> <br>
-        <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required> <br>
+        <table>
+          <tr>
+            <td><img class="login" src="../model/img/icone_utilisateur_connexion.png" alt="Login"></td>
+            <td><input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required></td>
+          </tr>
+          <tr>
+            <td><img class="mdp" src="../model/img/icone_utilisateur_mdp.png" alt="Password"></td>
+            <td><input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required></td>
+          </tr>
+        </table>
+
         <input type="submit" value="Connexion" name="connexion" />
       </fieldset>
     </form>

@@ -94,7 +94,7 @@ h2 {
   color: red;
 }
 
-/* ------------- STYLE DE LA ZONE DE CONNEXION  -------------- */
+/* ------------- STYLE DE LA ZONE DE DEPOT -------------- */
 
 
 fieldset {
@@ -149,38 +149,16 @@ td {
   padding left: -2px;
 }
 
-/* select{
-  width: 300px;
-  height: 33px;
-  margin-top: 20px;
-  padding-left: 50px;
-  background-image: url("../../model/img/icone_categories");
-  background-repeat: no-repeat;
-  background-size: 33px;
-}
-textarea {
-  background-image: url("../../model/img/icone_ecrire");
-  background-size: 33px;
-  background-repeat: no-repeat;
-  width: 250px;
-  height: 75px;
-  margin-top: 20px;
-  padding-left: 50px;
-}
-
-input[type=file] {
-  background-image: url("../../model/img/icone_image");
-  background-repeat: no-repeat;
-  background-size: 33px;
-}
-input[type=number] {
-  background-image: url("../../model/img/icone_euro");
-  background-repeat: no-repeat;
-  background-size: 33px;
-} */
-
 input[type=submit] {
   padding-left: 0;
   width: 304px;
   border-radius: 15px;
+}
+
+/* ------------- STYLE DE LA ZONE INFO -------------- */
+
+.info {
+  text-align: center;
+  font-weight: bold;
+  color: #70ABBA;
 }

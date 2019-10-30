@@ -147,7 +147,7 @@
 
     function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourbe l'indice de l'annonce
       //traite pas les ville
-      $id_utilsisateur = $this->getIdUtilisateur($pseudo);
+      $id_utilisateur = $this->getIdUtilisateur($pseudo);
 
       $datePublication = date('d/m/o');
 
@@ -163,7 +163,7 @@
       $req = $this->db->prepare("INSERT INTO Annonce(id, utilisateur, intitule, prix, description, date_publication, date_suppression, ville, categorie) VALUES(:id, :utilisateur, :intitule, :prix, :description, :date_publication, :date_suppression, :ville, :categorie)");
       $req->execute(array(
         "id" => $idAnnonce['max(id)']+1,
-        "utilisateur" => $id_utilsisateur['id'],
+        "utilisateur" => $id_utilisateur['id'],
         "intitule" => $intitule,
         "prix" =>$prix,
         "description" =>$description ,
@@ -172,34 +172,64 @@
         "ville" => $ville,
         "categorie" => $categorie
       ));
-      return $idAnnonce['max(id)'];
+      return $idAnnonce['max(id)']+1;
     }
+
+/* ------------------- ENREGISTREMENT DES PHOTOS SUITE AU DEPOT D'UNE ANNONCE ------------------- */
+
+      function uploadPhotos($pseudo, $file, $id_annonce) {
+
+        $nb_photos = count($file['name']);
+        if ($nb_photos > 5) {
+          $nb_photos = 5;
+        }
+
+        for ($i = 0; $i<$nb_photos; $i++) {
+          if ($file['error'][$i] <= 0) {
+
+            $reponse = $this->db->query("SELECT max(id) FROM Photos");
+            $id_photos = $reponse->fetch();
+            $id_photos = $id_photos[0];
+            if($id_photos == null){                                        // si null car aucune annonce
+              $id_photos = 1;
+            } else {
+              $id_photos += 1;
+            }
+
+            $url = "../model/data/img_annonce/".$file['name'][$i];
+            move_uploaded_file($file['tmp_name'][$i], $url);
+            $this->photosAnnonce($id_photos, $url, $id_annonce);
+
+          }
+        }
+      }
 
 /* ------------------- AJOUT D'UNE PHOTOS A UNE ANNONCE  ------------------- */
 
-      function photosAnnonce($url,$idAnnonce) {
-        $reponse = $this->db->query("SELECT max(id) FROM Photos");                // Récupération de l'ID max de la table Annonce
-        $idPhotos = $reponse->fetch();
-        if($idPhotos['max(id)'] == null){ // si null car aucune photo
-          $idPhotos['max(id)'] = 1;
-        }
-        echo 'dans photos annonce';
-        var_dump($idAnnonce);
+      function photosAnnonce($id_photos, $url,$idAnnonce) {
         $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce) VALUES(:id,:url,:annonce)");
         $req->execute(array(
-          "id" => $idPhotos,
+          "id" => $id_photos,
           "url" => $url,
           "annonce" => $idAnnonce
         ));
       }
 
-/* ------------------- RECUPERE UNE ANNONCE AVEC SON ID ------------------- */
+/* ------------------- RECUPERE UNE ANNONCE AVEC L'ID DE SON UTILISATEUR  ------------------- */
 
-      // function recupererAnnonce($id) {
-      //   $res = $this->db->query("SELECT * FROM Annonce a WHERE a.id=$id");
-      //   $annonce = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
-      //   return $annonce;
-      // }
+      function recupererAnnonce($id_utilisateur) {
+        $res = $this->db->query("SELECT * FROM Annonce WHERE utilisateur=$id_utilisateur");
+        $annonce = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+        return $annonce;
+      }
+
+/* ------------------- RECUPERE UNE LES PHOTOS D'UNE ANNONCE  ------------------- */
+
+      function recupererPhotos($id_annonce) {
+        $res = $this->db->query("SELECT url FROM Photos WHERE annonce=$id_annonce");
+        $photos = $res->fetchAll();
+        return $photos;
+      }
 
 /* ------------------- RECUPERE UN UTILISATEUR AVEC SON ID ------------------- */
 

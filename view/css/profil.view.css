@@ -79,22 +79,29 @@ body {
 
 /* ------------- STYLE DU PROFIL  -------------- */
 
+/* ----- PARTIE INFORMATIONS ----- */
+
 h2 {
   text-align: center;
   color: #70ABBA;
   margin-top: 50px;
+  margin-bottom: 0px;
   font-size: 2em;
 }
 
 fieldset {
   border-color: #70ABBA;
   border-radius: 15px;
-  width: 400px;
+  width: 450px;
   margin-top: 35px;
   padding-bottom: 35px;
   padding-top: 30px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.info {
+  padding-bottom: 42px;
 }
 
 h3 {
@@ -116,4 +123,56 @@ td {
 
 tr {
   text-align: left;
+}
+
+/* ----- PARTIE ANNONCES ----- */
+
+.defile_annonce {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.defile_annonce_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.num {
+  margin-top: 7px;
+  color: #70ABBA;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 150px;
+  padding-bottom: 100px;
+}
+
+.fieldset_annonce {
+  width: 500px;
+}
+
+.une_annonce {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width : 400px;
+}
+
+.suiv_pred {
+  width: 35px;
+}
+
+.erreur {
+  padding-top: 65px;
+  font-weight: bold;
 }

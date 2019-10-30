@@ -29,32 +29,119 @@
       </nav>
     </header>
 
-    <h2>Voici votre profil <?= $pseudo ?></h2>
+    <div class="container">
+      <div>
+        <h2 class="info">Voici votre profil <?= $pseudo ?></h2>
+        <fieldset>
+          <h3>Vos informations</h3>
+          <table>
+            <tr>
+              <th>Pseudo : </th>
+              <td><?= $pseudo ?></td>
+            </tr>
+            <tr>
+              <th>Adresse mail : </th>
+              <td><?= $email ?></td>
+            </tr>
+            <tr>
+              <th>Adresse : </th>
+              <td><?= $adresse ?></td>
+            </tr>
+            <tr>
+              <th>Telephone : </th>
+              <td><?= $telephone ?></td>
+            </tr>
+            <tr>
+              <th>Date d'inscription : </th>
+              <td><?= $date_inscription ?></td>
+            </tr>
+          </table>
+        </fieldset>
+      </div>
 
-    <fieldset>
-      <h3>Vos informations</h3>
-      <table>
-        <tr>
-          <th>Pseudo : </th>
-          <td><?= $pseudo ?></td>
-        </tr>
-        <tr>
-          <th>Adresse mail : </th>
-          <td><?= $email ?></td>
-        </tr>
-        <tr>
-          <th>Adresse : </th>
-          <td><?= $adresse ?></td>
-        </tr>
-        <tr>
-          <th>Telephone : </th>
-          <td><?= $telephone ?></td>
-        </tr>
-        <tr>
-          <th>Date d'inscription : </th>
-          <td><?= $date_inscription ?></td>
-        </tr>
-      </table>
-    </fieldset>
+      <div class="annonce">
+
+            <?php if (empty($annonces)): ?>
+              <h2>Vos annonces</h2>
+              <p class="erreur">Vous n'avez pas encore déposé d'annonce.</p>
+
+            <?php else: ?>
+
+              <div class="defile_annonce">
+                <h2>Vos annonces</h2>
+                <div class="defile_annonce_2">
+                  <?php if ($id_annonces > 0): ?>
+                    <a class="bouton_pred_titre" href="../controler/profil.ctrl.php?id_photo=0&id_annonces=<?= $id_annonces-1 ?>">
+                      <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+                    </a>
+                  <?php endif; ?>
+                  <p class="num"><?= ($id_annonces+1)."/".count($annonces)  ?></p>
+                  <?php if ($id_annonces < count($annonces)-1): ?>
+                    <a class="bouton_next_titre" href="../controler/profil.ctrl.php?id_photo=0&id_annonces=<?= $id_annonces+1 ?>">
+                      <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+                    </a>
+                  <?php endif; ?>
+                </div>
+              </div>
+
+              <fieldset class="fieldset_annonce">
+
+                <h3><?= $annonces[$id_annonces]->getIntitule() ?></h3>
+
+                <div class="une_annonce">
+                  <?php if ($id_photo > 0): ?>
+                    <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo-1 ?>&id_annonces=<?= $id_annonces ?>">
+                      <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+                    </a>
+                  <?php endif; ?>
+
+                  <img class="photo" src="<?= $les_photos[$id_annonces][$id_photo]['url'] ?>" alt="Photos">
+
+                  <?php if ($id_photo < 4): ?>
+                    <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
+                      <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+                    </a>
+                  <?php endif; ?>
+
+                </div>
+
+                <div class="info_photo">
+                  <table>
+                    <tr>
+                      <th>Description : </th>
+                      <td><?= $annonces[$id_annonces]->getDescription() ?></td>
+                    </tr>
+                    <tr>
+                      <th>Prix : </th>
+                      <td><?= $annonces[$id_annonces]->getPrix()."€" ?></td>
+                    </tr>
+                    <tr>
+                      <th>Date de publication : </th>
+                      <td><?= $annonces[$id_annonces]->getDate_Publication() ?></td>
+                    </tr>
+                    <tr>
+                      <th>Date de suppression : </th>
+                      <td><?= $annonces[$id_annonces]->getDate_Suppression() ?></td>
+                    </tr>
+                    <tr>
+                      <th>Ville : </th>
+                      <td><?= $annonces[$id_annonces]->getVille() ?></td>
+                    </tr>
+                    <tr>
+                      <th>Categorie : </th>
+                      <td><?= $annonces[$id_annonces]->getCategorie() ?></td>
+                    </tr>
+                  </table>
+                </div>
+
+                <?php endif; ?>
+            </fieldset>
+
+
+      </div>
+
+    </div>
+
+
   </body>
 </html>

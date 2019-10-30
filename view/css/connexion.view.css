@@ -106,27 +106,32 @@ fieldset {
 
 input {
   width: 250px;
-  height: 33px;
-  margin-top: 20px;
-  padding-left: 50px;
+  height: 32px;
+  padding: 0px;
+  padding-left: 10px;
 }
 
-input[type=text] {
-  background-image: url("../../model/img/icone_utilisateur_connexion");
-  background-repeat: no-repeat;
-  background-size: 42px;
-}
-
-input[type=password] {
-  background-image: url("../../model/img/icone_utilisateur_mdp");
-  background-repeat: no-repeat;
-  background-size: 40px;
+.login, .mdp {
+  width: 42px;
+  height: 34px;
+  border: 1px solid #7e7e7e;
+  border-right: 0px;
 }
 
 input[type=submit] {
   padding-left: 0;
   width: 304px;
   border-radius: 15px;
+}
+
+tr {
+  padding-bottom: 20px;
+  display: flex;
+}
+
+td {
+  padding: 0px;
+  padding left: -2px;
 }
 
 /* ------------- MESSAGE INFO CREATION DE COMPTE  -------------- */

@@ -18,7 +18,7 @@ if (isset($_POST['inscription'])) {
     $_SESSION['pseudo'] = $_POST['pseudo'];
     // on redirige notre visiteur vers une page de notre section membre
     $view = new View('accueil.view.php');
-    $view->confirm = "Connexion reussi.";
+    $view->confirm = "Inscription reussi.";
     $view->show();
 
   } elseif (!empty($pseudo)) {
