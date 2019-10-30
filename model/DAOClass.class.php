@@ -234,11 +234,13 @@
         return $utilisateur[0];
       }
 
-  }
   /* ------------------- RECUPERE UNE ANNONCE AVEC SON ID ------------------- */
       function recupererAnnonceID($id) : Annonce {
+        $int_id = (int) $id;
         $res = $this->db->query("SELECT * FROM Annonce WHERE id='$id'");
-        $annonce = $res->fetchall(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
+        $annonce = $res->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Annonce');
         return $annonce[0];
       }
+
+}
  ?>

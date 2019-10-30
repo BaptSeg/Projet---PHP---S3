@@ -6,8 +6,8 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $annonce = $bdd->recupererAnnonce(2);
-  $utilisateur = $bdd->recupererUtilisateur($annonce->utilisateur);
+  $annonce = $bdd->recupererAnnonceID($_GET['idAnnoncce']);
+  $utilisateur = $bdd->recupererUtilisateur($annonce->getUtilisateur());
 
   $view = new View('annonce.view.php');
   $view->annonce = $annonce;
