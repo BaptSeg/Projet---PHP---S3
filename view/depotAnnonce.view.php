@@ -74,7 +74,7 @@
            </tr>
            <tr>
              <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
-             <td><input type="number" name="prix" min="0" max="1000000" id="prix" placeholder="Prix" required> <br></td>
+             <td><input type="number" step="0.01" name="prix" min="0" max="10000000" id="prix" placeholder="Prix" required> <br></td>
            </tr>
            <tr>
              <td><textarea name="description" rows="5" cols="33" maxlength="500" placeholder="Saisir une description" required></textarea><br></td>
