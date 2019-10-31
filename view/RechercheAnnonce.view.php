@@ -112,22 +112,37 @@
       <div class="resultat">
         <h2>Voici les annonces obtenues</h2>
 
-        <?php $nb_boucle = ($nb_photo/5); ?>
+        <?php $nb_boucle = (int) ($nb_photo/5); ?>
 
         <?php
           if ($num_annonce == $nb_boucle) {
             $start = $num_annonce*5;
-            $end = ($num_annonce*5)+($nb_photo%5)-1;
+            $end = ($num_annonce*5)+($nb_photo%5);
           } else {
             if ($num_annonce == 0) {
               $start = 0;
-              $end = 4;
+              $end = 5;
             } else {
               $start = $num_annonce*5;
               $end = $end + 5;
             }
           }
         ?>
+
+        <div class="nb_page">
+          <?php if ($num_annonce > 0): ?>
+            <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
+              <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+            <p><?= ($num_annonce+1)."/".($nb_boucle+1) ?></p>
+          <?php if ($num_annonce < $nb_boucle): ?>
+            <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce+1 ?>">
+              <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+
+        </div>
 
         <?php for ($i=$start; $i < $end ; $i++) { ?>
           <fieldset class="fieldset_result">
@@ -142,8 +157,6 @@
                   <img class="photo" src="../model/img/icone_image_annonce_result.png" alt="photos">
                 <?php endif; ?>
               </a>
-
-
               <p><?= $annonces[$i]->getPrix()."€" ?></p>
 
             </div>
@@ -151,15 +164,20 @@
         <?php } ?>
         <br>
 
-        <?php if ($num_annonce != $nb_boucle): ?>
-          <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
-            <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
-          </a>
-          <p></p>
-          <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
-            <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
-          </a>
-        <?php endif; ?>
+        <div class="nb_page">
+          <?php if ($num_annonce > 0): ?>
+            <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
+              <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+            <p><?= ($num_annonce+1)."/".($nb_boucle+1) ?></p>
+          <?php if ($num_annonce < $nb_boucle): ?>
+            <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce+1 ?>">
+              <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+        </div>
+        <br><br>
 
       </div>
 

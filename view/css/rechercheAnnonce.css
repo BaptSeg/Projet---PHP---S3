@@ -158,13 +158,8 @@ input[type=submit] {
   margin-top: 20px;
 }
 
-.resultat img{
-  height: 350px;
-  width: 550px;
-}
-
 .fieldset_result {
-  width: 600px;
+  width: 450px;
 }
 
 h3 {
@@ -176,6 +171,8 @@ h3 {
 }
 
 .photo {
+  height: 200px;
+  width: 400px;
   display: block;
   margin: auto;
 }
@@ -188,4 +185,19 @@ p {
 .annonce {
   display: flex;
   flex-direction: column;
+}
+
+.nb_page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.suiv_pred {
+  width: 35px;
+}
+
+p {
+  margin: 0;
 }
