@@ -29,7 +29,7 @@
               </a>
             </li>
             <li>
-              <a href="../view/test.html">
+              <a href="../controler/profil.ctrl.php">
               <img src="../model/img/icone_utilisateur.png" alt="icon_user" height="30 px" width="30 px">
               <?= $_SESSION['pseudo'] ?>
               </a>
@@ -59,10 +59,10 @@
 
   <div class="Annonce">
 
-    <div class="retour">
+    <div>
       <ul>
-        <li>
-          <a href="../controler/acceuil.ctrl.php">
+        <li class="retour">
+          <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_GET['categorie'] ?>&region=<?= $_GET['region'] ?>&prixMin=<?= $_GET['prixMin'] ?>&prixMax=<?= $_GET['prixMax'] ?>">
           <img src="../model/img/icone_retour.png" alt="icon_user" height="30 px" width="30 px">Retour à l'acceuil
           </a>
         </li>
@@ -73,32 +73,61 @@
       <div class="intitule">
         <h2><?=$annonce->getIntitule() ?></h2>
       </div>
+
+      <div class="photos">
+        <?php if (empty($photos)): ?>
+          <img class="photo" src="../model/img/icone_image_annonce_result.png" alt="Photos">
+        <?php else: ?>
+          <?php if ($id_photo > 0): ?>
+            <a href="../controler/annonce.ctrl.php?idAnnonce=<?= $idAnnonce ?>&id_photo=<?= $id_photo-1 ?>&categorie=<?= $_GET['categorie'] ?>&region=<?= $_GET['region'] ?>&prixMin=<?= $_GET['prixMin'] ?>&prixMax=<?= $_GET['prixMax']?>">
+              <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+
+            <img class="photo" src="<?= $photos[$id_photo]['url'] ?>" alt="Photos">
+
+          <?php if ($id_photo < count($photos)-1): ?>
+            <a href="../controler/annonce.ctrl.php?idAnnonce=<?= $idAnnonce ?>&id_photo=<?= $id_photo+1 ?>&categorie=<?= $_GET['categorie'] ?>&region=<?= $_GET['region'] ?>&prixMin=<?= $_GET['prixMin'] ?>&prixMax=<?= $_GET['prixMax']?>">
+              <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+            </a>
+          <?php endif; ?>
+        <?php endif; ?>
+
+      </div>
+
+      <p class="num_photo"><?= ($id_photo+1)."/".count($photos) ?></p>
+
+      <div class="info_photo">
+        <table>
+          <tr>
+            <th>Deposé par : </th>
+            <td><?= $utilisateur->getPseudo() ?></td>
+          </tr>
+          <tr>
+            <th>Téléphone : </th>
+            <td><?= $utilisateur->getTelephone() ?></td>
+          </tr>
+          <tr>
+            <th>Categorie : </th>
+            <td><?= $annonce->getCategorie() ?></td>
+          </tr>
+          <tr>
+            <th>Ville : </th>
+            <td><?= $annonce->getVille() ?></td>
+          </tr>
+          <tr>
+            <th>Description : </th>
+            <td><?= $annonce->getDescription() ?></td>
+          </tr>
+          <tr>
+            <th>Prix : </th>
+            <td><?= $annonce->getPrix()."€" ?></td>
+          </tr>
+
+        </table>
+      </div>
+
     </fieldset>
-
-
-    <div class="Infos">
-      <p><?= $annonce->getPrix()?></p>
-      <p><?=$utilisateur->getPseudo() ?></p>
-      <p><?=$utilisateur->getEmail() ?></p>
-
-    </div>
-
-    <div class="Description">
-      <p><?=$annonce->getDescription() ?></p>
-
-    </div>
-
-    <div class="Localisation">
-
-      <p><?=$annonce->getVille() ?></p>
-
-    </div>
-
-    <div class="Suggestions">
-      <?php
-
-      ?>
-    </div>
 
   </div>
 

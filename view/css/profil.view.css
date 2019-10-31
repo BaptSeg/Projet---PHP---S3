@@ -154,7 +154,7 @@ tr {
 }
 
 .fieldset_annonce {
-  width: 500px;
+  width: 550px;
 }
 
 .une_annonce {
@@ -178,6 +178,10 @@ tr {
 
 table {
   margin-top: 10px;
+}
+
+th {
+  width: 200px;
 }
 
 .suiv_pred {

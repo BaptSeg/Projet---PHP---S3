@@ -8,12 +8,22 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $annonce = $bdd->recupererAnnonceID($_GET['idAnnoncce']);
+  $annonce = $bdd->recupererAnnonceID($_GET['idAnnonce']);
+  $photos = $bdd->recupererPhotos($annonce->getId());
   $utilisateur = $bdd->recupererUtilisateur($annonce->getUtilisateur());
+
+  if (isset($_GET['id_photo'])) {
+    $id_photo = $_GET['id_photo'];
+  } else {
+    $id_photo = 0;
+  }
 
   $view = new View('annonce.view.php');
   $view->annonce = $annonce;
+  $view->photos = $photos;
   $view->utilisateur = $utilisateur;
+  $view->id_photo = $id_photo;
+  $view->idAnnonce = $_GET['idAnnonce'];
   $view->show();
 
 ?>

@@ -19,6 +19,10 @@ if (isset($_POST['inscription'])) {
     // on redirige notre visiteur vers une page de notre section membre
     $view = new View('accueil.view.php');
     $view->confirm = "Inscription reussi.";
+    $categorie = $bdd->getAllCategorie();
+    $region = $bdd->getAllRegions();
+    $view->categorie = $categorie;
+    $view->region = $region;
     $view->show();
 
   } elseif (!empty($pseudo)) {

@@ -107,31 +107,59 @@
       </fieldset>
     </form>
 
-    <?php if (!empty($annonce)): ?>
+    <?php if (!empty($annonces)): ?>
 
       <div class="resultat">
         <h2>Voici les annonces obtenues</h2>
 
-        <?php foreach ($annonce as $key => $value): ?>
+        <?php $nb_boucle = ($nb_photo/5); ?>
+
+        <?php
+          if ($num_annonce == $nb_boucle) {
+            $start = $num_annonce*5;
+            $end = ($num_annonce*5)+($nb_photo%5)-1;
+          } else {
+            if ($num_annonce == 0) {
+              $start = 0;
+              $end = 4;
+            } else {
+              $start = $num_annonce*5;
+              $end = $end + 5;
+            }
+          }
+        ?>
+
+        <?php for ($i=$start; $i < $end ; $i++) { ?>
           <fieldset class="fieldset_result">
             <div class="annonce">
-              
-              <h3><?= $value->getIntitule() ?></h3>
 
-              <a href="../controler/annonce.ctrl.php?idAnnoncce=<?= $value->getId() ?>">
-                <?php if (!empty($les_photos[$key])): ?>
-                  <img class="photo" src="<?= $les_photos[$key][0]['url'] ?>" alt="photos">
+              <h3><?= $annonces[$i]->getIntitule() ?></h3>
+
+              <a href="../controler/annonce.ctrl.php?idAnnonce=<?= $annonces[$i]->getId() ?>&categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>">
+                <?php if (!empty($les_photos[$i])): ?>
+                  <img class="photo" src="<?= $les_photos[$i][0]['url'] ?>" alt="photos">
                 <?php else: ?>
                   <img class="photo" src="../model/img/icone_image_annonce_result.png" alt="photos">
                 <?php endif; ?>
               </a>
 
 
-              <p><?= $value->getPrix()."€" ?></p>
+              <p><?= $annonces[$i]->getPrix()."€" ?></p>
 
             </div>
           </fieldset>
-        <?php endforeach; ?>
+        <?php } ?>
+        <br>
+
+        <?php if ($num_annonce != $nb_boucle): ?>
+          <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
+            <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
+          </a>
+          <p></p>
+          <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
+            <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
+          </a>
+        <?php endif; ?>
 
       </div>
 
