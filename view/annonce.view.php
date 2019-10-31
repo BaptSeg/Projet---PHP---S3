@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>L'enconure adequate</title>
-  <link rel="stylesheet" href="../view/css/accueil.view.css">
+  <link rel="stylesheet" href="../view/css/annonce.view.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -59,8 +59,24 @@
 
   <div class="Annonce">
 
+    <div class="retour">
+      <ul>
+        <li>
+          <a href="../controler/acceuil.ctrl.php">
+          <img src="../model/img/icone_retour.png" alt="icon_user" height="30 px" width="30 px">Retour à l'acceuil
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <fieldset>
+      <div class="intitule">
+        <h2><?=$annonce->getIntitule() ?></h2>
+      </div>
+    </fieldset>
+
+
     <div class="Infos">
-      <p><?=$annonce->getIntitule() ?></p>
       <p><?= $annonce->getPrix()?></p>
       <p><?=$utilisateur->getPseudo() ?></p>
       <p><?=$utilisateur->getEmail() ?></p>
@@ -69,7 +85,7 @@
 
     <div class="Description">
       <p><?=$annonce->getDescription() ?></p>
-      
+
     </div>
 
     <div class="Localisation">

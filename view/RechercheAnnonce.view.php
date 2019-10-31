@@ -66,63 +66,78 @@
       <p class="erreur_msg"> <?php echo $erreur ?> </p>
     <?php endif; ?>
 
-    <form method="post" action="../controler/RechercheAnnonce.ctrl.php">
+    <form method="post" action="../controler/rechercheAnnonce.ctrl.php">
       <fieldset>
-          <div class="searchbar">
 
-            <div class="txtrech">
-              <p> Rechercher une annonce </p>
-            </div>
+        <h2>Rechercher une annonce</h2>
 
-            <div class="soussearchbar">
-              <div class="choix">
+        <table>
+          <div class="categ/reg">
+            <tr>
+              <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
+              <td>
                 <select name="categorie" id="categorie">
                   <option disabled selected>Categorie</option>
                   <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                       echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+                  }?>
+                </select>
+              </td>
+              <td><img class="region" src="../model/img/icone_adresse.png" alt="Region"></td>
+              <td>
+                <select name="region" id="region">
+                  <option disabled selected>Region</option>
+                  <?php for ($i=0; $i < sizeof($region)-1; $i++){
+                      echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
                     }?>
-                  </select>
-                </div>
-
-                <div class="choix">
-                  <select name="region" id="region">
-                    <option disabled selected>Region</option>
-                    <?php for ($i=0; $i < sizeof($region)-1; $i++){
-                        echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
-                      }?>
-                  </select>
-                </div>
-
-                <div class="choix">
-                  <input id="prixMin" type="number" step="0.01" min="0" max="10000000" name="prixMin" placeholder="Prix minimum" required>
-                  <input id="prixMax" type="number" step="0.01" min="0" max="10000000" name="prixMax" placeholder="Prix maximum" required>
-                </div>
-
-                <input type="submit" value="rechercher" name="rechercher" />
-              </div>
-
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
+              <td><input type="number" step="0.01" name="prixMin" min="0" max="10000000" id="prixMin" placeholder="Prix minimum" required></td>
+              <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
+              <td><input type="number" step="0.01" name="prixMax" min="0" max="10000000" id="prixMax" placeholder="Prix maximum" required></td>
+            </tr>
           </div>
+        </table>
+
+        <input type="submit" name="rechercher" value="Rechercher">
+
       </fieldset>
     </form>
 
     <?php if (!empty($annonce)): ?>
 
       <div class="resultat">
-        <p>Voici les annonces obtenues</p>
-        <?php foreach ($annonce as $key => $value): ?>
-          <div class="annonce">
-            <a href="../controler/annonce.ctrl.php?idAnnoncce=<?= $value->getId() ?>">
-              <img src="<?= $les_photos[$key][1]['url'] ?>" alt="photos">
-              <p><?= $value->getIntitule() ?></p>
-              <p><?= $value->getPrix() ?></p>
-            </a>
+        <h2>Voici les annonces obtenues</h2>
 
-          </div>
+        <?php foreach ($annonce as $key => $value): ?>
+          <fieldset class="fieldset_result">
+            <div class="annonce">
+              
+              <h3><?= $value->getIntitule() ?></h3>
+
+              <a href="../controler/annonce.ctrl.php?idAnnoncce=<?= $value->getId() ?>">
+                <?php if (!empty($les_photos[$key])): ?>
+                  <img class="photo" src="<?= $les_photos[$key][0]['url'] ?>" alt="photos">
+                <?php else: ?>
+                  <img class="photo" src="../model/img/icone_image_annonce_result.png" alt="photos">
+                <?php endif; ?>
+              </a>
+
+
+              <p><?= $value->getPrix()."€" ?></p>
+
+            </div>
+          </fieldset>
         <?php endforeach; ?>
+
       </div>
+
     <?php else: ?>
       <div class="resultat">
-        <p>Il n'y as aucune annonce pour cette recherche</p>
+        <p>Aucune annonce trouvé.</p>
       </div>
     <?php endif; ?>
 

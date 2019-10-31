@@ -47,7 +47,7 @@
             if (isset($les_photos)) {
               $view->les_photos = $les_photos;
             }
-            
+
             $view->show();
           } else {
             $erreur = "Veuillez indiquer un prix minimum inférieur au prix maximum.";

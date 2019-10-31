@@ -71,42 +71,44 @@
     <p class="erreur_msg"> <?php echo $erreur ?> </p>
   <?php endif; ?>
 
-  <form method="post" action="../controler/RechercheAnnonce.ctrl.php">
+  <form method="post" action="../controler/rechercheAnnonce.ctrl.php">
     <fieldset>
-        <div class="searchbar">
 
-          <div class="txtrech">
-            <p> Rechercher une annonce </p>
-          </div>
+      <h2>Rechercher une annonce</h2>
 
-          <div class="soussearchbar">
-            <div class="choix">
+      <table>
+        <div class="categ/reg">
+          <tr>
+            <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
+            <td>
               <select name="categorie" id="categorie">
                 <option disabled selected>Categorie</option>
                 <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                     echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
+                }?>
+              </select>
+            </td>
+            <td><img class="region" src="../model/img/icone_adresse.png" alt="Region"></td>
+            <td>
+              <select name="region" id="region">
+                <option disabled selected>Region</option>
+                <?php for ($i=0; $i < sizeof($region)-1; $i++){
+                    echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
                   }?>
-                </select>
-              </div>
-
-              <div class="choix">
-                <select name="region" id="region">
-                  <option disabled selected>Region</option>
-                  <?php for ($i=0; $i < sizeof($region)-1; $i++){
-                      echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
-                    }?>
-                </select>
-              </div>
-
-              <div class="choix">
-                <input id="prixMin" type="number" min="0" max="10000000" name="prixMin" placeholder="Prix minimum" required>
-                <input id="prixMax" type="number" min="0" max="10000000" name="prixMax" placeholder="Prix maximum" required>
-              </div>
-
-              <input type="submit" value="rechercher" name="rechercher" />
-            </div>
-
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
+            <td><input type="number" step="0.01" name="prixMin" min="0" max="10000000" id="prixMin" placeholder="Prix minimum" required></td>
+            <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
+            <td><input type="number" step="0.01" name="prixMax" min="0" max="10000000" id="prixMax" placeholder="Prix maximum" required></td>
+          </tr>
         </div>
+      </table>
+
+      <input type="submit" name="rechercher" value="Rechercher">
+
     </fieldset>
   </form>
 
