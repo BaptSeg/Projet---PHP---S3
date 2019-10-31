@@ -4,7 +4,7 @@
   require_once('../model/DAOClass.class.php');
   require_once('../framework/view.class.php');
   require_once('../model/Annonce.class.php');
-  require_once('../model/Utilisateur.class.php');  
+  require_once('../model/Utilisateur.class.php');
 
   $bdd = new DAOClass($config['database_path']);
 
