@@ -108,6 +108,10 @@ input {
 
 input[type=submit] {
   width : 257px;
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  background-color: #70ABBA;
 }
 
 .login, .mdp, .email, .tel, .adresse {

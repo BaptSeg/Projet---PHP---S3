@@ -16,7 +16,7 @@ session_destroy ();
 
 // On redirige le visiteur vers la page d'accueil
 $view = new View('accueil.view.php');
-$view->confirm = "Déconnexion reussi.";
+$view->confirm = "Déconnexion reussie.";
 $categorie = $bdd->getAllCategorie();
 $region = $bdd->getAllRegions();
 $view->categorie = $categorie;

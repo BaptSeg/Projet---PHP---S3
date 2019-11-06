@@ -121,7 +121,10 @@ input {
 input[type=submit] {
   padding-left: 0;
   width: 304px;
-  border-radius: 15px;
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  background-color: #70ABBA;
 }
 
 tr {
