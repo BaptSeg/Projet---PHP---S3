@@ -1,5 +1,12 @@
 Moto
 Velo
 Vetement
+DVD-Films
+CD-Musique
+Livres
+Telephone
 Décoration
 Maison
+Bricolage
+Jardinage
+Electroménager
