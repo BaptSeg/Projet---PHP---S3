@@ -147,7 +147,11 @@ td {
 input[type=submit] {
   display: block;
   margin: auto;
-  border-radius: 15px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  background-color: #70ABBA;
 }
 
 /* ------------- STYLE DE LA ZONE RESULTAT -------------- */

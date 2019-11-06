@@ -183,6 +183,7 @@
 
     <?php else: ?>
       <div class="resultat">
+        <br><br>
         <p>Aucune annonce trouvé.</p>
       </div>
     <?php endif; ?>
