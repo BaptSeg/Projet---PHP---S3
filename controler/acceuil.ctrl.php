@@ -13,5 +13,6 @@
   $view->categorie = $categorie;
   $view->region = $region;
   $view->show();
+  
 
 ?>
