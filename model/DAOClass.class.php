@@ -14,11 +14,20 @@
           catch (PDOException $e){
             die("erreur de connexion:".$e->getMessage());
           }
+          $this->tempsEcouleAnnonce();
         }
 
 /* ------------------------------------------------------ */
 /* ------------------ METHODES  ------------------------- */
 /* ------------------------------------------------------ */
+
+/* ------------------------- VERIFIE LES DATES DE CHAQUES ANNONCES ET SUPPRIME CELLE QUI DOIIVENT ETRE SUPPRIME ------------------------- */
+
+  function tempsEcouleAnnonce() {
+    $req = $this->db->prepare("DELETE FROM Annonce WHERE date_suppression=date('d/m/o')");
+    $req->execute();
+  }
+
 
 /* ------------------------- VERIFIE SI LE PSEUDO EXISTE DEJA DANS LA BD ------------------------- */
 
