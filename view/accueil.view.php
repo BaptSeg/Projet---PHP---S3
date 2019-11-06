@@ -100,9 +100,9 @@
           </tr>
           <tr>
             <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
-            <td><input type="number" step="0.01" name="prixMin" min="0" max="10000000" id="prixMin" placeholder="Prix minimum" required></td>
+            <td><input type="number" name="prixMin" min="0" max="10000000" id="prixMin" placeholder="Prix minimum" required></td>
             <td><img class="prix" src="../model/img/icone_euro.png" alt="Prix"></td>
-            <td><input type="number" step="0.01" name="prixMax" min="0" max="10000000" id="prixMax" placeholder="Prix maximum" required></td>
+            <td><input type="number" name="prixMax" min="0" max="10000000" id="prixMax" placeholder="Prix maximum" required></td>
           </tr>
         </div>
       </table>

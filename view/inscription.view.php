@@ -58,7 +58,7 @@
               </tr>
               <tr>
                 <td><img class="tel" src="../model/img/icone_telephone.png" alt="Telephone"></td>
-                <td><input type="tel" name="tel" pattern="[0-9]{10}" placeholder="Téléphone 012345678910"required></td>
+                <td><input type="tel" name="tel" pattern="[0-9]{10}" placeholder="Téléphone 0123456789"required></td>
               </tr>
               <tr>
                 <td><img class="adresse" src="../model/img/icone_adresse.png" alt="Adresse"></td>

@@ -242,5 +242,22 @@
         return $annonce[0];
       }
 
+  /* ------------------- SUPPRIME L'ANNONCE CORRESPONDANT A L'ID ------------------- */
+      function deleteAnnonce($id) {
+        $this->deletePhotos($id);
+        $req = $this->db->prepare("DELETE FROM Annonce WHERE id=$id");
+        $req->execute();
+      }
+
+  /* ------------------- SUPPRIME L'ANNONCE CORRESPONDANT A L'ID ------------------- */
+      function deletePhotos($id) {
+        $photos = $this->recupererPhotos($id);
+        for ($i = 0; $i<sizeof($photos); $i++) {
+          unlink($photos[$i]['url']);
+        }
+        $req = $this->db->prepare("DELETE FROM Photos WHERE annonce=$id");
+        $req->execute();
+      }
+
 }
  ?>

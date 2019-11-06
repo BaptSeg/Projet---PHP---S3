@@ -140,6 +140,10 @@
                   </table>
                 </div>
 
+                <form action="../controler/suppression.ctrl.php?id=<?= $annonces[$id_annonces]->getId() ?>" method="post">
+                  <input type="submit" name="suppression" value="Suppression">
+                </form>
+
                 <?php endif; ?>
             </fieldset>
 
