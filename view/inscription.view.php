@@ -34,9 +34,11 @@
       </header>
       <h2>Inscription</h2>
 
-      <?php if (isset($erreur)): ?>
+      <?php if (isset($erreur)): ?> <!-- Nous permets d'afficher les messages d'erreur -->
         <p class="error_msg"><?= $erreur ?> </p>
       <?php endif; ?>
+
+      <!-- Formulaire de d'inscription-->
       <form method="post" action="../controler/inscription.ctrl.php">
         <fieldset>
             <table>

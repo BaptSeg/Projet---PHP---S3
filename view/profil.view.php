@@ -34,6 +34,7 @@
         <h2 class="info">Voici votre profil <?= $pseudo ?></h2>
         <fieldset>
           <h3>Vos informations</h3>
+          <!-- On affiche les données de l'utilisateur-->
           <table>
             <tr>
               <th>Pseudo : </th>
