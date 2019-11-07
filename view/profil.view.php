@@ -141,7 +141,7 @@
                 </div>
 
                 <form action="../controler/suppression.ctrl.php?id=<?= $annonces[$id_annonces]->getId() ?>" method="post">
-                  <input type="submit" name="suppression" value="Suppression">
+                  <input type="submit" name="suppression" value="Supprimer">
                 </form>
 
                 <?php endif; ?>

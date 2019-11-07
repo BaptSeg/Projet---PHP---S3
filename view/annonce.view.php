@@ -63,7 +63,7 @@
       <ul>
         <li class="retour">
           <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_GET['categorie'] ?>&region=<?= $_GET['region'] ?>&prixMin=<?= $_GET['prixMin'] ?>&prixMax=<?= $_GET['prixMax'] ?>">
-          <img src="../model/img/icone_retour.png" alt="icon_user" height="30 px" width="30 px">Retour à l'acceuil
+          <img src="../model/img/icone_retour.png" alt="icon_user" height="30 px" width="30 px">Retour
           </a>
         </li>
       </ul>

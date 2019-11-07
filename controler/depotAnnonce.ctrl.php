@@ -14,9 +14,7 @@
         $msg = "Votre annonce a bien été deposé. Vous pouvez consulter vos annonces sur votre profil.";
         if (isset($_FILES['image'])) {
           $bdd->uploadPhotos($_SESSION['pseudo'], $_FILES['image'], $id_annonce);
-        } else {
-          $bdd->uploadPhotos($_SESSION['pseudo'], NULL, $id_annonce);
-        }
+        } 
       } else {
         $erreur = "Veuillez renseigner la ville.";
       }
