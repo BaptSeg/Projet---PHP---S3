@@ -115,7 +115,7 @@
         <?php $nb_boucle = (int) ($nb_photo/5); ?>
 
         <?php
-          if ($num_annonce == $nb_boucle) {             // En fonction du nombre d'annonce trouvé, on calcul le nombre de groupe de 5 photos que l'on peut former
+          if ($num_annonce == $nb_boucle) {             // En fonction du nombre d'annonces trouvé, on calcule le nombre de groupes de 5 photos que l'on peut former
             $start = $num_annonce*5;                    // $start et $end vont varier afin d'afficher le bon nombre d'annonce à chaque page.
             $end = ($num_annonce*5)+($nb_photo%5);
           } else {

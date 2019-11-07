@@ -34,10 +34,10 @@
     </header>
     <h2>Connexion</h2>
 
-    <?php if (isset($erreur)): ?> <!-- Nous permets d'afficher les messages d'erreur -->
+    <?php if (isset($erreur)): ?> <!-- Nous permet d'afficher les messages d'erreur -->
         <p class="error_msg"> <?php echo $erreur ?> </p>
     <?php endif; ?>
-    
+
     <!-- Formulaire de connexion-->
     <form class="" action="../controler/connexion.ctrl.php" method="post">
       <fieldset>
