@@ -129,7 +129,7 @@
           }
         ?>
 
-        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une pase à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
+        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une page à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
           <?php if ($num_annonce > 0): ?>
             <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
               <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
@@ -164,7 +164,7 @@
         <?php } ?>
         <br>
 
-        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une pase à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
+        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une page à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
           <?php if ($num_annonce > 0): ?>
             <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
               <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
