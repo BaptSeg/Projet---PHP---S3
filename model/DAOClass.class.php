@@ -14,14 +14,14 @@
           catch (PDOException $e){
             die("erreur de connexion:".$e->getMessage());
           }
-          $this->tempsEcouleAnnonce();
+          $this->tempsEcouleAnnonce();                                        // On verifie la validité de notre base de données à chaque ouverture de celle-ci
     }
 
 /* ------------------------------------------------------ */
 /* ------------------ METHODES  ------------------------- */
 /* ------------------------------------------------------ */
 
-/* ------------------------- VERIFIE LES DATES DE CHAQUES ANNONCES ET SUPPRIME CELLE QUI DOIIVENT ETRE SUPPRIME ------------------------- */
+/* ------------------------- VERIFIE LES DATES DE CHAQUES ANNONCES ET SUPPRIME CELLE QUI DOIVENT ETRE SUPPRIMEES ------------------------- */
 
   function tempsEcouleAnnonce() {
     $req = $this->db->prepare("DELETE FROM Annonce WHERE date_suppression=date('d/m/o')");
@@ -70,7 +70,7 @@
       return $result;
     }
 
-/* ------------------------- RECUPERE TOUTE LES CATEGORIE EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES CATEGORIE EXISTANTES DANS LA BD ------------------------- */
 
     function getAllCategorie() : array {
       $reponse = $this->db->query("SELECT DISTINCT categorie FROM Categorie");
@@ -78,7 +78,7 @@
       return $categorie;
     }
 
-/* ------------------------- RECUPERE TOUTE LES REGIONS EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES REGIONS EXISTANTES DANS LA BD ------------------------- */
 
     function getAllRegions() : array {
       $reponse = $this->db->query("SELECT DISTINCT region FROM Localisation");
@@ -86,7 +86,7 @@
       return $categorie;
     }
 
-/* ------------------------- RECUPERE TOUTE LES VILLES EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES VILLES EXISTANTES DANS LA BD ------------------------- */
 
     function getAllVille() : array {
       $reponse = $this->db->query("SELECT DISTINCT ville FROM Localisation");
@@ -94,7 +94,7 @@
       return $ville;
     }
 
-/* ------------------------- RECHERCHE TOUT LES ANNONCE CORRESPONDANT AUX PARAMETRES  ------------------------- */
+/* ------------------------- RECHERCHE TOUTES LES ANNONCE CORRESPONDANTES AUX PARAMETRES  ------------------------- */
 
     function rechercherAnnonce($cat, $region , $prixMin, $prixMax) : array {
       $intPMin = (int) $prixMin;
@@ -111,7 +111,7 @@
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
       $pseudo = strtolower($pseudo);
       $email = strtolower($email);
-      $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");                // Récupération de l'ID max de la table utilisateur
+      $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");           // Récupération de l'ID max de la table utilisateur
       $max = $reponse->fetch();
 
 
@@ -124,32 +124,32 @@
         "adresse" => $adresse,
         "telephone" => $tel,
         "date_inscription" => date('d/m/o')
-
-        // ENVOIE DE L'EMAIL DE CONFIRMATION
-        // $destinataire = $_POST['email'];
-        // $sujet = "Activer votre compte";
-        // $entete = "From: segeat.b@gmail.com";
-        // $message = 'Bienvenue sur VotreSite,
-        //
-        // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-        // ou copier/coller dans votre navigateur internet. ';
-        //
-        // ../view/verificationMail.php?pseudo='.urlencode($_POST['pseudo']).'&cle='.urlencode($cle).'
-        //
-        //
-        // ---------------
-        // Ceci est un mail automatique, Merci de ne pas y répondre.';
-        //
-        // ini_set('SMTP','smtp.sfr.com');
-        // ini_set('sendmail_from', 'mail@automatique.fr');
-        // mail($destinataire, $sujet, $message, $entete) ;
       ));
+      /* ----- VOICI UNE TRACE DE NOTRE TENTATIVE D'ENVOI DE MAIL SUITE A L'INSCRIPTION (SANS SUCCES) ----- */
+              // ENVOIE DE L'EMAIL DE CONFIRMATION
+              // $destinataire = $_POST['email'];
+              // $sujet = "Activer votre compte";
+              // $entete = "From: segeat.b@gmail.com";
+              // $message = 'Bienvenue sur VotreSite,
+              //
+              // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
+              // ou copier/coller dans votre navigateur internet. ';
+              //
+              // ../view/verificationMail.php?pseudo='.urlencode($_POST['pseudo']).'&cle='.urlencode($cle).'
+              //
+              //
+              // ---------------
+              // Ceci est un mail automatique, Merci de ne pas y répondre.';
+              //
+              // ini_set('SMTP','smtp.sfr.com');
+              // ini_set('sendmail_from', 'mail@automatique.fr');
+              // mail($destinataire, $sujet, $message, $entete) ;
     }
 
 
 /* ------------------- DEPOSER UNE ANNONCE ------------------- */
 
-    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourbe l'indice de l'annonce
+    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourne l'indice de l'annonce
       //traite pas les ville
       $id_utilisateur = $this->getIdUtilisateur($pseudo);
 
@@ -183,7 +183,7 @@
 
       function uploadPhotos($pseudo, $file, $id_annonce) {
 
-        $nb_photos = count($file['name']);
+        $nb_photos = count($file['name']);                                    // On s'assure qu'il n'y pas plus de 5 photos
         if ($nb_photos > 5) {
           $nb_photos = 5;
         }
@@ -208,7 +208,7 @@
         }
       }
 
-/* ------------------- AJOUT D'UNE PHOTOS A UNE ANNONCE  ------------------- */
+/* ------------------- AJOUT D'UNE PHOTO A UNE ANNONCE  ------------------- */
 
       function photosAnnonce($id_photos, $url,$idAnnonce) {
         $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce) VALUES(:id,:url,:annonce)");

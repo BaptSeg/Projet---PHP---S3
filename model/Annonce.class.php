@@ -1,5 +1,5 @@
 <?php
-
+/* --------- DEFINITION DE LA CLASSE ANNONCE --------- */
   class Annonce {
     private $id;
     private $utilisateur;
@@ -10,7 +10,7 @@
     private $date_suppression;
     private $ville;
     private $categorie;
-
+/* --------- GETTEUR --------- */
     function getId() {
       return (integer) $this->id;
     }

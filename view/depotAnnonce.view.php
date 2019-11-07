@@ -35,14 +35,15 @@
         </header>
     <h2>Deposer une annonce</h2>
 
-    <?php if (isset($msg)): ?>
+    <?php if (isset($msg)): ?> <!-- Nous permets d'afficher les messages de confirmation -->
       <p class="confirm"> <?= $msg ?></p>
     <?php endif; ?>
 
-    <?php if (isset($erreur)): ?>
+    <?php if (isset($erreur)): ?> <!-- Nous permets d'afficher les messages d'erreur -->
       <p class="error_msg"><?= $erreur ?></p>
     <?php endif; ?>
 
+    <!-- Formulaire de depot des annonces-->
     <form method="post" action="../controler/depotAnnonce.ctrl.php" enctype="multipart/form-data">
        <fieldset>
          <table>
@@ -54,7 +55,7 @@
              <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
              <td>
                <select name="categorie" id="categorie">
-                 <option disabled selected>Categorie</option>
+                 <option disabled selected>Categorie</option><!-- On rempli l'option avec les données de la base de données -->
                  <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                      echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
                  }?>
@@ -65,7 +66,7 @@
              <td><img class="localisation" src="../model/img/icone_adresse.png" alt="Localisation"></td>
              <td>
                <select name="ville" id="ville">
-                 <option disabled selected>Ville</option>
+                 <option disabled selected>Ville</option><!-- On rempli l'option avec les données de la base de données -->
                  <?php for ($i=0; $i < sizeof($ville)-1; $i++){
                      echo '<option value="'.$ville[$i]['ville'].'">'.$ville[$i]['ville'].'</option>';
                    }?>

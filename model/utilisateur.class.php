@@ -1,5 +1,5 @@
 <?php
-
+/* --------- DEFINITION DE LA CLASSE UTILISATEUR --------- */
   class Utilisateur {
     private $id;
     private $pseudo;
@@ -8,7 +8,7 @@
     private $adresse;
     private $telephone;
     private $date_inscription;
-
+/* --------- GETTEUR --------- */
     function getId() {
       return (int) $this->id;
     }

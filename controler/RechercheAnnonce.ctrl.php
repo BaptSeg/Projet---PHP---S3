@@ -6,7 +6,7 @@
   require_once('../model/Annonce.class.php');
 
   $bdd = new DAOClass($config['database_path']);
-  // Recupere les criteres de recherche lorsque l'on fait retour après la consultations d'une annonce
+  // Recupere les critères de recherche lorsque l'on fait retour après la consultation d'une annonce
   if (isset($_GET['categorie'])) {
     $_POST['categorie'] = $_GET['categorie'];
   }
