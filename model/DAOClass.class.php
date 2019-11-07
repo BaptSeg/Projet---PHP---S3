@@ -14,7 +14,7 @@
           catch (PDOException $e){
             die("erreur de connexion:".$e->getMessage());
           }
-          $this->tempsEcouleAnnonce();
+          $this->tempsEcouleAnnonce();                                        // On verifie la validité de notre base de données à chaque ouverture de celle-ci
     }
 
 /* ------------------------------------------------------ */
@@ -111,7 +111,7 @@
       $pass_hache = password_hash($mdp, PASSWORD_DEFAULT);                      // Hachage du mot de passe
       $pseudo = strtolower($pseudo);
       $email = strtolower($email);
-      $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");                // Récupération de l'ID max de la table utilisateur
+      $reponse = $this->db->query("SELECT max(id) FROM Utilisateur");           // Récupération de l'ID max de la table utilisateur
       $max = $reponse->fetch();
 
 
@@ -124,26 +124,26 @@
         "adresse" => $adresse,
         "telephone" => $tel,
         "date_inscription" => date('d/m/o')
-
-        // ENVOIE DE L'EMAIL DE CONFIRMATION
-        // $destinataire = $_POST['email'];
-        // $sujet = "Activer votre compte";
-        // $entete = "From: segeat.b@gmail.com";
-        // $message = 'Bienvenue sur VotreSite,
-        //
-        // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-        // ou copier/coller dans votre navigateur internet. ';
-        //
-        // ../view/verificationMail.php?pseudo='.urlencode($_POST['pseudo']).'&cle='.urlencode($cle).'
-        //
-        //
-        // ---------------
-        // Ceci est un mail automatique, Merci de ne pas y répondre.';
-        //
-        // ini_set('SMTP','smtp.sfr.com');
-        // ini_set('sendmail_from', 'mail@automatique.fr');
-        // mail($destinataire, $sujet, $message, $entete) ;
       ));
+      /* ----- VOICI UNE TRACE DE NOTRE TENTATIVE D4ENVOIE DE MAIL SUITE A L'INSCRIPTION (SANS SUCCES) ----- */
+              // ENVOIE DE L'EMAIL DE CONFIRMATION
+              // $destinataire = $_POST['email'];
+              // $sujet = "Activer votre compte";
+              // $entete = "From: segeat.b@gmail.com";
+              // $message = 'Bienvenue sur VotreSite,
+              //
+              // Pour activer votre compte, veuillez cliquer sur le lien ci dessous
+              // ou copier/coller dans votre navigateur internet. ';
+              //
+              // ../view/verificationMail.php?pseudo='.urlencode($_POST['pseudo']).'&cle='.urlencode($cle).'
+              //
+              //
+              // ---------------
+              // Ceci est un mail automatique, Merci de ne pas y répondre.';
+              //
+              // ini_set('SMTP','smtp.sfr.com');
+              // ini_set('sendmail_from', 'mail@automatique.fr');
+              // mail($destinataire, $sujet, $message, $entete) ;
     }
 
 
@@ -183,7 +183,7 @@
 
       function uploadPhotos($pseudo, $file, $id_annonce) {
 
-        $nb_photos = count($file['name']);
+        $nb_photos = count($file['name']);                                    // On s'assure qu'il n'y pas plus de 5 photos
         if ($nb_photos > 5) {
           $nb_photos = 5;
         }
