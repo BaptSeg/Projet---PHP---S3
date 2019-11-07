@@ -21,7 +21,7 @@
 /* ------------------ METHODES  ------------------------- */
 /* ------------------------------------------------------ */
 
-/* ------------------------- VERIFIE LES DATES DE CHAQUES ANNONCES ET SUPPRIME CELLE QUI DOIIVENT ETRE SUPPRIME ------------------------- */
+/* ------------------------- VERIFIE LES DATES DE CHAQUES ANNONCES ET SUPPRIME CELLE QUI DOIVENT ETRE SUPPRIMEES ------------------------- */
 
   function tempsEcouleAnnonce() {
     $req = $this->db->prepare("DELETE FROM Annonce WHERE date_suppression=date('d/m/o')");
@@ -70,7 +70,7 @@
       return $result;
     }
 
-/* ------------------------- RECUPERE TOUTE LES CATEGORIE EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES CATEGORIE EXISTANTES DANS LA BD ------------------------- */
 
     function getAllCategorie() : array {
       $reponse = $this->db->query("SELECT DISTINCT categorie FROM Categorie");
@@ -78,7 +78,7 @@
       return $categorie;
     }
 
-/* ------------------------- RECUPERE TOUTE LES REGIONS EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES REGIONS EXISTANTES DANS LA BD ------------------------- */
 
     function getAllRegions() : array {
       $reponse = $this->db->query("SELECT DISTINCT region FROM Localisation");
@@ -86,7 +86,7 @@
       return $categorie;
     }
 
-/* ------------------------- RECUPERE TOUTE LES VILLES EXISTANTE DANS LA BD ------------------------- */
+/* ------------------------- RECUPERE TOUTE LES VILLES EXISTANTES DANS LA BD ------------------------- */
 
     function getAllVille() : array {
       $reponse = $this->db->query("SELECT DISTINCT ville FROM Localisation");
@@ -94,7 +94,7 @@
       return $ville;
     }
 
-/* ------------------------- RECHERCHE TOUT LES ANNONCE CORRESPONDANT AUX PARAMETRES  ------------------------- */
+/* ------------------------- RECHERCHE TOUTES LES ANNONCE CORRESPONDANTES AUX PARAMETRES  ------------------------- */
 
     function rechercherAnnonce($cat, $region , $prixMin, $prixMax) : array {
       $intPMin = (int) $prixMin;
@@ -125,7 +125,7 @@
         "telephone" => $tel,
         "date_inscription" => date('d/m/o')
       ));
-      /* ----- VOICI UNE TRACE DE NOTRE TENTATIVE D4ENVOIE DE MAIL SUITE A L'INSCRIPTION (SANS SUCCES) ----- */
+      /* ----- VOICI UNE TRACE DE NOTRE TENTATIVE D'ENVOI DE MAIL SUITE A L'INSCRIPTION (SANS SUCCES) ----- */
               // ENVOIE DE L'EMAIL DE CONFIRMATION
               // $destinataire = $_POST['email'];
               // $sujet = "Activer votre compte";
@@ -149,7 +149,7 @@
 
 /* ------------------- DEPOSER UNE ANNONCE ------------------- */
 
-    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourbe l'indice de l'annonce
+    function depotAnnonce($pseudo,$intitule,$prix,$description,$ville,$categorie) : int { // retourne l'indice de l'annonce
       //traite pas les ville
       $id_utilisateur = $this->getIdUtilisateur($pseudo);
 
@@ -208,7 +208,7 @@
         }
       }
 
-/* ------------------- AJOUT D'UNE PHOTOS A UNE ANNONCE  ------------------- */
+/* ------------------- AJOUT D'UNE PHOTO A UNE ANNONCE  ------------------- */
 
       function photosAnnonce($id_photos, $url,$idAnnonce) {
         $req = $this->db->prepare("INSERT INTO Photos(id,url,annonce) VALUES(:id,:url,:annonce)");

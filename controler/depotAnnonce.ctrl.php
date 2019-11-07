@@ -25,7 +25,7 @@
   }
 
   $view = new View('depotAnnonce.view.php');                                  //Que le formulaire soit rempli ou pas nous affichons la vue,
-  $categorie = $bdd->getAllCategorie();                                       //avec les messages du controleur si ils ont été crée
+  $categorie = $bdd->getAllCategorie();                                       //avec les messages du controleur si ils ont été crées
   $ville = $bdd->getAllVille();
   $view->categorie = $categorie;
   $view->ville = $ville;
