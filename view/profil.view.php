@@ -62,7 +62,7 @@
 
       <div class="annonce">
 
-            <?php if (empty($annonces)): ?>
+            <?php if (empty($annonces)): ?><!-- On regarde si l'utilisateur connecter a des annonces-->
               <h2>Vos annonces</h2>
               <p class="erreur">Vous n'avez pas encore déposé d'annonce.</p>
 
@@ -71,6 +71,7 @@
               <div class="defile_annonce">
                 <h2>Vos annonces</h2>
                 <div class="defile_annonce_2">
+                  <!-- On gere ici les fleches permettant de ce deplacer entre les annonces-->
                   <?php if ($id_annonces > 0): ?>
                     <a class="bouton_pred_titre" href="../controler/profil.ctrl.php?id_photo=0&id_annonces=<?= $id_annonces-1 ?>">
                       <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
@@ -86,32 +87,34 @@
               </div>
 
               <fieldset class="fieldset_annonce">
-
+                <!-- On affiche les informations de l'affiche sélectionné-->
                 <h3><?= $annonces[$id_annonces]->getIntitule() ?></h3>
-
+                <!-- Si l'annonce n'as pas de photo alors on affiche l'icon image-->
                 <?php if (empty($les_photos[$id_annonces])): ?>
                   <img class="photo" src="../model/img/icone_image_annonce.png" alt="Photos">
                 <?php else: ?>
 
                   <div class="une_annonce">
+
+                    <!-- Permets de gerer les fleches des photos-->
                     <?php if ($id_photo > 0): ?>
                       <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo-1 ?>&id_annonces=<?= $id_annonces ?>">
                         <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
                       </a>
                     <?php endif; ?>
-
+                    <!-- On affiche l'image selectionne-->
                     <img class="photo" src="<?= $les_photos[$id_annonces][$id_photo]['url'] ?>" alt="Photos">
-
+                    <!-- Permets de gerer les fleches des photos-->
                     <?php if ($id_photo < count($les_photos[$id_annonces])-1): ?>
                       <a href="../controler/profil.ctrl.php?id_photo=<?= $id_photo+1 ?>&id_annonces=<?= $id_annonces ?>">
                         <img class="suiv_pred" src="../model/img/icone_suivant.png" alt="Precèdent">
                       </a>
                     <?php endif; ?>
                   </div>
-
+                  <!-- permets d'afficher la numeros de la photos actuel comparer au total de photo-->
                   <p class="num_photo"><?= ($id_photo+1)."/".count($les_photos[$id_annonces]) ?></p>
                 <?php endif; ?>
-
+                <!-- On affiche les caracteristiques de l'annonce-->
                 <div class="info_photo">
                   <table>
                     <tr>
