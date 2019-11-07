@@ -7,14 +7,14 @@
   $bdd = new DAOClass($config['database_path']);
 
 
-  if (isset($_POST['depotAnnonce'])) {
+  if (isset($_POST['depotAnnonce'])) {                                        //On regarde si le formulaire a deja été rempli
     if (isset($_POST['categorie'])) {
       if (isset($_POST['ville'])) {
         $id_annonce = $bdd->depotAnnonce($_SESSION['pseudo'], $_POST['intitule'], $_POST['prix'], $_POST['description'], $_POST['ville'], $_POST['categorie']);
         $msg = "Votre annonce a bien été deposé. Vous pouvez consulter vos annonces sur votre profil.";
-        if (isset($_FILES['image'])) {
+        if (isset($_FILES['image'])) {                                        //On regarde si des images on été ajoutées, si oui on les traites
           $bdd->uploadPhotos($_SESSION['pseudo'], $_FILES['image'], $id_annonce);
-        } 
+        }
       } else {
         $erreur = "Veuillez renseigner la ville.";
       }
@@ -24,8 +24,8 @@
 
   }
 
-  $view = new View('depotAnnonce.view.php');
-  $categorie = $bdd->getAllCategorie();
+  $view = new View('depotAnnonce.view.php');                                  //Que le formulaire soit rempli ou pas nous affichons la vue,
+  $categorie = $bdd->getAllCategorie();                                       //avec les messages du controleur si ils ont été crée
   $ville = $bdd->getAllVille();
   $view->categorie = $categorie;
   $view->ville = $ville;

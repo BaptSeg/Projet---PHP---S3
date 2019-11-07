@@ -21,7 +21,7 @@
     $id_annonces = 0;
   }
 
-  foreach ($annonces as $key => $value) {
+  foreach ($annonces as $key => $value) {                                     // Recupérationde toutes les images liées aux annonces de l'utilisateur
     $photos = $bdd->recupererPhotos($annonces[$key]->getId());
     $les_photos[] = $photos;
   }

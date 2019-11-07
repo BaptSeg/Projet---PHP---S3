@@ -6,15 +6,15 @@ require_once('../framework/view.class.php');
 
 $bdd = new DAOClass($config['database_path']);
 
-if (isset($_POST['inscription'])) {
+if (isset($_POST['inscription'])) {                                           // On test si le formulaire a deja été rempli
 
   $pseudo = $bdd->pseudo_exist($_POST['pseudo']);
   $email = $bdd->email_exist($_POST['email']);
 
-  if ((empty($pseudo)) && (empty($email)) && ($_POST['mdp1']==$_POST['mdp2']) ) {
+  if ((empty($pseudo)) && (empty($email)) && ($_POST['mdp1']==$_POST['mdp2']) ) {//on regarde si le pseudo et le mail ne sont pas deja dans la base de données et si les 2 mots de passe sont identiques
 
     $bdd->crea_utilisateur($_POST['pseudo'], $_POST['mdp1'], $_POST['email'], $_POST['adresse'], $_POST['tel']);        // Création de l'utilisateur dans la base de données.
-    session_start();
+    session_start();                                                          // Apres la création d'un compte nous le connecton directement a une session
     $_SESSION['pseudo'] = $_POST['pseudo'];
     // on redirige notre visiteur vers une page de notre section membre
     $view = new View('accueil.view.php');
@@ -24,7 +24,7 @@ if (isset($_POST['inscription'])) {
     $view->categorie = $categorie;
     $view->region = $region;
     $view->show();
-
+    // On traite les cas où les données entrées par l'utilisateur ne sont pas valide
   } elseif (!empty($pseudo)) {
     $view = new View('inscription.view.php');
     $view->erreur = "Votre identifiant est deja utilisé ! ";
@@ -42,7 +42,7 @@ if (isset($_POST['inscription'])) {
 
   }
 
-} else {
+} else {                                                                      // On affiche le formulaire si il n'as pas deja été rempli
   $view = new View('inscription.view.php');
   $view->show();
 }

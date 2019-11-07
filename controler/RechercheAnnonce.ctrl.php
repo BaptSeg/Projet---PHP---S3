@@ -6,23 +6,7 @@
   require_once('../model/Annonce.class.php');
 
   $bdd = new DAOClass($config['database_path']);
-
-//   $bdd = new DAOClass($config['database_path']);
-//
-// if (isset($_POST['Rechercher'])) {
-//   $resAnnonces = $bdd->rechercher($_POST['Categorie'], $_POST['Region'], $_POST['prixMin'],  $_POST['prixMax']);
-// $image = array;
-// for ($i=0; $i <sizeof($resAnnonces) ; $i++) {
-//   $image[$resAnnonces[$i]['id']] = getUrl($resAnnonces[$i]['id'])
-// }
-//
-//
-//   $view = new View('annonce.view.php');
-//   $view->resAnnonces = $resAnnonces;
-//   $view->image = $image
-//   $view->show();
-// }
-
+  // Recupere les criteres de recherche lorsque l'on fait retour après la consultations d'une annonce
   if (isset($_GET['categorie'])) {
     $_POST['categorie'] = $_GET['categorie'];
   }
@@ -41,14 +25,14 @@
     $num_annonce = 0;
   }
 
-  if (isset($_POST['categorie'])) {
+  if (isset($_POST['categorie'])) {                                           // On regarde si les données on bien été initialisés
     if (isset($_POST['region'])) {
       if (isset($_POST['prixMin']) && isset($_POST['prixMax'])) {
         $min = $_POST['prixMin'];
         $max = $_POST['prixMax'];
-        if ($min < $max) {
+        if ($min < $max) {                                                    // On s'assure que le prix min est inférieur au prix max
           $annonces = $bdd->rechercherAnnonce($_POST['categorie'], $_POST['region'], $_POST['prixMin'], $_POST['prixMax']);
-          foreach ($annonces as $key => $value) {
+          foreach ($annonces as $key => $value) {                             // Recupération des images des annonces
             $photos = $bdd->recupererPhotos($value->getId());
             $les_photos[] = $photos;
           }
@@ -80,7 +64,7 @@
     $erreur = "Veuillez indiquer la catégorie.";
   }
 
-  if (isset($erreur)) {
+  if (isset($erreur)) {                                                       // On renvoie sur la page d'accueil en cas d'erreur
     $view = new View('accueil.view.php');
     $categorie = $bdd->getAllCategorie();
     $region = $bdd->getAllRegions();
