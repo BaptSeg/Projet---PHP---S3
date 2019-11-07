@@ -115,7 +115,7 @@
         <?php $nb_boucle = (int) ($nb_photo/5); ?>
 
         <?php
-          if ($num_annonce == $nb_boucle) {             // En fonction du nombre d'annonce trouvé, on calcul le nombre de groupe de 5 photos que l'on peut former
+          if ($num_annonce == $nb_boucle) {             // En fonction du nombre d'annonces trouvé, on calcule le nombre de groupes de 5 photos que l'on peut former
             $start = $num_annonce*5;                    // $start et $end vont varier afin d'afficher le bon nombre d'annonce à chaque page.
             $end = ($num_annonce*5)+($nb_photo%5);
           } else {
@@ -129,7 +129,7 @@
           }
         ?>
 
-        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une pase à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
+        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une page à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
           <?php if ($num_annonce > 0): ?>
             <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
               <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">
@@ -164,7 +164,7 @@
         <?php } ?>
         <br>
 
-        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une pase à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
+        <div class="nb_page">                 <!-- Affichage de bouton droite/gauche afin de passer d'une page à l'autre (dans le cas où il y a plus de 5 annonces à afficher) -->
           <?php if ($num_annonce > 0): ?>
             <a href="../controler/rechercheAnnonce.ctrl.php?categorie=<?= $_POST['categorie'] ?>&region=<?= $_POST['region'] ?>&prixMin=<?= $_POST['prixMin'] ?>&prixMax=<?= $_POST['prixMax'] ?>&num_annonce=<?= $num_annonce-1 ?>">
               <img class="suiv_pred" src="../model/img/icone_precedent.png" alt="Precèdent">

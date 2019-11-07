@@ -35,15 +35,15 @@
         </header>
     <h2>Deposer une annonce</h2>
 
-    <?php if (isset($msg)): ?> <!-- Nous permets d'afficher les messages de confirmation -->
+    <?php if (isset($msg)): ?> <!-- Nous permet d'afficher les messages de confirmation -->
       <p class="confirm"> <?= $msg ?></p>
     <?php endif; ?>
 
-    <?php if (isset($erreur)): ?> <!-- Nous permets d'afficher les messages d'erreur -->
+    <?php if (isset($erreur)): ?> <!-- Nous permet d'afficher les messages d'erreur -->
       <p class="error_msg"><?= $erreur ?></p>
     <?php endif; ?>
 
-    <!-- Formulaire de depot des annonces-->
+    <!-- Formulaire de dépôt des annonces-->
     <form method="post" action="../controler/depotAnnonce.ctrl.php" enctype="multipart/form-data">
        <fieldset>
          <table>

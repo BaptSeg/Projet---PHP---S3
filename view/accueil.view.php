@@ -81,7 +81,7 @@
           <tr>
             <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
             <td>
-              <select name="categorie" id="categorie">                                                                    <!-- Génère le select des catégorie -->
+              <select name="categorie" id="categorie">                                                                    <!-- Génère le select des catégories -->
                 <option disabled selected>Categorie</option>
                 <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                     echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
