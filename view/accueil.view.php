@@ -9,7 +9,7 @@
 <body>
   <header>
 
-    <nav>
+    <nav>                       <!-- Représente la barre de navigation. C'est par cette navbar qu'on accède à la connexion, au dépôt d'annonce, à l'inscription et à son profil (si on est connecté) -->
       <div class="logo">
         <a href="../controler/acceuil.ctrl.php">
           <img src="../model/img/L'encoignure_adequate.png" alt="logo" height="55 px" width="55 px">
@@ -63,11 +63,11 @@
 
   </header>
 
-  <?php if (isset($confirm)): ?>
+  <?php if (isset($confirm)): ?>                    <!-- Affiche le message de confirmation si la connexion s'est bien déroulé -->
     <p class="confirm"> <?php echo $confirm ?></p>
   <?php endif; ?>
 
-  <?php if (isset($erreur)): ?>
+  <?php if (isset($erreur)): ?>                           <!-- Affiche un message d'erreur si la recherche d'annonce à eu un problème  -->
     <p class="erreur_msg"> <?php echo $erreur ?> </p>
   <?php endif; ?>
 
@@ -81,7 +81,7 @@
           <tr>
             <td><img class="categorie" src="../model/img/icone_categories.png" alt="Categorie"></td>
             <td>
-              <select name="categorie" id="categorie">
+              <select name="categorie" id="categorie">                                                                    <!-- Génère le select des catégorie -->
                 <option disabled selected>Categorie</option>
                 <?php for ($i=0; $i < sizeof($categorie)-1; $i++){
                     echo '<option value="'.$categorie[$i]['categorie'].'">'.$categorie[$i]['categorie'].'</option>';
@@ -91,7 +91,7 @@
             <td><img class="region" src="../model/img/icone_adresse.png" alt="Region"></td>
             <td>
               <select name="region" id="region">
-                <option disabled selected>Region</option>
+                <option disabled selected>Region</option>                                                                 <!-- Génère le select des régions -->
                 <?php for ($i=0; $i < sizeof($region)-1; $i++){
                     echo '<option value="'.$region[$i]['region'].'">'.$region[$i]['region'].'</option>';
                   }?>

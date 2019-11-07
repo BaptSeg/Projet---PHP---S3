@@ -21,7 +21,7 @@
     $id_annonces = 0;
   }
 
-  foreach ($annonces as $key => $value) {                                     // Recupérationde toutes les images liées aux annonces de l'utilisateur
+  foreach ($annonces as $key => $value) {                                     // Recupération de toutes les images liées aux annonces de l'utilisateur
     $photos = $bdd->recupererPhotos($annonces[$key]->getId());
     $les_photos[] = $photos;
   }
@@ -35,7 +35,7 @@
 
   $view = new View('profil.view.php');
   $view->id = $utilisateur->getId();
-  $view->pseudo = $utilisateur->getPseudo();
+  $view->pseudo = $utilisateur->getPseudo();                                  // Envoie à la vue les informations liées à l'utilisateur.
   $view->mdp = $utilisateur->getMdp();
   $view->email = $utilisateur->getEmail();
   $view->adresse = $utilisateur->getAdresse();
@@ -43,7 +43,7 @@
   $view->date_inscription = $utilisateur->getDate_Inscription();
 
   $view->annonces = $annonces;
-  $view->id_annonces = $id_annonces;
+  $view->id_annonces = $id_annonces;                                          // Envoie à la vue les informations liées aux annonces de l'utilisateur.
   if (isset($les_photos)) {
     $view->les_photos = $les_photos;
   }

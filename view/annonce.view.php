@@ -9,7 +9,7 @@
 <body>
   <header>
 
-    <nav>
+    <nav>           <!-- Représente la barre de navigation. C'est par cette navbar qu'on accède à la connexion, au dépôt d'annonce, à l'inscription et à son profil (si on est connecté) -->
       <div class="logo">
         <a href="../controler/acceuil.ctrl.php">
           <img src="../model/img/L'encoignure_adequate.png" alt="logo" height="55 px" width="55 px">
@@ -74,7 +74,7 @@
         <h2><?=$annonce->getIntitule() ?></h2>
       </div>
 
-      <div class="photos">
+      <div class="photos">                      <!-- Affiche la photo correspondant à $id_photo et affiche les boutons (en fonction de $id_photo) pour faire défiler les photos. -->
         <?php if (empty($photos)): ?>
           <img class="photo" src="../model/img/icone_image_annonce_result.png" alt="Photos">
         <?php else: ?>
@@ -105,7 +105,7 @@
           </tr>
           <tr>
             <th>Téléphone : </th>
-            <td><?= $utilisateur->getTelephone() ?></td>
+            <td><?= $utilisateur->getTelephone() ?></td>                      <!-- Affiche les informations de l'annonce -->
           </tr>
           <tr>
             <th>Categorie : </th>

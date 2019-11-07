@@ -10,7 +10,10 @@ $bdd = new DAOClass($config['database_path']);
 
 
 $id = $_GET['id'];
-$bdd->deleteAnnonce($id);
+$bdd->deleteAnnonce($id);                                                   // On supprime l'annonce correspondant à l'id ainsi que les photos liées à cette annocne (voir DAOClass).
+
+
+// La partie qui suit sert à réafficher le profil de l'utilisateur.
 
 $id = $bdd->getIdUtilisateur($_SESSION['pseudo']);
 $utilisateur = $bdd->recupererUtilisateur($id['id']);
@@ -24,7 +27,7 @@ if (isset($_GET['id_annonces'])) {
 }
 
 foreach ($annonces as $key => $value) {
-  $photos = $bdd->recupererPhotos($annonces[$key]->getId());
+  $photos = $bdd->recupererPhotos($annonces[$key]->getId());                // Voir profil.ctrl.php pour avoir plus d'information sur cette partie.
   $les_photos[] = $photos;
 }
 if (isset($_GET['id_photo'])) {

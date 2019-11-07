@@ -8,11 +8,11 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $annonce = $bdd->recupererAnnonceID($_GET['idAnnonce']);                    //Recupération des données liées a l'annonce
+  $annonce = $bdd->recupererAnnonceID($_GET['idAnnonce']);                    //Recupération des données liées à l'annonce
   $photos = $bdd->recupererPhotos($annonce->getId());
   $utilisateur = $bdd->recupererUtilisateur($annonce->getUtilisateur());
 
-  if (isset($_GET['id_photo'])) {                                             //image a affiché sur la page
+  if (isset($_GET['id_photo'])) {                                             // id de l'image à affiché sur la page
     $id_photo = $_GET['id_photo'];
   } else {
     $id_photo = 0;

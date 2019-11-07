@@ -6,7 +6,7 @@
 
   $bdd = new DAOClass($config['database_path']);
 
-  $categorie = $bdd->getAllCategorie();                                      //récuperation des liste de données
+  $categorie = $bdd->getAllCategorie();                                      // Récuperation de la liste de catégorie et de region pour le formulaire
   $region = $bdd->getAllRegions();
 
   $view = new View('accueil.view.php');
